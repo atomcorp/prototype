@@ -5,8 +5,25 @@ $white: #d3d3d3;
 $yellow: #faeb14;
 $grey: #eee;
 
+.header-front-colour {
+	color: $header-front-colour;
+}
+
+.header-blue {
+	color: $header-blue;
+}	
+.white {
+	color: $white;
+}
+.yellow {
+	color: $yellow;
+}
+.grey {
+	color: $grey;
+}
+
 .background-colour-grey {
-	background-color: $grey
+	background-color: $grey;
 }
 
 // Images 
@@ -38,6 +55,14 @@ $grey: #eee;
 	padding: 0;
 }
 
+.absolute-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	padding: 0; // facilitates background color on hero text
+}
+
 
 // Vertical Align
 .vertical-align {
@@ -52,4 +77,32 @@ $grey: #eee;
 
 .vertical-align--bottom {
 	vertical-align: bottom;
+}
+
+
+@media (max-width: 767px) {
+
+
+}
+
+@media (min-width: 768px) {
+	.absolute-container {
+		left: 50%;
+		margin-left: -375px; // to center div, .container width for pos:abs
+		width: 750px;
+	}
+}
+
+@media (min-width: 992px) {
+	.absolute-container {
+		margin-left: -485px; // to center div, .container width for pos:abs
+		width: 970px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.absolute-container {
+		margin-left: -585px; // to center div, .container width for pos:abs
+		width: 1170px;
+	}
 }

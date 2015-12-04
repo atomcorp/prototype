@@ -22,11 +22,11 @@
 }
 
 // Text
-.hero__foreground-container {
-	position: absolute;
-	top: 0;
-	height: 100%;
-}
+// .hero__foreground-container {
+// 	position: absolute;
+// 	top: 0;
+// 	height: 100%;
+// }
 
 .get-closer {
 
@@ -76,20 +76,13 @@
 }
 
 @media (max-width: 767px) {
-	.hero__foreground-container {
-		width: 100%;
-		padding: 0; // facilitates background color on hero text
-	}
 	.hero-text {
 		background-color: #3D4550;
 	}
 }
 
 @media (min-width: 768px) {
-	.hero__foreground-container {
-		left: 50%;
-		margin-left: -375px; // to center div, .container width for pos:abs
-	}
+
 	.hero__cutoff {
 		height: 40%;
 		position: absolute;
@@ -101,13 +94,10 @@
 }
 
 @media (min-width: 992px) {
-	.hero__foreground-container {
-		margin-left: -485px; // to center div, .container width for pos:abs
-	}
+
+
 }
 
 @media (min-width: 1200px) {
-	.hero__foreground-container {
-		margin-left: -585px; // to center div, .container width for pos:abs
-	}
+
 }

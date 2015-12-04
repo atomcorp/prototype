@@ -25,15 +25,44 @@
 
 // Thin Image/text with equalizer graphic behind it
 .equaliser-line {
+	background-color: #D4D4D4;
 	background-image: url('/source/img/eq-line.jpg');
 	background-repeat: repeat-x;
-	background-position: 50%;
+	background-position: 49px 37px;
 }
+
+// Background Image
+.front__showpiece__background-image {
+	position: relative;
+}
+
+.front__showpiece__background-image__text-wrapper {
+	height: 100%;
+	display: table;
+}
+
+.front__showpiece__background-image__text {
+	display: table-cell;
+	vertical-align: middle;
+}
+
 
 @media (min-width: 768px) {
 	.front__showpiece__cutoff {
 		display: flex;
 		align-items: stretch;
+	}
+
+	.front__showpiece__50-50__wrapper {
+		display: flex;
+		align-items: center;
+		align-content: stretch;
+		padding: 60px 0;
+	}
+
+	.front__showpiece__50-50__border {
+		border-right: 1px solid;
+		padding: 40px 0;
 	}
 
 	.front__showpiece__cutoff__image {
@@ -43,10 +72,23 @@
 			background-image: url("/source/img/vertical-cutoff.svg");
 			height: 100%;
 			left: 100%;
-			width: 8.33333333%;
+			width: 16.66666666%;
 			position: absolute;
 			top: 0;
-			margin-left: -8.33333333%;
+			margin-left: -16.66666666%;
 		}
 	}
+	// Thin Image/text with equalizer graphic behind it
+	.equaliser-line {
+		padding: 100px 0;
+		background-image: url('/source/img/eq-line.jpg');
+		background-repeat: repeat-x;
+		background-position: 50% 50%;
+	}
+
+	.front__showpiece__inline {
+		display: flex;
+		align-items: center;
+	}
+
 }

@@ -1,0 +1,17 @@
+.footer {
+	background-color: #c7cacf;
+}
+
+@media (min-width: 768px) {
+	.footer__logo {
+		float: left;
+		width: 50%;
+	}
+
+	.footer__links {
+		float: left;
+		width: 50%;
+	}
+
+
+}

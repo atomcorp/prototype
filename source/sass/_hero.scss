@@ -1,0 +1,113 @@
+// Container
+.hero {
+	position: relative;
+}
+
+// Background Image/Video
+.hero__background-container {
+	position: relative;
+}
+
+.hero__cutoff {
+
+
+}
+
+.hero__cutoff--mobile {
+	position: absolute;
+	bottom: 100%;
+	height: 100%;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+// Text
+.hero__foreground-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+}
+
+.get-closer {
+
+}
+
+.get-closer__letter {
+    width: 33%;
+    display: inline-block;
+
+    &:nth-child(3n+1) {
+    	margin-left: 0;
+    	text-align: left;
+    }
+    &:nth-child(3n+2) {
+    	margin-left: -4px;
+    	text-align: center;
+    }
+    &:nth-child(3n+3) {
+    	margin-left: -4px;
+    	text-align: right;
+    }
+}
+
+.text-wrap {
+	position: relative;
+	height: 100%;
+}
+
+.get-closer {
+	position: absolute;
+	top: 0;
+}
+
+.hero-text {
+	position: absolute;
+	bottom: 0;
+	padding: 0;
+}
+
+.hero-text:after {
+    content: ' ';
+    background-image: url('/source/img/cutoff-blue.svg');
+    height: 100px;
+    bottom: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+@media (max-width: 767px) {
+	.hero__foreground-container {
+		width: 100%;
+		padding: 0; // facilitates background color on hero text
+	}
+	.hero-text {
+		background-color: #3D4550;
+	}
+}
+
+@media (min-width: 768px) {
+	.hero__foreground-container {
+		left: 50%;
+		margin-left: -375px; // to center div, .container width for pos:abs
+	}
+	.hero__cutoff {
+		height: 40%;
+		position: absolute;
+		bottom: 0;
+	}
+	.hero-text:after {
+	    display: none;
+	}
+}
+
+@media (min-width: 992px) {
+	.hero__foreground-container {
+		margin-left: -485px; // to center div, .container width for pos:abs
+	}
+}
+
+@media (min-width: 1200px) {
+	.hero__foreground-container {
+		margin-left: -585px; // to center div, .container width for pos:abs
+	}
+}

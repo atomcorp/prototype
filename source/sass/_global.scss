@@ -1,0 +1,55 @@
+// Colours
+$header-front-colour: #222629;
+$header-blue: #3d4550;
+$white: #d3d3d3;
+$yellow: #faeb14;
+$grey: #eee;
+
+.background-colour-grey {
+	background-color: $grey
+}
+
+// Images 
+
+.responsive-image {
+	width: 100%;
+	height: auto;
+}
+
+// Lists
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+}
+
+// Adjustments
+.relative {
+	position: relative;
+}
+
+.remove-padding {
+	padding: 0;
+}
+
+
+// Vertical Align
+.vertical-align {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+
+.vertical-align--top {
+	vertical-align: top;
+}
+
+.vertical-align--bottom {
+	vertical-align: bottom;
+}

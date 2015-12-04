@@ -1,0 +1,21 @@
+.header {
+	color: $white;
+}
+
+.logo__img {
+	width: 138px;
+}
+
+.header--front {
+	background-color: $header-blue;
+}
+
+.navigation__product-categories {
+	li {
+		width: 50%;
+		display: inline-block;
+		&:nth-of-type(even) {
+			margin-left: -4px;
+		}
+	}
+}

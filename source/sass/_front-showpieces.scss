@@ -1,0 +1,52 @@
+
+
+
+// Vertically centers text while keeping whole height of container
+// http://stackoverflow.com/questions/28254332/how-to-vertically-center-the-contents-of-a-flexbox-item
+.front__showpiece__cutoff__text {
+	background-color: rebeccapurple;
+	align-self: stretch;
+	display: flex;
+	align-items: center;
+}
+
+.front__showpiece__cutoff__image {
+	position: relative;
+	&:after {
+	    content: ' ';
+	    background-image: url('/source/img/cutoff-blue.svg');
+	    height: 100px;
+	    bottom: 0;
+	    width: 100%;
+	    position: absolute;
+	    left: 0;
+	}
+}
+
+// Thin Image/text with equalizer graphic behind it
+.equaliser-line {
+	background-image: url('/source/img/eq-line.jpg');
+	background-repeat: repeat-x;
+	background-position: 50%;
+}
+
+@media (min-width: 768px) {
+	.front__showpiece__cutoff {
+		display: flex;
+		align-items: stretch;
+	}
+
+	.front__showpiece__cutoff__image {
+		position: relative;
+		&:after {
+			content: ' ';
+			background-image: url("/source/img/vertical-cutoff.svg");
+			height: 100%;
+			left: 100%;
+			width: 8.33333333%;
+			position: absolute;
+			top: 0;
+			margin-left: -8.33333333%;
+		}
+	}
+}

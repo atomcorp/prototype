@@ -1,7 +1,78 @@
+@font-face {
+	font-family: 'brown-regular';
+	src: url("/../source/fonts/Brown-Regular.otf") format("opentype");
+}
+
+@font-face {
+	font-family: 'brown-thin';
+	src: url("/../source/fonts/Brown-Thin.otf") format("opentype");
+}
+
+@font-face {
+	font-family: 'tisa-pro-light';
+	src: url("/../source/fonts/TisaPro-Light.otf") format("opentype");
+}
+
+$brown-regular: 'brown-regular', 'comic sans';
+
+$brown-thin: 'brown-thin', 'comic sans';
+
+$tisa-pro-light: 'tisa-pro-light', 'comic sans';
+
+.brown-regular {
+	font-family: $brown-regular;
+}
+
+.brown-thin {
+	font-family: $brown-thin;
+}
+
+.tisa-pro-light {
+	font-family: $tisa-pro-light;
+}
+
 .uppercase {
 	text-transform: uppercase;
 }
 
+.heading {
+	font-family: $tisa-pro-light;
+}
+
+.headline {
+	font-family: $tisa-pro-light;
+}
+
+.sub-heading {
+	font-family: $brown-regular;
+}
+
 .sub-heading--yellow {
 	color: $yellow;
+}
+
+p {
+	font-family: $tisa-pro-light;
+}
+
+.date {
+	font-family: $brown-regular;
+}
+
+.get-closer__letter {
+	font-family: $brown-thin;
+	font-size: 64px;
+	color: #FAE03B;
+}
+
+// Main navigation
+.navigation__item {
+	text-transform: uppercase;
+	font-family: $brown-regular;
+}
+
+.navigation__product-categories {
+	li {
+		text-align: center;
+	}
 }

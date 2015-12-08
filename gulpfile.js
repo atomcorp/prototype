@@ -43,7 +43,7 @@ gulp.task('js',function() {
 		.pipe(jshint.reporter(stylish))
 	    // .pipe(sourcemaps.init())
 	    	// .pipe(concat('all.js'))
-	    	.pipe(uglify())
+	    	// .pipe(uglify())
 	    // .pipe(sourcemaps.write())
 	    .pipe(rename('all.js'))
 	    // .pipe(gzip())

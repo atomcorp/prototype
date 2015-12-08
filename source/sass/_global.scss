@@ -1,9 +1,11 @@
 // Colours
-$header-front-colour: #222629;
+$header-front-colour: #3d4550;
+$header-front-colour-light: #4E5865;
 $header-blue: #3d4550;
 $white: #d3d3d3;
 $yellow: #faeb14;
 $grey: #eee;
+$black: #3d4550;
 
 .header-front-colour {
 	color: $header-front-colour;
@@ -67,6 +69,13 @@ ul {
 	padding: 0; // facilitates background color on hero text
 }
 
+.appear {
+	display: block;
+}
+
+.disappear {
+	display: none;
+}
 
 // Vertical Align
 .vertical-align {

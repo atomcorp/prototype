@@ -4,17 +4,23 @@
 // Vertically centers text while keeping whole height of container
 // http://stackoverflow.com/questions/28254332/how-to-vertically-center-the-contents-of-a-flexbox-item
 .front__showpiece__cutoff__text {
-	background-color: rebeccapurple;
+	background-color: #7a8893;
 	align-self: stretch;
 	display: flex;
 	align-items: center;
+}
+
+.front__showpiece__cutoff__text__wrap {
+	width: 100%;
+	margin-left: 0%;
+	padding: 0 15px 40px 15px;
 }
 
 .front__showpiece__cutoff__image {
 	position: relative;
 	&:after {
 	    content: ' ';
-	    background-image: url('/source/img/cutoff-blue.svg');
+	    background-image: url('/source/img/cutoff-light-blue.svg');
 	    height: 100px;
 	    bottom: 0;
 	    width: 100%;
@@ -29,6 +35,13 @@
 	background-image: url('/source/img/eq-line.jpg');
 	background-repeat: repeat-x;
 	background-position: 49px 37px;
+}
+
+.front__showpiece__inline__text__wrap {
+    width: 100%;
+    margin-left: 0;
+    background-color: #D4D4D4;
+    padding: 20px 0;
 }
 
 // Background Image
@@ -46,6 +59,63 @@
 	vertical-align: middle;
 }
 
+.front__showpiece__50-50__border {
+	padding: 40px 15px;
+}
+
+.front__showpiece__inline {
+	padding: 20px 0 0;
+}
+
+// Other front stuff
+// Todo move this shit
+
+.front__social-media {
+	padding: 20px 0 40px;
+}
+
+.tweet {
+	padding-bottom: 20px;
+}
+
+.tweet p {
+	margin: 0; 
+}
+
+.playlist {
+	width: 33.3333%;
+	display: inline-block;
+	margin-left: -4px;
+	vertical-align: top;
+	padding-right: 15px;
+
+	&:nth-of-type(3n+1) {
+		margin-left: 0;
+	}
+}
+
+.instagram {
+
+}
+
+.instagram-image {
+	width: 20%;
+	padding-right: 7.5px;
+	margin-left: -4px;
+	&:nth-of-type(5n+1) {
+		padding-left: 0;
+		margin-left: 0;
+	}
+	&:last-child {
+		padding-left: 0;
+	}
+}
+
+// Articles
+
+.article--small {
+    padding-bottom: 20px;
+}
 
 @media (min-width: 768px) {
 	.front__showpiece__cutoff {
@@ -69,7 +139,7 @@
 		position: relative;
 		&:after {
 			content: ' ';
-			background-image: url("/source/img/vertical-cutoff.svg");
+			background-image: url("/source/img/vertical-cutoff--blue.svg");
 			height: 100%;
 			left: 100%;
 			width: 16.66666666%;
@@ -78,6 +148,13 @@
 			margin-left: -16.66666666%;
 		}
 	}
+
+	.front__showpiece__inline__text__wrap {
+		width: 60%;
+		margin-left: 20%;
+		padding: 20px;
+	}
+
 	// Thin Image/text with equalizer graphic behind it
 	.equaliser-line {
 		padding: 100px 0;
@@ -89,6 +166,11 @@
 	.front__showpiece__inline {
 		display: flex;
 		align-items: center;
+		padding: 0;
 	}
-
+	.front__showpiece__cutoff__text__wrap {
+		width: 50%;
+		margin-left: 25%;
+		padding: 0 0 40px;
+	}
 }

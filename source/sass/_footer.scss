@@ -1,11 +1,40 @@
 .footer {
 	background-color: #c7cacf;
+	padding: 40px 0;
+}
+
+.footer__logo {
+}
+
+.footer__links {
+	padding: 20px 0;
+}
+
+.icon-links--footer {
+	color: #ec708a;
+	border-color: #ec708a;
+	padding-top:0;
+	.icon-link {
+		margin-left: -5px;
+		&:first-child {
+			margin-left: -5px;
+		}
+
+	}
+}
+
+.list-inline {
+	margin-left: 0;
 }
 
 @media (min-width: 768px) {
 	.footer__logo {
 		float: left;
 		width: 50%;
+	}
+
+	.footer__links {
+		padding: 0 0 0 15px;
 	}
 
 	.footer__links {

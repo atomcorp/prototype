@@ -1,5 +1,17 @@
+.article--small {
+	.headline {
+		margin-top: 10px;
+	}
+	.date {
+		margin-top: 10px;
+	}
+}
+
 .article--large {
 	padding-bottom: 40px;
+	.date {
+		margin-bottom: 10px;
+	}
 }
 
 .article--large__image {

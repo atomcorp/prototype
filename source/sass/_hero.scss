@@ -28,10 +28,6 @@
 // 	height: 100%;
 // }
 
-.get-closer {
-
-}
-
 .get-closer__letter {
     width: 33%;
     display: inline-block;
@@ -58,6 +54,10 @@
 .get-closer {
 	position: absolute;
 	top: 0;
+	margin-top: 50px;
+	padding-top: 40px;
+	padding-left: 30px;
+
 }
 
 .hero-text {
@@ -75,6 +75,12 @@
     position: absolute;
 }
 
+.hero__lower-text {
+	padding-left: 30px;
+	padding-bottom: 20px;
+	padding-right: 15px;
+}
+
 @media (max-width: 767px) {
 	.hero-text {
 		background-color: #3D4550;
@@ -88,9 +94,19 @@
 		position: absolute;
 		bottom: 0;
 	}
-	.hero-text:after {
-	    display: none;
+	.hero-text {
+		margin-bottom: 50px;
+		&:after {
+	    	display: none;
+		}
 	}
+
+	.hero__lower-text {
+		padding-left: 30px;
+		padding-bottom: 0;
+		padding-right: 0;
+	}
+// end	
 }
 
 @media (min-width: 992px) {

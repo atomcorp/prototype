@@ -19,6 +19,10 @@ $brown-thin: 'brown-thin', 'comic sans';
 
 $tisa-pro-light: 'tisa-pro-light', 'comic sans';
 
+body {
+	color: #3d4550;
+}
+
 .brown-regular {
 	font-family: $brown-regular;
 }
@@ -37,6 +41,7 @@ $tisa-pro-light: 'tisa-pro-light', 'comic sans';
 
 .heading {
 	font-family: $tisa-pro-light;
+
 }
 
 .headline {
@@ -45,6 +50,7 @@ $tisa-pro-light: 'tisa-pro-light', 'comic sans';
 
 .sub-heading {
 	font-family: $brown-regular;
+	font-size: 14px;
 }
 
 .sub-heading--yellow {
@@ -57,6 +63,9 @@ p {
 
 .date {
 	font-family: $brown-regular;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #ec7595;
 }
 
 .get-closer__letter {
@@ -66,13 +75,40 @@ p {
 }
 
 // Main navigation
-.navigation__item {
-	text-transform: uppercase;
+.navigation {
+	font-size: 12px;
 	font-family: $brown-regular;
 }
 
+.navigation__item {
+	text-transform: uppercase;
+
+}
+
 .navigation__product-categories {
+	font-size: 12px;
+	font-family: $brown-regular;
+	text-transform: uppercase;
 	li {
 		text-align: center;
 	}
+}
+
+.more-link {
+	font-size: 12px;
+	font-family: $brown-regular;
+	text-transform: uppercase;
+	padding-left: 10px;
+}
+
+.playlist-title {
+	font-family: $brown-regular;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+.footer__links {
+	font-size: 12px;
+	font-family: $brown-regular;
+	text-transform: uppercase;
 }

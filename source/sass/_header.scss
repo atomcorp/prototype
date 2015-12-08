@@ -8,12 +8,18 @@
 	background-color: $header-front-colour;
 }
 
+.hamburger {
+	float: right;
+	height: 35px;
+	cursor: pointer;
+}
+
 .logo__img {
 	width: 138px;
 }
 
-.header--front {
-	// background-color: $header-front-colour;
+.header__mobile-collapse {
+	padding: 0;
 }
 
 .navigation {
@@ -39,12 +45,15 @@
 .navigation__product-categories {
 	// margin-top: 6px; // cancel out padding & border of li parent
 	padding: 0;
-	border-top: 1px solid $white;
+	border-bottom: 1px solid $white;
+	margin-bottom: -1px;
+	position: relative;
 	li {
 		width: 50%;
 		display: inline-block;
 		position: relative;
 		border-bottom: 1px solid $white;
+		padding-bottom: 8px;
 		&:nth-of-type(even) {
 			margin-left: -4px;
 		}
@@ -68,6 +77,9 @@
 
 .more-links {
 	background-color: $header-front-colour;
+	li {
+		cursor: pointer;  // todo: remove
+	}
 }
 
 // Menu item that has been clicked
@@ -75,11 +87,7 @@
 	padding: 0;
 	background-color: transparent;
 }
-.navigation-selected__text {
-	background-color: $yellow;
-	border-bottom: none;
-	padding: 5px 15px;
-}
+
 
 // Icon Links
 .icon-links {
@@ -97,6 +105,78 @@
 	}
 }
 
+.more-links__dropdowns {
+	z-index: 2;
+	width: 100%;
+	margin-top: -8px;
+	background-color: $header-front-colour-light;
+	text-align: center;
+	li {
+		padding-top: 2px;
+		padding-bottom: 2px;
+		border-bottom: 1px solid $white;
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+}
+
+.more-links__dropdown {
+	display: none;
+}
+
+.search__dropdown {
+	padding: 3px;
+	div {
+		padding-bottom: 3px;
+	}
+	input {
+		width: 100%;
+	}
+}
+
+.dealer__dropdown {
+	cursor: pointer;  // todo: remove
+}
+
+@media (max-width: 767px) {
+	.header__mobile-collapse {
+	    width: 100%;
+	    position: absolute;
+	    z-index: 5;
+	}	
+	.dropdown-menu-location__fullscreen {
+		display: none;
+	}
+	.navigation-selected {
+		& > div {
+			background-color: $yellow;
+			color: $header-front-colour;
+			border-bottom: none;
+			padding: 5px 15px;
+			width: 100%;
+		}
+	}
+	.navigation__item.navigation-selected {
+		background-color: transparent;
+	}
+	.navigation__product-categories {
+	    // background-color: rgba(0, 0, 0, 0.5);
+	}
+	.navigation__product-categories:before {
+	    content: ' ';
+	    background-color: rgba(0,0,0,0.5);
+	    width: 100%;
+	    height: 100%;
+	    position: absolute;
+	    left: 0;
+	    z-index: -1;
+	}
+	.mobile-menu {
+		display:none;
+	}
+}
+
 @media (min-width: 768px) {
 	.navigation--parent {
 		background-color: $header-front-colour;
@@ -107,9 +187,97 @@
 
 	.navigation__item--parent {
 		display: inline-block;
+		& > .navigation__product-categories {
+			display: none;
+		}
 	}
 
 	.navigation__product-categories {
 		position: absolute;
+		border-top: 0;
+		background-color: $header-front-colour-light;
+		text-align: center;
+		color: $white;
+		z-index: 1;
+		width: 100%;
+		border-bottom: none;
+		margin-bottom: 0;
+		li {
+			width: initial;
+			border-bottom: 0;
+			text-align: left;
+			margin: 10px 0;
+			padding: 0 20px;
+			cursor: pointer;
+			&:nth-of-type(even) {
+				margin-left: 0;
+			}
+			&:nth-of-type(even):after {
+				content: ' ';
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 100%;
+				width: 1px;
+				background-color: #636E7B;
+			}
+			&:nth-of-type(odd):after {
+				background-color: #636E7B;
+			}
+			&:last-child:after {
+				width: 0;
+			}
+		}
+	}
+
+	.header__mobile-collapse {
+		margin-left: -4px;
+	}
+
+	.logo {
+		border-bottom: none;
+	}
+
+	.navigation__item {
+		border-bottom: none;
+		cursor: pointer;
+		padding: 5px 7.5px;
+	}
+
+	.navigation__category-images {
+	    padding: 5px 0 5px;
+	}
+
+	.more-links {
+		margin-left: -4px;
+		padding: 0;
+		.list-inline {
+			margin-left: 0; // gets rid of some bootstrap thing
+		}
+	}
+
+	.header--front {
+		background-color: $header-front-colour;
+	}
+
+	.navigation-selected {
+		color: #faeb14;
+	}
+
+	.navigation-selected__text {
+		background-color: $header-front-colour;
+		border-bottom: none;
+		padding: 0;
+		width: inherit;
+	}
+
+	.icon-link {
+		width: 25%;
+	}	
+	.more-links__dropdowns {
+		position: absolute;
+	}
+	.hamburger {
+		display: none;
 	}
 }

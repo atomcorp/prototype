@@ -125,15 +125,65 @@ jQuery(document).ready(function($) {
 // Parallax
 
 $(window).bind('scroll',function(e){
-	parallaxScroll();
+	var scrolledY = $(window).scrollTop();
+	parallaxScroll(scrolledY);
 });
 
-function parallaxScroll(){
-	var scrolledY = $(window).scrollTop();
-	$('.hero-image').css('margin-top','-'+((scrolledY*2))+'px');
-	$('.get-closer').css('margin-top','-'+((scrolledY*0.4))+'px');
+function parallaxScroll(scrolledY){
+	$('.hero-image').css('bottom','-'+((scrolledY*0.4))+'px');
+	$('.get-closer').css('top','-'+((scrolledY*0.2))+'px');
+	$('.brit-logo').css('top','-'+((scrolledY*0.6))+'px');
 }
 
-parallaxScroll();
+// when nav bar goes past (eg) 600px slides up
+// iff scroll height is less than previous scroll it down
+
+/* https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c#.e93rp1851 */
+
+// Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var $header = $('.header');
+var navbarHeight = $header.outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if (Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $header.removeClass('nav-down').addClass('nav-up');
+        $('.header__mobile-collapse').addClass('mobile-menu');
+        if ($('.navigation-selected').length > 0) {
+        	$('.navigation-selected').trigger('click');
+        }
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $header.removeClass('nav-up').addClass('nav-down');
+            $('.header__mobile-collapse');
+        }
+    }
+    lastScrollTop = st;
+
+}
 	
 });

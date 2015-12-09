@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="/dist/main.css">
 </head>
 <body>
-	<div class="header header--front">
+	<div class="header header--front fixed-header">
 		<div class="container remove-padding">
 			<div class="logo col-xs-12 col-sm-2 vertical-align vertical-align--top">
 				<img src="/source/img/logo-white.svg" alt="Cambirdge Audio Logo" class="logo__img">
@@ -64,18 +64,19 @@
 				</div>
 			</div>
 		</div>
-		<!-- Todo: British Logo -->
+		<div class="dropdown-menu-location__fullscreen">
+			<!-- Dropdowns for main navigation get inserted here -->
+		</div>
 	</div>
-	<div class="dropdown-menu-location__fullscreen">
-		<!-- Dropdowns for main navigation get inserted here -->
-	</div>
+	<!-- End Header -->
+
 	<div class="hero">
 		<div class="hero__background-container">
 			<img class="responsive-image hero-image hidden-xs" alt="" src="/source/img/large--hero-girl.jpg">
 			<img class="responsive-image visible-xs-block" alt="" src="/source/img/small--hero-girl.jpg">
 			<img class="responsive-image hero__cutoff hidden-xs" src="/source/img/cutoff-blue.svg" alt="">
 		</div>
-		<div class="container absolute-container">
+		<div class="container absolute-container hero__background-text">
 			<div class="text-wrap">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-md-4 get-closer">
@@ -88,6 +89,9 @@
 						<span class="get-closer__letter">S</span>
 						<span class="get-closer__letter">E</span>
 						<span class="get-closer__letter">R</span>
+					</div>
+					<div class="col-sm-3 col-md-2 pull-right hidden-xs">
+						<img src="/source/img/brit-logo.png" alt="" class="responsive-image brit-logo">
 					</div>
 					<div class="col-sm-6 col-md-4 hero-text">
 						<div class="relative hero__lower-text">
@@ -373,6 +377,7 @@
 		</ul>
 	</div>
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="/dist/smoothscroll.js"></script>
 	<script src="/dist/all.js"></script>
 </body>
 </html>

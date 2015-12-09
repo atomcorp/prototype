@@ -31,15 +31,20 @@
 	.footer__logo {
 		float: left;
 		width: 50%;
+		padding-right: 15px;
 	}
 
 	.footer__links {
-		padding: 0 0 0 15px;
+		padding: 0 0 0 14px;
+		border-left: 1px solid $black;
 	}
 
 	.footer__links {
 		float: left;
 		width: 50%;
+		li {
+			cursor: pointer;
+		}
 	}
 
 

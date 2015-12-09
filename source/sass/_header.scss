@@ -27,7 +27,7 @@
 }
 
 .header__mobile-collapse {
-	padding: 0;
+	padding: 0 0 15px 0;
 }
 
 .navigation {
@@ -117,7 +117,6 @@
 .more-links__dropdowns {
 	z-index: 2;
 	width: 100%;
-	margin-top: -8px;
 	background-color: $header-front-colour-light;
 	text-align: center;
 	li {
@@ -146,6 +145,12 @@
 
 .dealer__dropdown {
 	cursor: pointer;  // todo: remove
+}
+
+.dealer__button{
+	img {
+		height: 17px;
+	}
 }
 
 @media (max-width: 767px) {
@@ -198,6 +203,11 @@
 }
 
 @media (min-width: 768px) {
+
+	.header {
+
+	}
+
 	.navigation--parent {
 		background-color: $header-front-colour;
 	}
@@ -261,7 +271,7 @@
 	.navigation__item {
 		border-bottom: none;
 		cursor: pointer;
-		padding: 5px 7.5px;
+		padding: 0 7.5px;
 	}
 
 	.navigation__category-images {
@@ -288,6 +298,10 @@
 		border-bottom: none;
 		padding: 0;
 		width: inherit;
+	}
+
+	.icon-links {
+		padding: 0
 	}
 
 	.icon-link {

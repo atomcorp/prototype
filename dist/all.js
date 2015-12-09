@@ -1,14 +1,17 @@
 jQuery(document).ready(function($) {
 
-
+// This will have to be redone/removed
+// Use inline SVG or CSS to change colour
 (function swapImage() {
 	$('.navigation__product-categories li').hover(function(event) {
 		event.preventDefault();
 		var $this = $(this);
 		$this.find('img').attr('src', '/source/img/examples/wireframe-yel.svg');
+		$this.find('div').addClass('yellow');
 	}, function() {
 		var $this = $(this);
 		$this.find('img').attr('src', '/source/img/examples/wireframe.svg');
+		$this.find('div').removeClass('yellow');
 	});
 })();
 
@@ -30,13 +33,16 @@ jQuery(document).ready(function($) {
 	$linkList.on('click', $dropDownItems, function(event) {
 		event.preventDefault();
 		var $this = $(this);
-		var windowWidth = $(window).width();
+		// var windowWidth = $(window).innerWidth();
+
+		var windowWidth = window.innerWidth;
 		var ifAlreadySlected = 0;
 		if (!$this.hasClass('navigation-selected')) {
 			// remove selected from everywhere
 			$this.siblings().removeClass('navigation-selected');
 			// remove a detach $fullscreenDestination if necesary
-			if (windowWidth > 768) {
+			if (windowWidth >= 768) {
+				console.log(windowWidth, 'over/equal 768');
 				removed = $fullscreenDestination.find('.navigation__product-categories').detach();
 				$dropdownHanger.append(removed);
 			} else {
@@ -50,7 +56,8 @@ jQuery(document).ready(function($) {
 			// cut and paste dropdown in viewable location (depending on screen size) 
 			var display = dropdown.detach();
 			// test screen size
-			if (windowWidth > 769) {
+			if (windowWidth >= 768) {
+				console.log(windowWidth, 'over/equal 768');
 				display.prependTo($fullscreenDestination);
 			} else {
 				display.appendTo($this);
@@ -58,7 +65,8 @@ jQuery(document).ready(function($) {
 
 		} else {
 			$this.removeClass('navigation-selected');
-			if (windowWidth > 768) {
+			if (windowWidth >= 768) {
+				console.log(windowWidth, 'over/equal 768');
 				removed = $fullscreenDestination.find('.navigation__product-categories').detach();
 				$dropdownHanger.append(removed);
 			} else {

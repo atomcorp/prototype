@@ -55,6 +55,7 @@ jQuery(document).ready(function($) {
 			// test screen size
 			if (windowWidth >= 768) {
 				display.prependTo($fullscreenDestination);
+				display.addClass('pull-down'); // add css animation
 			} else {
 				display.appendTo($this);
 			}
@@ -142,7 +143,7 @@ function parallaxScroll(scrolledY){
 // when nav bar goes past (eg) 600px slides up
 // iff scroll height is less than previous scroll it down
 
-/* https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c#.e93rp1851 */
+/* Credit Medium: https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c#.e93rp1851 */
 
 // Hide Header on on scroll down
 var didScroll;
@@ -217,6 +218,7 @@ $('.show-meekats').on('click', function(event) {
 // find each image which pre-loaded class
 // remove class and add new post-loaded class
 // amend url to redirect to big image
+/* Inspired by https://css-tricks.com/the-blur-up-technique-for-loading-background-images/ */
 
 (function swapImageQuality() {
 	var preLoadedImage = $('.pre-loaded');

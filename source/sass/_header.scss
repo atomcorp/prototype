@@ -234,7 +234,7 @@
 		width: 100%;
 		border-bottom: none;
 		margin-bottom: 0;
-		// display: none; // animation
+		top: 0;
 		li {
 			width: initial;
 			border-bottom: 0;
@@ -261,6 +261,11 @@
 				width: 0;
 			}
 		}
+	}
+
+	.pull-down {
+		top: 100%;
+		transition: 1s;
 	}
 
 	.header__mobile-collapse {

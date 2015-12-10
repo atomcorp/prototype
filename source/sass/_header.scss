@@ -27,7 +27,9 @@
 }
 
 .header__mobile-collapse {
-	padding: 0 0 15px 0;
+	padding: 0 0 14px 0;
+	display: block;
+	z-index: 99;
 }
 
 .navigation {
@@ -232,6 +234,7 @@
 		width: 100%;
 		border-bottom: none;
 		margin-bottom: 0;
+		// display: none; // animation
 		li {
 			width: initial;
 			border-bottom: 0;
@@ -262,6 +265,8 @@
 
 	.header__mobile-collapse {
 		margin-left: -4px;
+		display: inline-block;
+
 	}
 
 	.logo {

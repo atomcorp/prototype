@@ -26,6 +26,8 @@
 	    width: 100%;
 	    position: absolute;
 	    left: 0;
+	    background-size: 100% 100%;
+	    display: block;
 	}
 }
 
@@ -142,10 +144,10 @@
 			background-image: url("/source/img/vertical-cutoff--blue.svg");
 			height: 100%;
 			left: 100%;
-			width: 16.66666666%;
+			width: 16.7%;
 			position: absolute;
 			top: 0;
-			margin-left: -16.66666666%;
+			margin-left: -16.7%;
 		}
 	}
 

@@ -33,19 +33,16 @@ jQuery(document).ready(function($) {
 	$linkList.on('click', $dropDownItems, function(event) {
 		event.preventDefault();
 		var $this = $(this);
-		// var windowWidth = $(window).innerWidth();
-
 		var windowWidth = window.innerWidth;
 		var ifAlreadySlected = 0;
-		if (!$this.hasClass('navigation-selected')) {
+		if (!$this.hasClass('navigation-selected')) { // if hasn't been chosen
 			// remove selected from everywhere
 			$this.siblings().removeClass('navigation-selected');
 			// remove a detach $fullscreenDestination if necesary
 			if (windowWidth >= 768) {
-				console.log(windowWidth, 'over/equal 768');
 				removed = $fullscreenDestination.find('.navigation__product-categories').detach();
 				$dropdownHanger.append(removed);
-			} else {
+			} else { // or categories from over nav links
 				removed = $this.siblings().find('.navigation__product-categories').detach();
 				$dropdownHanger.append(removed);
 			}
@@ -57,18 +54,17 @@ jQuery(document).ready(function($) {
 			var display = dropdown.detach();
 			// test screen size
 			if (windowWidth >= 768) {
-				console.log(windowWidth, 'over/equal 768');
 				display.prependTo($fullscreenDestination);
 			} else {
 				display.appendTo($this);
 			}
 
-		} else {
+		} else { // has already been chosen
 			$this.removeClass('navigation-selected');
 			if (windowWidth >= 768) {
-				console.log(windowWidth, 'over/equal 768');
 				removed = $fullscreenDestination.find('.navigation__product-categories').detach();
 				$dropdownHanger.append(removed);
+
 			} else {
 				removed = $this.find('.navigation__product-categories').detach();
 				$dropdownHanger.append(removed);
@@ -193,5 +189,25 @@ function hasScrolled() {
     lastScrollTop = st;
 
 }
+
+// Meekats bit 
+
+$('.show-meekats').on('click', function(event) {
+	event.preventDefault();
+	var $this = $(this);
+	var $heroContainer = $('.hero__background-container');
+	$.each($heroContainer, function(index, val) {
+		var $this = $(this);
+		if ($this.children('video').hasClass('selected')) {
+			$this.children('.hero-image').removeClass('disappear');
+			$this.children('.hero-image--small').removeClass('disappear');
+			$this.children('video').addClass('disappear').removeClass('selected appear');
+		} else {
+			$this.children('.hero-image').addClass('disappear');
+			$this.children('.hero-image--small').addClass('disappear');
+			$this.children('video').removeClass('disappear').addClass('selected appear');
+		}
+	});
+});
 	
 });

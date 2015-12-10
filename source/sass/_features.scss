@@ -1,9 +1,17 @@
+.headline__front-page--large {
+
+}
+
+.headline__front-page--small {
+	margin-top: 10px;
+}
+
 .article--small {
 	.headline {
 		margin-top: 10px;
 	}
 	.date {
-		margin-top: 10px;
+		margin-top: 15px;
 	}
 }
 
@@ -16,4 +24,21 @@
 
 .article--large__image {
 	padding-right: 8.33333%;
+}
+
+@media (min-width: 768px) {
+
+	.article--large {
+	    padding-top: 20px;
+	}
+
+	.features {
+	    padding: 60px 0 0 0;
+	}
+	.headline__front-page--large {
+		margin: 0 0 20px;
+	}
+	.date {
+
+	}
 }

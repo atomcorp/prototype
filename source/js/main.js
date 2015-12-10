@@ -191,6 +191,7 @@ function hasScrolled() {
 }
 
 // Meekats bit 
+// Todo this will be cleaned up calsses etc
 
 $('.show-meekats').on('click', function(event) {
 	event.preventDefault();
@@ -209,5 +210,27 @@ $('.show-meekats').on('click', function(event) {
 		}
 	});
 });
+
+// Image processing
+// Swap 1kb blurry images for nice ones on page load
+
+// find each image which pre-loaded class
+// remove class and add new post-loaded class
+// amend url to redirect to big image
+
+(function swapImageQuality() {
+	var preLoadedImage = $('.pre-loaded');
+	var postLoadedClass = 'post-loaded';
+	var largeDirectory = '/large/';
+	$.each(preLoadedImage, function(index, val) {
+		var $this = $(this);
+		var url = $this.attr('src'); // eg /source/img/small/large--hero-girl.jpg
+		var changeFolder = url.replace('/small/', largeDirectory);
+		var changeFileType = changeFolder.replace('.png', '.jpg');
+		$this.attr('src', changeFileType);
+		$this.removeClass('pre-loaded').addClass(postLoadedClass);
+
+	});
+})();
 	
 });

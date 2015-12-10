@@ -104,6 +104,19 @@
 	padding-right: 15px;
 }
 
+// Blurred - tiny pre-load image
+
+.pre-loaded {
+	-webkit-filter: blur(10px);
+	overflow: hidden;
+	transform: scale(1.03);
+	transition: opacity 1s linear;
+}
+
+.post-loaded {
+	opacity: 1;
+}
+
 @media (max-width: 767px) {
 	.hero-text {
 		background-color: #3D4550;
@@ -149,7 +162,9 @@
 	.get-closer__letter {
 		font-size: 64px;
 	}
-
+	.brit-logo {
+		padding-left: 0;
+	}
 }
 
 @media (min-width: 1200px) {

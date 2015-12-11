@@ -78,12 +78,12 @@ function dropDownMenu() { // New
 			animateDropdown(dropdown, largeScreen);
 		} else {
 			// copy dropdown, place under relevant category and show
-			dropdown.clone().insertAfter(menu).show();
+			var replacedDropdown = dropdown.clone().insertAfter(menu);
 			// var replacedDropdown = dropdown.clone().insertAfter(menu).slideDown({
 			// 	duration: 700,
 			// 	method: 'easeInOutCubic'
 			// });
-			// animateDropdown(replacedDropdown, largeScreen);
+			animateDropdown(replacedDropdown, largeScreen);
 		}
 	}
 
@@ -112,15 +112,22 @@ function dropDownMenu() { // New
 		var dropdownHeight = '';
 		if (largeScreen) {
 			dropdownHeight = "-"+dropdown.height()+"px";
-			dropdown.addClass('show');
 			dropdown.animate({
 				bottom: dropdownHeight
 			}, 700, 'easeInOutCubic');
 		} else {
 			// get height of dropdown
-			// get next li
+			// get next of .navigation--parent
+			// add together
 			// add height on li
-			dropdown.addClass('show');
+			dropdownHeight = dropdown.height();
+			var containerHeight = $('.header__mobile-collapse').height();
+			var totalHeight = dropdownHeight + containerHeight;
+			// dropdown.addClass('show');
+			$('.header__mobile-collapse').height(totalHeight);
+			dropdown.animate({
+				marginTop: dropdownHeight
+			}, 700, 'easeInOutCubic');
 		}
 	}
 

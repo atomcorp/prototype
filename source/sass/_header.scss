@@ -17,8 +17,6 @@
 }
 
 .logo {
-	padding: 15px;
-	border-bottom: 1px solid $white;
 	background-color: $header-front-colour;
 }
 
@@ -33,7 +31,7 @@
 }
 
 .header__mobile-collapse {
-	padding: 0 0 14px 0;
+	padding: 0;
 	display: block;
 	z-index: 99;
 }
@@ -44,9 +42,7 @@
 
 
 .navigation__item {
-	padding: 5px 15px;
 	background-color: $header-front-colour;
-	border-bottom: 1px solid $white;
 }
 
 .navigation__category-images {
@@ -61,31 +57,17 @@
 .navigation__product-categories {
 	// margin-top: 6px; // cancel out padding & border of li parent
 	padding: 0;
-	border-bottom: 1px solid $white;
-	margin-bottom: -1px;
+	border-bottom: 0 solid $white;
+	margin-bottom: 0;
 	position: relative;
 	display: none;
 	li {
 		width: 50%;
 		display: inline-block;
 		position: relative;
-		border-bottom: 1px solid $white;
-		padding-bottom: 8px;
-		&:nth-of-type(even) {
-			margin-left: -4px;
-		}
-		&:nth-of-type(odd):after {
-			content: ' ';
-			position: absolute;
-			top: 0;
-			right: 0;
-			height: 100%;
-			width: 1px;
-			background-color: $white;
-		}
 	}
 	.header--front {
-		padding: 0 15px; // replaces .container
+		padding: 0; // replaces .container
 	}
 }
 
@@ -179,7 +161,6 @@
 			background-color: $yellow;
 			color: $header-front-colour;
 			border-bottom: none;
-			padding: 5px 15px;
 			width: 100%;
 		}
 	}
@@ -206,7 +187,7 @@
 	.icon-links {
 		padding: 10px 15px;
 	}
-	
+
 
 	// this is for animating
 	.navigation__product-categories {
@@ -304,11 +285,10 @@
 	.navigation__item {
 		border-bottom: none;
 		cursor: pointer;
-		padding: 0 7.5px;
+		padding: 0;
 	}
 
 	.navigation__category-images {
-	    padding: 5px 0 5px;
 	}
 
 	.more-links {

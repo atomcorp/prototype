@@ -43,12 +43,9 @@ function dropDownMenu() { // New
 
 		// check clicked status of item
 		if ($this.hasClass('selected')) { 
-			c('submenu already clicked');
 			// hide this submenu
 			hideDropdown(checkHeight(windowWidth));
 		} else if ($this.siblings().hasClass('selected')) {
-			c('another submenu has already been clicked');
-			var existingDropdown = $this.siblings().hasClass('selected');
 			// hide other dropdown (not by slideUp)
 			hideDropdown(checkHeight(windowWidth));
 			// add selected  to this
@@ -57,7 +54,6 @@ function dropDownMenu() { // New
 			// var dropdown = getDropdown(target);
 			displayDropdown($this, getDropdown(target), checkHeight(windowWidth));
 		} else {
-			c('no submenus clicked, begin menu options');
 			// add selected to this
 			$this.addClass('selected');
 			// find related dropdown 
@@ -79,18 +75,22 @@ function dropDownMenu() { // New
 	function displayDropdown(menu, dropdown, largeScreen) {
 		// TODO check screen size ; add animation
 		if (largeScreen) {
-			dropdown.addClass('show');
+			animateDropdown(dropdown, largeScreen);
 		} else {
 			// copy dropdown, place under relevant category and show
-			dropdown.clone().insertAfter(menu).addClass('show');
+			dropdown.clone().insertAfter(menu).show();
+			// var replacedDropdown = dropdown.clone().insertAfter(menu).slideDown({
+			// 	duration: 700,
+			// 	method: 'easeInOutCubic'
+			// });
+			// animateDropdown(replacedDropdown, largeScreen);
 		}
 	}
 
 	function hideDropdown(largeScreen) {
 		// if large screen - hide all divs in .dropdown-menu__hidden
-		c(largeScreen);
 		if (largeScreen) {
-			$dropdown.children().removeClass('show');
+			$dropdown.children().removeClass('show').attr('style','');
 		} else if (!largeScreen) {
 			// if small remove dropdown under .selected
 			$menu.siblings('.navigation__product-categories').remove();
@@ -104,8 +104,23 @@ function dropDownMenu() { // New
 			return true;
 		} else if (windowWidth < bootstrapWidth) {
 			return false;
+		}
+	}
+
+	function animateDropdown(dropdown, largeScreen) {
+		// see http://easings.net/ for easing examples
+		var dropdownHeight = '';
+		if (largeScreen) {
+			dropdownHeight = "-"+dropdown.height()+"px";
+			dropdown.addClass('show');
+			dropdown.animate({
+				bottom: dropdownHeight
+			}, 700, 'easeInOutCubic');
 		} else {
-			console.warn('error in checkHeight');
+			// get height of dropdown
+			// get next li
+			// add height on li
+			dropdown.addClass('show');
 		}
 	}
 
@@ -140,97 +155,14 @@ function dropDownMenu() { // New
 	// function SLIDE IN + OUT
 	// use offset to move sub-menu above menu
 
-	// function GET WINDOW WIDTH
+	// slide down
+	// bottom of submenu rests at bottom of menu
+	// minus height of submenu from bottom of submenu
+	// 
+
 }
 
 dropDownMenu();
-
-function menu() {
-
-	var $linkList = $('.navigation__item--parent');
-	var $dropDownItems = $('.navigation__product-categories');
-	var $fullscreenDestination = $('.dropdown-menu-location__fullscreen');
-	var $smallScreenDestination = '';
-	$dropdownHanger = $('.dropdown-menu__hidden');
-	var removed = '';
-	$linkList.on('click', $dropDownItems, function(event) {
-		event.preventDefault();
-		var $this = $(this);
-		var windowWidth = window.innerWidth;
-		if (!$this.hasClass('navigation-selected')) { // if hasn't been chosen
-			console.log('this doesn\'t have navigation-selected' );
-			// remove selected from everywhere
-			$this.siblings().removeClass('navigation-selected');
-			// remove a detach $fullscreenDestination if necesary
-			if (windowWidth >= 768) {
-				removed = $fullscreenDestination.find('.navigation__product-categories').detach();
-				$dropdownHanger.append(removed);
-			} else { // or categories from over nav links
-				removed = $this.siblings().find('.navigation__product-categories').detach();
-				$dropdownHanger.append(removed);
-			}
-			$this.addClass('navigation-selected');
-			var target = $this.attr("button"); // get button attr value
-			// look for correct dropdown in either hidden hanger or other Links
-			var dropdown = $dropdownHanger.find($('[dropdown="' + target + '"]'));
-			// cut and paste dropdown in viewable location (depending on screen size) 
-			var display = dropdown.detach();
-			// test screen size
-			if (windowWidth >= 768) {
-				display.prependTo($fullscreenDestination);
-				if (display.is(":hidden")) {
-					display.slideDown();
-				}
-				// display.addClass('pull-down'); // add css animation
-			} else {
-				display.appendTo($this);
-			}
-
-		} else { // has already been chosen
-			console.log('this does have navigation-selected class' );
-			$this.removeClass('navigation-selected');
-			if (windowWidth >= 768) {
-				removed.slideUp("slow", function() {
-					removed = $fullscreenDestination.find('.navigation__product-categories').detach();
-					$dropdownHanger.append(removed);
-				});
-			} else {
-				removed = $this.find('.navigation__product-categories').detach();
-				$dropdownHanger.append(removed);
-			}
-		}
-		
-		// add 'selected' calss to button when clicked (or if it already has one remove that and ignore)
-		// if thingy has slected move the html up else move it back down
-		// got to check for sizes as well 
-	});
-
-	// Resize checks
-	var resizeTimer;
-	var originalWidth = $(window).width();
-	$(window).on('resize', function(e) {
-	  	clearTimeout(resizeTimer);
-	  	resizeTimer = setTimeout(function() {
-	  		var newWidth = $(window).width();
-			if (originalWidth >= 768 && newWidth <= 767 ) {
-				// screen was monitor then became mobile
-				// detach from $fullscreenDestination
-				$linkList.removeClass('navigation-selected');
-				removed = $fullscreenDestination.find('.navigation__product-categories').detach();
-				$dropdownHanger.append(removed);
-			} else if (originalWidth <= 767 && newWidth >= 768 ) {
-				// screen was mobile then became big
-				// detach from $fullscreenDestination
-				$linkList.removeClass('navigation-selected');
-				removed = $linkList.find('.navigation__product-categories').detach();
-				$dropdownHanger.append(removed);
-			}		// after business make new width original
-			originalWidth = newWidth;
-	  }, 250);
-	});
-
-}
-
 
 // Do More Links bit
 (function moreLinks() {

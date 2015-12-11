@@ -10,60 +10,63 @@
 </head>
 <body>
 	<div class="header header--front fixed-header">
-		<div class="container remove-padding">
-			<div class="logo col-xs-12 col-sm-3 col-md-2 vertical-align vertical-align--top">
-				<img src="/source/img/logo-white.svg" alt="Cambirdge Audio Logo" class="logo__img">
-				<img src="/source/img/hamburger.svg" alt="Menu Link" class="hamburger">
-			</div>
-			<div class="header__mobile-collapse col-sm-9 col-md-10 vertical-align vertical-align--bottom mobile-menu">
-				<div class="navigation navigation--parent col-xs-12 col-sm-9 col-md-10 vertical-align vertical-align--bottom ">
-					<ul class="list-unstyled">
-						<li class="navigation__item navigation__item--parent music+more" button="music-more"><div>Music + More</div></li>
-						<li class="navigation__item navigation__item--parent hi-fi" button="hi-fi"><div>Hi-Fi</div></li>
-						<li class="navigation__item navigation__item--parent" button="speakers"><div>Speakers</div></li>
-						<li class="navigation__item navigation__item--parent" button="home-cinema"><div>Home Cinema</div></li>
-						<li class="navigation__item navigation__item--parent" button="wireless-sound"><div>Wireless Sound</div></li>
-						<li class="navigation__item navigation__item--parent" button="about-us"><div>About Us</div></li>
-					</ul>
+		<div class="header-background">
+			<div class="container remove-padding">
+				<div class="logo col-xs-12 col-sm-3 col-md-2 vertical-align vertical-align--top">
+					<img src="/source/img/logo-white.svg" alt="Cambirdge Audio Logo" class="logo__img">
+					<img src="/source/img/hamburger.svg" alt="Menu Link" class="hamburger">
 				</div>
-				<div class="more-links col-xs-12 col-sm-3 col-md-2 vertical-align vertical-align--bottom ">
-					<ul class="list-inline list-unstyled icon-links">
-						<li class="icon-link language__button" button="language__link">EN</li>
-						<li class="icon-link search__button" button="search__link"><img src="/source/img/mag-glass.svg" alt=""></li>
-						<li class="icon-link queries__button" button="queries__link">?</li>
-						<li class="icon-link dealer__button" button="dealer__link"><img src="/source/img/find.svg" alt="" class="responsive-image"></li>
-					</ul>
-					<div class="more-links__dropdowns">
-						<div class="language__dropdown more-links__dropdown"  dropdown="language__link">
-							<ul class="list-unstyled">
-								<li>EN</li>
-								<li>CH</li>
-								<li>DE</li>
-								<li>FR</li>
-								<li>ES</li>
-							</ul>
-						</div>
-						<div class="search__dropdown more-links__dropdown"  dropdown="search__link">
-							<div class="text-uppercase">Search</div>
-							<input type="text">
-						</div>
-						<div class="queries__dropdown more-links__dropdown"  dropdown="queries__link">
-							<ul class="list-unstyled text-uppercase">
-								<li>Contact Us</li>
-								<li>Product Support</li>
-								<li>Returns</li>
-								<li>Shippping Information</li>
-								<li>Privacy Policy</li>
-								<li>T+Cs</li>
-							</ul>
-						</div>
-						<div class="dealer__dropdown more-links__dropdown text-uppercase"  dropdown="dealer__link">
-							Find a Dealer
+				<div class="header__mobile-collapse col-sm-9 col-md-10 vertical-align vertical-align--bottom mobile-menu">
+					<div class="navigation navigation--parent col-xs-12 col-sm-9 col-md-10 vertical-align vertical-align--bottom ">
+						<ul class="list-unstyled">
+							<li class="navigation__item navigation__item--parent music+more" button="music-more"><div>Music + More</div></li>
+							<li class="navigation__item navigation__item--parent hi-fi" button="hi-fi"><div>Hi-Fi</div></li>
+							<li class="navigation__item navigation__item--parent" button="speakers"><div>Speakers</div></li>
+							<li class="navigation__item navigation__item--parent" button="home-cinema"><div>Home Cinema</div></li>
+							<li class="navigation__item navigation__item--parent" button="wireless-sound"><div>Wireless Sound</div></li>
+							<li class="navigation__item navigation__item--parent" button="about-us"><div>About Us</div></li>
+						</ul>
+					</div>
+					<div class="more-links col-xs-12 col-sm-3 col-md-2 vertical-align vertical-align--bottom ">
+						<ul class="list-inline list-unstyled icon-links">
+							<li class="icon-link language__button" button="language__link">EN</li>
+							<li class="icon-link search__button" button="search__link"><img src="/source/img/mag-glass.svg" alt=""></li>
+							<li class="icon-link queries__button" button="queries__link">?</li>
+							<li class="icon-link dealer__button" button="dealer__link"><img src="/source/img/find.svg" alt="" class="responsive-image"></li>
+						</ul>
+						<div class="more-links__dropdowns">
+							<div class="language__dropdown more-links__dropdown"  dropdown="language__link">
+								<ul class="list-unstyled">
+									<li>EN</li>
+									<li>CH</li>
+									<li>DE</li>
+									<li>FR</li>
+									<li>ES</li>
+								</ul>
+							</div>
+							<div class="search__dropdown more-links__dropdown"  dropdown="search__link">
+								<div class="text-uppercase">Search</div>
+								<input type="text">
+							</div>
+							<div class="queries__dropdown more-links__dropdown"  dropdown="queries__link">
+								<ul class="list-unstyled text-uppercase">
+									<li>Contact Us</li>
+									<li>Product Support</li>
+									<li>Returns</li>
+									<li>Shippping Information</li>
+									<li>Privacy Policy</li>
+									<li>T+Cs</li>
+								</ul>
+							</div>
+							<div class="dealer__dropdown more-links__dropdown text-uppercase"  dropdown="dealer__link">
+								Find a Dealer
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<!-- All the sub-menus options  -->
 		<div class="dropdown-menu__hidden">
 			<ul dropdown="hi-fi" class="list-unstyled navigation__product-categories navigation__parent-list category__hi-fi">
@@ -374,6 +377,7 @@
 	<!-- This is the hidden menus -->
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="/source/plugins/smoothscroll.js"></script>
+	<script src="/source/plugins/jquery.easing.1.3.js"></script>
 	<script src="/dist/all.js"></script>
 </body>
 </html>

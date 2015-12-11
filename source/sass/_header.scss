@@ -58,6 +58,7 @@
 	border-bottom: 1px solid $white;
 	margin-bottom: -1px;
 	position: relative;
+	display: none;
 	li {
 		width: 50%;
 		display: inline-block;
@@ -116,6 +117,11 @@
 	}
 }
 
+
+.dropdown-menu-location__fullscreen {
+	position: relative;
+}
+
 .more-links__dropdowns {
 	z-index: 2;
 	width: 100%;
@@ -154,6 +160,7 @@
 		height: 17px;
 	}
 }
+
 
 @media (max-width: 767px) {
 	.header__mobile-collapse {
@@ -204,6 +211,13 @@
 	width: 100%;
 }
 
+// slide for .navigation__product-categories
+// .slide-down {
+	// transition: 3s;
+	// top: 100%;
+	// display: block;
+// }
+
 @media (min-width: 768px) {
 
 	.header {
@@ -234,7 +248,6 @@
 		width: 100%;
 		border-bottom: none;
 		margin-bottom: 0;
-		top: 0;
 		li {
 			width: initial;
 			border-bottom: 0;

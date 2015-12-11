@@ -1,5 +1,11 @@
 jQuery(document).ready(function($) {
 
+	function c(string) {
+		var x = console.log(string);
+		return x;
+	}
+
+// todo
 // This will have to be redone/removed
 // Use inline SVG or CSS to change colour
 (function swapImage() {
@@ -21,8 +27,125 @@ jQuery(document).ready(function($) {
 		$('.header__mobile-collapse').toggleClass('mobile-menu');
 	});
 })();
-	
-(function menu() {
+
+function dropDownMenu() { // New
+	var $menu = $('.navigation__item--parent'); // this gets clicks
+	var $dropdown = $('.dropdown-menu__hidden'); // this gets picked
+
+	var dropdownClass = 'navigation__product-categories';
+	var bootstrapWidth = 768; // When width turns from fluid to fixed
+
+	$menu.on('click', function(event) {
+		event.preventDefault();
+		var $this = $(this);
+		var target = $this.attr("button");
+		var windowWidth = window.innerWidth;
+
+		// check clicked status of item
+		if ($this.hasClass('selected')) { 
+			c('submenu already clicked');
+			// hide this submenu
+			hideDropdown(checkHeight(windowWidth));
+		} else if ($this.siblings().hasClass('selected')) {
+			c('another submenu has already been clicked');
+			var existingDropdown = $this.siblings().hasClass('selected');
+			// hide other dropdown (not by slideUp)
+			hideDropdown(checkHeight(windowWidth));
+			// add selected  to this
+			$this.addClass('selected');
+			// show this dropdown
+			// var dropdown = getDropdown(target);
+			displayDropdown($this, getDropdown(target), checkHeight(windowWidth));
+		} else {
+			c('no submenus clicked, begin menu options');
+			// add selected to this
+			$this.addClass('selected');
+			// find related dropdown 
+			// var dropdown = getDropdown(target);
+			// display dropdown
+			displayDropdown($this, getDropdown(target), checkHeight(windowWidth));
+		}
+	});
+
+
+
+	// HELPER FUNCTIONS
+
+	function getDropdown(target) {
+		var dropdown = $dropdown.find($('[dropdown="' + target + '"]'));
+		return dropdown;
+	}
+
+	function displayDropdown(menu, dropdown, largeScreen) {
+		// TODO check screen size ; add animation
+		if (largeScreen) {
+			dropdown.addClass('show');
+		} else {
+			// copy dropdown, place under relevant category and show
+			dropdown.clone().insertAfter(menu).addClass('show');
+		}
+	}
+
+	function hideDropdown(largeScreen) {
+		// if large screen - hide all divs in .dropdown-menu__hidden
+		c(largeScreen);
+		if (largeScreen) {
+			$dropdown.children().removeClass('show');
+		} else if (!largeScreen) {
+			// if small remove dropdown under .selected
+			$menu.siblings('.navigation__product-categories').remove();
+		}
+		$menu.removeClass('selected');
+
+	}
+
+	function checkHeight(windowWidth) { // this should be Width not height :/
+		if (windowWidth >= bootstrapWidth) {
+			return true;
+		} else if (windowWidth < bootstrapWidth) {
+			return false;
+		} else {
+			console.warn('error in checkHeight');
+		}
+	}
+
+	var resizeTimer;
+	var originalWidth = $(window).width();
+	$(window).on('resize', function(e) {
+	  	clearTimeout(resizeTimer);
+	  	resizeTimer = setTimeout(function() {
+	  		var newWidth = $(window).width();
+			if (originalWidth >= 768 && newWidth <= 767 ) {
+				c('was big now small');
+				hideDropdown(checkHeight(originalWidth));
+			} else if (originalWidth <= 767 && newWidth >= 768 ) {
+				c('was small now big');
+				hideDropdown(checkHeight(originalWidth));
+			}		// after business make new width original
+			originalWidth = newWidth;
+	  }, 100);
+	});
+
+	// check click status of clicked item
+	// check if any items have click
+	// get value of clicked target
+	// get matched sub-menu of target
+	// attached
+
+	// function WHEN SUB-MENU PICKED
+	// All submenus live (hidden) in 'dropdown-menu-location__fullscreen'
+	// When screen: fullsize toggle appled to make visible
+	// When mobile: copy made of sub-menu and made visible
+
+	// function SLIDE IN + OUT
+	// use offset to move sub-menu above menu
+
+	// function GET WINDOW WIDTH
+}
+
+dropDownMenu();
+
+function menu() {
 
 	var $linkList = $('.navigation__item--parent');
 	var $dropDownItems = $('.navigation__product-categories');
@@ -34,8 +157,8 @@ jQuery(document).ready(function($) {
 		event.preventDefault();
 		var $this = $(this);
 		var windowWidth = window.innerWidth;
-		var ifAlreadySlected = 0;
 		if (!$this.hasClass('navigation-selected')) { // if hasn't been chosen
+			console.log('this doesn\'t have navigation-selected' );
 			// remove selected from everywhere
 			$this.siblings().removeClass('navigation-selected');
 			// remove a detach $fullscreenDestination if necesary
@@ -55,17 +178,22 @@ jQuery(document).ready(function($) {
 			// test screen size
 			if (windowWidth >= 768) {
 				display.prependTo($fullscreenDestination);
-				display.addClass('pull-down'); // add css animation
+				if (display.is(":hidden")) {
+					display.slideDown();
+				}
+				// display.addClass('pull-down'); // add css animation
 			} else {
 				display.appendTo($this);
 			}
 
 		} else { // has already been chosen
+			console.log('this does have navigation-selected class' );
 			$this.removeClass('navigation-selected');
 			if (windowWidth >= 768) {
-				removed = $fullscreenDestination.find('.navigation__product-categories').detach();
-				$dropdownHanger.append(removed);
-
+				removed.slideUp("slow", function() {
+					removed = $fullscreenDestination.find('.navigation__product-categories').detach();
+					$dropdownHanger.append(removed);
+				});
 			} else {
 				removed = $this.find('.navigation__product-categories').detach();
 				$dropdownHanger.append(removed);
@@ -101,7 +229,7 @@ jQuery(document).ready(function($) {
 	  }, 250);
 	});
 
-})();
+}
 
 
 // Do More Links bit

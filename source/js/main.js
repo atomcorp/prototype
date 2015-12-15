@@ -123,10 +123,12 @@ function dropDownMenu() { // New
 			dropdownHeight = dropdown.height();
 			var containerHeight = $('.header__mobile-collapse').height();
 			var totalHeight = dropdownHeight + containerHeight;
-			// dropdown.addClass('show');
+			var newHeight = totalHeight+'px';
+			dropdown.addClass('show');
 			$('.header__mobile-collapse').height(totalHeight);
 			dropdown.animate({
-				marginTop: dropdownHeight
+				top: '100px',
+				display: block
 			}, 700, 'easeInOutCubic');
 		}
 	}

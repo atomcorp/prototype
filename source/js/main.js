@@ -52,14 +52,14 @@ function dropDownMenu() { // New
 			$this.addClass('selected');
 			// show this dropdown
 			// var dropdown = getDropdown(target);
-			displayDropdown($this, getDropdown(target), checkHeight(windowWidth));
+			displayDropdown($this, getDropdown(target), checkHeight(windowWidth), false);
 		} else {
 			// add selected to this
 			$this.addClass('selected');
 			// find related dropdown 
 			// var dropdown = getDropdown(target);
 			// display dropdown
-			displayDropdown($this, getDropdown(target), checkHeight(windowWidth));
+			displayDropdown($this, getDropdown(target), checkHeight(windowWidth), true);
 		}
 	});
 
@@ -72,10 +72,15 @@ function dropDownMenu() { // New
 		return dropdown;
 	}
 
-	function displayDropdown(menu, dropdown, largeScreen) {
+	function displayDropdown(menu, dropdown, largeScreen, doAnimate) {
 		// TODO check screen size ; add animation
 		if (largeScreen) {
-			animateDropdown(dropdown, largeScreen);
+			if (doAnimate) {
+				animateDropdown(dropdown, largeScreen);
+			} else {
+				var dropdownHeight = "-"+dropdown.height()+"px";
+				dropdown.css('bottom', dropdownHeight).addClass('show');
+			}
 		} else {
 			// copy dropdown, place under relevant category and show
 			dropdown.clone().insertAfter(menu).show();
@@ -124,6 +129,9 @@ function dropDownMenu() { // New
 		}
 	}
 
+	// This checks whether the user has resized the window
+	// If moved from mobile to desktop (& vice-versa)
+	// resets menus to provent weirdness
 	var resizeTimer;
 	var originalWidth = $(window).width();
 	$(window).on('resize', function(e) {
@@ -140,25 +148,6 @@ function dropDownMenu() { // New
 			originalWidth = newWidth;
 	  }, 100);
 	});
-
-	// check click status of clicked item
-	// check if any items have click
-	// get value of clicked target
-	// get matched sub-menu of target
-	// attached
-
-	// function WHEN SUB-MENU PICKED
-	// All submenus live (hidden) in 'dropdown-menu-location__fullscreen'
-	// When screen: fullsize toggle appled to make visible
-	// When mobile: copy made of sub-menu and made visible
-
-	// function SLIDE IN + OUT
-	// use offset to move sub-menu above menu
-
-	// slide down
-	// bottom of submenu rests at bottom of menu
-	// minus height of submenu from bottom of submenu
-	// 
 
 }
 
@@ -206,7 +195,8 @@ function parallaxScroll(scrolledY){
 /* Credit Medium: https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c#.e93rp1851 */
 
 // Hide Header on on scroll down
-var didScroll;
+(function checkUsersScroll() { 
+	var didScroll;
 var lastScrollTop = 0;
 var delta = 5;
 var $header = $('.header');
@@ -237,8 +227,9 @@ function hasScrolled() {
         // Scroll Down
         $header.removeClass('nav-down').addClass('nav-up');
         $('.header__mobile-collapse').addClass('mobile-menu');
-        if ($('.navigation-selected').length > 0) {
-        	$('.navigation-selected').trigger('click');
+        if ($('.selected').length > 0) {
+        	$('.selected').trigger('click');
+        	$('.navigation__product-categories').removeCLass('show');
         }
     } else {
         // Scroll Up
@@ -248,9 +239,8 @@ function hasScrolled() {
         }
     }
     lastScrollTop = st;
-
 }
-
+})();
 // Meekats bit 
 // Todo this will be cleaned up calsses etc
 

@@ -6,6 +6,7 @@ $white: #d3d3d3;
 $yellow: #faeb14;
 $grey: #eee;
 $black: #3d4550;
+$pink: #ec7595;
 
 .header-front-colour {
 	color: $header-front-colour;
@@ -22,6 +23,10 @@ $black: #3d4550;
 }
 .grey {
 	color: $grey;
+}
+
+.pink {
+	color: $pink;
 }
 
 .background-colour-grey {

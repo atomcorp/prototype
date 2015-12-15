@@ -160,10 +160,14 @@
 
 @media (min-width: 992px) {
 	.get-closer__letter {
-		font-size: 64px;
+		font-size: 54px;
+		padding-bottom: 10px;
 	}
 	.brit-logo {
 		padding-left: 0;
+	}
+	.hero-text {
+		margin-bottom: 30px;
 	}
 }
 
@@ -174,7 +178,10 @@
 	.get-closer {
 		padding-top: 130px;
 	}
-
+	.get-closer__letter {
+		font-size: 64px;
+		padding-bottom: 30px;
+	}
 	.brit-logo {
 		padding-left: 8px; // align with More Links
 	}

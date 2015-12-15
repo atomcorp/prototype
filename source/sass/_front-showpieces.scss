@@ -1,6 +1,4 @@
 
-
-
 // Vertically centers text while keeping whole height of container
 // http://stackoverflow.com/questions/28254332/how-to-vertically-center-the-contents-of-a-flexbox-item
 .front__showpiece__cutoff__text {
@@ -69,49 +67,6 @@
 	padding: 20px 0 0;
 }
 
-// Other front stuff
-// Todo move this shit
-
-.front__social-media {
-	padding: 20px 0 40px;
-}
-
-.tweet {
-	padding-bottom: 20px;
-}
-
-.tweet p {
-	margin: 0; 
-}
-
-.playlist {
-	width: 33.3333%;
-	display: inline-block;
-	margin-left: -4px;
-	vertical-align: top;
-	padding-right: 15px;
-
-	&:nth-of-type(3n+1) {
-		margin-left: 0;
-	}
-}
-
-.instagram {
-
-}
-
-.instagram-image {
-	width: 20%;
-	padding-right: 7.5px;
-	margin-left: -4px;
-	&:nth-of-type(5n+1) {
-		padding-left: 0;
-		margin-left: 0;
-	}
-	&:last-child {
-		padding-left: 0;
-	}
-}
 
 // Articles
 
@@ -120,6 +75,7 @@
 }
 
 @media (min-width: 768px) {
+
 	.front__showpiece__cutoff {
 		display: flex;
 		align-items: stretch;
@@ -144,16 +100,14 @@
 			background-image: url("/source/img/vertical-cutoff--blue.svg");
 			height: 100%;
 			left: 100%;
-			width: 16.7%;
+			width: 27%;
 			position: absolute;
 			top: 0;
-			margin-left: -16.7%;
+			margin-left: -27%;
 		}
 	}
 
 	.front__showpiece__inline__text__wrap {
-		width: 60%;
-		margin-left: 20%;
 		padding: 20px;
 	}
 
@@ -174,5 +128,13 @@
 		width: 50%;
 		margin-left: 25%;
 		padding: 0 0 40px;
+	}
+}
+
+@media (min-width: 992px) {
+	.front__showpiece__inline__text__wrap {
+		width: 60%;
+		margin-left: 20%;
+		padding: 20px;
 	}
 }

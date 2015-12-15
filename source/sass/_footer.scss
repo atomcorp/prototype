@@ -41,9 +41,10 @@
 
 	.footer__links {
 		float: left;
-		width: 50%;
+		width: 50%;		
 		li {
-			cursor: pointer;
+			padding-bottom: 2px;
+			cursor: pointer; // todo: remove, post prototype
 		}
 	}
 

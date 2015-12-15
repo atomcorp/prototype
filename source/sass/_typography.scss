@@ -69,7 +69,7 @@ p {
 	font-family: $brown-regular;
 	font-size: 12px;
 	text-transform: uppercase;
-	color: #ec7595;
+	color: $pink;
 }
 
 .get-closer__letter {
@@ -103,7 +103,8 @@ p {
 	font-family: $brown-regular;
 	text-transform: uppercase;
 	padding-left: 10px;
-	color: #ec7595;
+	color: $pink;
+	cursor: pointer; // todo: remove, prototype only
 }
 
 .playlist-title {

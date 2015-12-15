@@ -25,7 +25,7 @@
 .hamburger {
 	float: right;
 	height: 35px;
-	cursor: pointer;
+	cursor: pointer; // todo: remove
 }
 
 .logo__img {
@@ -264,7 +264,7 @@
 			text-align: left;
 			margin: 10px 0;
 			padding: 0 20px;
-			cursor: pointer;
+			cursor: pointer; // todo: remove
 			&:nth-of-type(even) {
 				margin-left: 0;
 			}
@@ -303,7 +303,7 @@
 
 	.navigation__item {
 		border-bottom: none;
-		cursor: pointer;
+		cursor: pointer; // todo: remove
 		padding: 0 7.5px;
 	}
 

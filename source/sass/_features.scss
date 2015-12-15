@@ -1,9 +1,20 @@
+.features {
+    padding: 10px 0 0 0;
+}
 .headline__front-page--large {
-
+	padding: 5px 0 5px 0;
 }
 
 .headline__front-page--small {
 	margin-top: 10px;
+	padding: 5px 0 5px 0;
+}
+
+.article {
+	// todo: remove, just for prototype purposes
+	img, h3 {
+		cursor: pointer;
+	}
 }
 
 .article--small {
@@ -11,19 +22,33 @@
 		margin-top: 10px;
 	}
 	.date {
-		margin-top: 15px;
+		margin-top: 20px;
 	}
 }
 
 .article--large {
+	padding-top: 10px;
 	padding-bottom: 40px;
 	.date {
 		margin-bottom: 10px;
 	}
+
 }
 
 .article--large__image {
 	padding-right: 8.33333%;
+}
+
+.features__more-articles {
+	padding-bottom: 20px;
+	font-family: $brown-regular;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: $pink;
+	// todo: remove, prototype only
+	.pink {
+		cursor: pointer;
+	}
 }
 
 @media (min-width: 768px) {
@@ -35,10 +60,12 @@
 	.features {
 	    padding: 60px 0 0 0;
 	}
+
 	.headline__front-page--large {
 		margin: 0 0 20px;
 	}
-	.date {
-
+	.features__more-articles {
+		padding-top: 20px;
+		padding-bottom: 60px;
 	}
 }

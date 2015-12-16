@@ -47,6 +47,10 @@
 	padding: 5px 15px;
 	background-color: $header-front-colour;
 	border-bottom: 1px solid $white;
+	&.selected {
+		background-color: #faeb14;
+		color: #3d4550;
+	}
 }
 
 .navigation__category-images {
@@ -170,6 +174,7 @@
 	    width: 100%;
 	    position: absolute;
 	    z-index: 5;
+	    display: none; // on initial load
 	}	
 	.dropdown-menu-location__fullscreen {
 		display: none;
@@ -183,10 +188,20 @@
 			width: 100%;
 		}
 	}
-	.navigation__item.navigation-selected {
-		background-color: transparent;
+	
+	.navigation__product-categories {
+		li {
+			stroke: $white;
+			fill: none;
+			&:hover {
+				background-color: $yellow;
+				color: $header-front-colour;
+				svg path {
+					stroke: $header-front-colour;
+				}
+			}
+		}
 	}
-
 
 	.navigation__product-categories:before {
 	    content: ' ';
@@ -198,7 +213,7 @@
 	    z-index: -1;
 	}
 	.mobile-menu {
-		display:none;
+		// display:none;
 	}
 	.more-links {
 	    padding: 0;
@@ -206,18 +221,12 @@
 	.icon-links {
 		padding: 10px 15px;
 	}
+	// when mobile view hide all submenus used in larger screen modes
+	.dropdown-menu__hidden {
+	display: none;
+	}
 	
-
-	// this is for animating
-	.navigation__product-categories {
-	    // position: absolute;
-	    // width: 100%;
-	    // z-index: -1;
-	}
-
-	.navigation--parent {
-		// overflow: hidden;
-	}
+	// Hover on
 }
 
 .fixed-header {
@@ -257,7 +266,7 @@
 		width: 100%;
 		border-bottom: none;
 		margin-bottom: 0;
-		bottom: 0;
+		bottom: 0;				
 		li {
 			width: initial;
 			border-bottom: 0;
@@ -283,6 +292,16 @@
 			&:last-child:after {
 				width: 0;
 			}
+			&:hover {
+				color: $yellow;
+				svg path {
+					stroke: $yellow;
+				}
+			}
+			svg path {
+				stroke: $white;
+				fill: none;
+			}
 		}
 	}
 
@@ -305,6 +324,10 @@
 		border-bottom: none;
 		cursor: pointer; // todo: remove
 		padding: 0 7.5px;
+		&.selected {
+			background-color: transparent;
+			color: #faeb14;
+		}
 	}
 
 	.navigation__category-images {
@@ -345,5 +368,9 @@
 	}
 	.hamburger {
 		display: none;
+	}
+	// hide the mobile submenu view (if open) when switched to larger screen mode 
+	.navigation--parent > ul > .navigation__product-categories  {
+		display: none!important;
 	}
 }

@@ -1,40 +1,28 @@
 jQuery(document).ready(function($) {
 
-	function c(string) {
-		var x = console.log(string);
-		return x;
-	}
+// easy console log
+function c(string) {
+	var x = console.log(string);
+	return x;
+}
 
-// todo
-// This will have to be redone/removed
-// Use inline SVG or CSS to change colour
-(function swapImage() {
-	$('.navigation__product-categories li').hover(function(event) {
-		event.preventDefault();
-		var $this = $(this);
-		$this.find('img').attr('src', '/source/img/examples/wireframe-yel.svg');
-		$this.find('div').addClass('yellow');
-	}, function() {
-		var $this = $(this);
-		$this.find('img').attr('src', '/source/img/examples/wireframe.svg');
-		$this.find('div').removeClass('yellow');
-	});
-})();
-
-(function showMenu() {
+// View Menu on Mobile Devices 
+(function showMobileMenu() {
 	$('.hamburger').on('click', function(event) {
 		event.preventDefault();
-		$('.header__mobile-collapse').toggleClass('mobile-menu');
+		$('.header__mobile-collapse').toggleClass('show');
 	});
 })();
 
-function dropDownMenu() { // New
+// Navigation Menu Functionality
+(function dropDownMenu() { // New
 	var $menu = $('.navigation__item--parent'); // this gets clicks
 	var $dropdown = $('.dropdown-menu__hidden'); // this gets picked
 
 	var dropdownClass = 'navigation__product-categories';
 	var bootstrapWidth = 768; // When width turns from fluid to fixed
 
+	// Main Logic when user clicks a link
 	$menu.on('click', function(event) {
 		event.preventDefault();
 		var $this = $(this);
@@ -44,10 +32,10 @@ function dropDownMenu() { // New
 		// check clicked status of item
 		if ($this.hasClass('selected')) { 
 			// hide this submenu
-			hideDropdown(checkHeight(windowWidth));
+			hideDropdown(checkHeight(windowWidth), true);
 		} else if ($this.siblings().hasClass('selected')) {
 			// hide other dropdown (not by slideUp)
-			hideDropdown(checkHeight(windowWidth));
+			hideDropdown(checkHeight(windowWidth), false);
 			// add selected  to this
 			$this.addClass('selected');
 			// show this dropdown
@@ -63,20 +51,17 @@ function dropDownMenu() { // New
 		}
 	});
 
-
-
 	// HELPER FUNCTIONS
-
 	function getDropdown(target) {
 		var dropdown = $dropdown.find($('[dropdown="' + target + '"]'));
 		return dropdown;
 	}
-
+	
 	function displayDropdown(menu, dropdown, largeScreen, doAnimate) {
-		// TODO check screen size ; add animation
+		// todo: check screen size ; add animation
 		if (largeScreen) {
 			if (doAnimate) {
-				animateDropdown(dropdown, largeScreen);
+				animateDropdown(dropdown, largeScreen, 'up');
 			} else {
 				var dropdownHeight = "-"+dropdown.height()+"px";
 				dropdown.css('bottom', dropdownHeight).addClass('show');
@@ -84,6 +69,7 @@ function dropDownMenu() { // New
 		} else {
 			// copy dropdown, place under relevant category and show
 			dropdown.clone().insertAfter(menu).show();
+			// todo: add animation for submenus to appear/disappear
 			// var replacedDropdown = dropdown.clone().insertAfter(menu).slideDown({
 			// 	duration: 700,
 			// 	method: 'easeInOutCubic'
@@ -92,13 +78,25 @@ function dropDownMenu() { // New
 		}
 	}
 
-	function hideDropdown(largeScreen) {
+	// Hide the sub-menu
+	function hideDropdown(largeScreen, doAnimate) {
 		// if large screen - hide all divs in .dropdown-menu__hidden
-		if (largeScreen) {
-			$dropdown.children().removeClass('show').attr('style','');
-		} else if (!largeScreen) {
-			// if small remove dropdown under .selected
-			$menu.siblings('.navigation__product-categories').remove();
+		if (doAnimate) {
+			if (largeScreen) {
+				animateDropdown($dropdown.children(), largeScreen, 'down');
+				// 
+			} else if (!largeScreen) {
+				// if small remove dropdown under .selected
+				$menu.siblings('.navigation__product-categories').remove();
+			}
+		} else {
+			if (largeScreen) {
+				$dropdown.children().removeClass('show').attr('style','');
+				// 
+			} else if (!largeScreen) {
+				// if small remove dropdown under .selected
+				$menu.siblings('.navigation__product-categories').remove();
+			}
 		}
 		$menu.removeClass('selected');
 
@@ -112,15 +110,23 @@ function dropDownMenu() { // New
 		}
 	}
 
-	function animateDropdown(dropdown, largeScreen) {
+	function animateDropdown(dropdown, largeScreen, direction) {
 		// see http://easings.net/ for easing examples
 		var dropdownHeight = '';
+
 		if (largeScreen) {
-			dropdownHeight = "-"+dropdown.height()+"px";
-			dropdown.addClass('show');
-			dropdown.animate({
-				bottom: dropdownHeight
-			}, 700, 'easeInOutCubic');
+			if (direction === 'up') {
+				dropdownHeight = "-"+dropdown.height()+"px";
+				dropdown.addClass('show');
+				dropdown.animate({
+					bottom: dropdownHeight
+				}, 400, 'easeOutSine');
+			} else if (direction === 'down') {
+				dropdown.remove('show');
+				dropdown.animate({
+					bottom: 0
+				}, 400, 'easeOutSine');
+			}
 		} else {
 			// get height of dropdown
 			// get next li
@@ -138,20 +144,27 @@ function dropDownMenu() { // New
 	  	clearTimeout(resizeTimer);
 	  	resizeTimer = setTimeout(function() {
 	  		var newWidth = $(window).width();
+	  		var minorResize = true; // resize 
 			if (originalWidth >= 768 && newWidth <= 767 ) {
-				c('was big now small');
-				hideDropdown(checkHeight(originalWidth));
+				c('Big, was small');
+				hideDropdown(checkHeight(originalWidth), false);
+				minorResize = false;
 			} else if (originalWidth <= 767 && newWidth >= 768 ) {
-				c('was small now big');
-				hideDropdown(checkHeight(originalWidth));
-			}		// after business make new width original
+				c('Was small, now big');
+				hideDropdown(checkHeight(originalWidth), false);
+				minorResize = false;
+			} else if (minorResize) {
+				// this resizes the height of submenu incase user resizes 
+				// todo: if i fix the submenus to use flexible heights for sliding purposes I can remove this
+				displayDropdown(null, $('.navigation__product-categories.show'), true, false);
+			}
+			// after business make new width original
 			originalWidth = newWidth;
 	  }, 100);
 	});
 
-}
+})();
 
-dropDownMenu();
 
 // Do More Links bit
 (function moreLinks() {
@@ -197,53 +210,54 @@ function parallaxScroll(scrolledY){
 // Hide Header on on scroll down
 (function checkUsersScroll() { 
 	var didScroll;
-var lastScrollTop = 0;
-var delta = 5;
-var $header = $('.header');
-var navbarHeight = $header.outerHeight();
+	var lastScrollTop = 0;
+	var delta = 5;
+	var $header = $('.header');
+	var navbarHeight = $header.outerHeight();
 
-$(window).scroll(function(event){
-    didScroll = true;
-});
+	$(window).scroll(function(event){
+	    didScroll = true;
+	});
 
-setInterval(function() {
-    if (didScroll) {
-        hasScrolled();
-        didScroll = false;
+	setInterval(function() {
+	    if (didScroll) {
+	        hasScrolled();
+	        didScroll = false;
 
-    }
-}, 250);
+	    }
+	}, 250);
 
-function hasScrolled() {
-    var st = $(this).scrollTop();
-    
-    // Make sure they scroll more than delta
-    if (Math.abs(lastScrollTop - st) <= delta)
-        return;
-    
-    // If they scrolled down and are past the navbar, add class .nav-up.
-    // This is necessary so you never see what is "behind" the navbar.
-    if (st > lastScrollTop && st > navbarHeight){
-        // Scroll Down
-        $header.removeClass('nav-down').addClass('nav-up');
-        $('.header__mobile-collapse').addClass('mobile-menu');
-        if ($('.selected').length > 0) {
-        	$('.selected').trigger('click');
-        	$('.navigation__product-categories').removeCLass('show');
-        }
-    } else {
-        // Scroll Up
-        if(st + $(window).height() < $(document).height()) {
-            $header.removeClass('nav-up').addClass('nav-down');
-            $('.header__mobile-collapse');
-        }
-    }
-    lastScrollTop = st;
-}
+	function hasScrolled() {
+	    var st = $(this).scrollTop();
+	    
+	    // Make sure they scroll more than delta
+	    if (Math.abs(lastScrollTop - st) <= delta)
+	        return;
+	    
+	    // If they scrolled down and are past the navbar, add class .nav-up.
+	    // This is necessary so you never see what is "behind" the navbar.
+	    if (st > lastScrollTop && st > navbarHeight){
+	        // Scroll Down
+	        $header.removeClass('nav-down').addClass('nav-up');
+	        $('.header__mobile-collapse').addClass('mobile-menu');
+	        if ($('.selected').length > 0) {
+	        	$('.selected').trigger('click');
+	        }
+	        $('.header__mobile-collapse').removeClass('show');
+	    } else {
+	        // Scroll Up
+	        if(st + $(window).height() < $(document).height()) {
+	            $header.removeClass('nav-up').addClass('nav-down');
+	            $('.header__mobile-collapse');
+	        }
+	    }
+	    lastScrollTop = st;
+	}
 })();
-// Meekats bit 
-// Todo this will be cleaned up calsses etc
 
+
+// Meekats bit 
+// todo: this will be cleaned up classes etc ((?) - this will be removed...)
 $('.show-meekats').on('click', function(event) {
 	event.preventDefault();
 	var $this = $(this);
@@ -284,5 +298,34 @@ $('.show-meekats').on('click', function(event) {
 
 	});
 })();
-	
+
+
+// Swap SVG image tags of inline SVGS so you can manipulate colour with css, emoves style head
+/* http://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement */
+$('img.svg').each(function(){
+    var $img = $(this);
+    var imgID = $img.attr('id');
+    var imgClass = $img.attr('class');
+    var imgURL = $img.attr('src');
+    $.get(imgURL, function(data) {
+        // Get the SVG tag, ignore the rest
+        var $svg = $(data).find('svg');
+        // Add replaced image's ID to the new SVG
+        if(typeof imgID !== 'undefined') {
+            $svg = $svg.attr('id', imgID);
+        }
+        // Add replaced image's classes to the new SVG
+        if(typeof imgClass !== 'undefined') {
+            $svg = $svg.attr('class', imgClass+' replaced-svg');
+        }
+        // Remove any invalid XML tags as per http://validator.w3.org
+        $svg = $svg.removeAttr('xmlns:a ');
+        $svg.find('style').remove();
+        // Replace image with new SVG
+        $img.replaceWith($svg);
+    }, 'xml');
 });
+
+
+	
+}); // END JQUERY

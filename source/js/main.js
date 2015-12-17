@@ -275,7 +275,6 @@ function parallaxScroll(scrolledY){
 	    if (didScroll && checkHeight(windowWidth)) {
 	        hasScrolled();
 	        didScroll = false;
-
 	    }
 	}, 250);
 

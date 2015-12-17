@@ -24,7 +24,8 @@
 
 .hamburger {
 	float: right;
-	height: 35px;
+	padding-top: 10px;
+	height: 30px;
 	cursor: pointer; // todo: remove
 }
 
@@ -33,7 +34,7 @@
 }
 
 .header__mobile-collapse {
-	padding: 0 0 14px 0;
+	padding: 0 0 20px 0;
 	display: block;
 	z-index: 99;
 }
@@ -94,8 +95,12 @@
 }
 
 .more-links {
-	background-color: $header-front-colour;
+	// background-color: $header-front-colour;
 	padding: 0;
+	overflow: hidden;
+	padding-bottom: 0;
+	position: absolute;
+	z-index: 3;
 	li {
 		cursor: pointer;  // todo: remove
 	}
@@ -111,6 +116,8 @@
 // Icon Links
 .icon-links {
 	padding: 10px 0;
+	z-index: 2;
+	background-color: $header-front-colour;
 }
 
 .icon-link {
@@ -130,10 +137,12 @@
 }
 
 .more-links__dropdowns {
-	z-index: 2;
+	z-index: -1;
 	width: 100%;
-	background-color: $header-front-colour-light;
+	// background-color: $header-front-colour-light;
 	text-align: center;
+	font-size: 12px;
+	font-family: $brown-regular;
 	li {
 		padding-top: 2px;
 		padding-bottom: 2px;
@@ -146,6 +155,7 @@
 
 .more-links__dropdown {
 	display: none;
+	background-color: $header-front-colour-light;
 }
 
 .search__dropdown {
@@ -268,9 +278,9 @@
 		margin-bottom: 0;
 		bottom: 0;				
 		li {
-			width: initial;
+			width: 20%;
 			border-bottom: 0;
-			text-align: left;
+			text-align: center;
 			margin: 10px 0;
 			padding: 0 20px;
 			cursor: pointer; // todo: remove
@@ -336,6 +346,7 @@
 
 	.more-links {
 		margin-left: -4px;
+		top: -10px;
 		.list-inline {
 			margin-left: 0; // gets rid of some bootstrap thing
 		}
@@ -365,6 +376,8 @@
 	}	
 	.more-links__dropdowns {
 		position: absolute;
+		bottom: 0;
+
 	}
 	.hamburger {
 		display: none;

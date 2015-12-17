@@ -1,16 +1,27 @@
 jQuery(document).ready(function($) {
 
+var bootstrapWidth = 768; // When width turns from fluid to fixed
+
 // easy console log
 function c(string) {
 	var x = console.log(string);
 	return x;
 }
 
+// Global check WIDTH !!!!!!!!!!!!!!!!!!!!!!!! Not Height
+function checkHeight(windowWidth) { // this should be Width not height :/
+	if (windowWidth >= bootstrapWidth) {
+		return true;
+	} else if (windowWidth < bootstrapWidth) {
+		return false;
+	}
+}
+
 // View Menu on Mobile Devices 
 (function showMobileMenu() {
 	$('.hamburger').on('click', function(event) {
 		event.preventDefault();
-		$('.header__mobile-collapse').toggleClass('show');
+		$('.header__mobile-collapse').toggleClass('show-inline-block');
 	});
 })();
 
@@ -20,7 +31,7 @@ function c(string) {
 	var $dropdown = $('.dropdown-menu__hidden'); // this gets picked
 
 	var dropdownClass = 'navigation__product-categories';
-	var bootstrapWidth = 768; // When width turns from fluid to fixed
+	
 
 	// Main Logic when user clicks a link
 	$menu.on('click', function(event) {
@@ -68,6 +79,7 @@ function c(string) {
 			}
 		} else {
 			// copy dropdown, place under relevant category and show
+
 			dropdown.clone().insertAfter(menu).show();
 			// todo: add animation for submenus to appear/disappear
 			// var replacedDropdown = dropdown.clone().insertAfter(menu).slideDown({
@@ -102,18 +114,9 @@ function c(string) {
 
 	}
 
-	function checkHeight(windowWidth) { // this should be Width not height :/
-		if (windowWidth >= bootstrapWidth) {
-			return true;
-		} else if (windowWidth < bootstrapWidth) {
-			return false;
-		}
-	}
-
 	function animateDropdown(dropdown, largeScreen, direction) {
 		// see http://easings.net/ for easing examples
 		var dropdownHeight = '';
-
 		if (largeScreen) {
 			if (direction === 'up') {
 				dropdownHeight = "-"+dropdown.height()+"px";
@@ -128,9 +131,6 @@ function c(string) {
 				}, 400, 'easeOutSine');
 			}
 		} else {
-			// get height of dropdown
-			// get next li
-			// add height on li
 			dropdown.addClass('show');
 		}
 	}
@@ -145,12 +145,12 @@ function c(string) {
 	  	resizeTimer = setTimeout(function() {
 	  		var newWidth = $(window).width();
 	  		var minorResize = true; // resize 
-			if (originalWidth >= 768 && newWidth <= 767 ) {
-				c('Big, was small');
+			if (originalWidth >= 768 && newWidth <= 767 ) { // was big, now small 
 				hideDropdown(checkHeight(originalWidth), false);
 				minorResize = false;
-			} else if (originalWidth <= 767 && newWidth >= 768 ) {
-				c('Was small, now big');
+			} else if (originalWidth <= 767 && newWidth >= 768 ) { // was small, now big
+				$('.header__mobile-collapse').removeClass('show-inline-block');
+
 				hideDropdown(checkHeight(originalWidth), false);
 				minorResize = false;
 			} else if (minorResize) {
@@ -169,22 +169,54 @@ function c(string) {
 // Do More Links bit
 (function moreLinks() {
 	var $buttons = $('li.icon-link');
-	var $dropDownList = $('.more-links__dropdowns');
-	var $dropDownItems = $('.more-links__dropdown');
+	var $dropdownList = $('.more-links__dropdowns');
+	var $dropdownItems = $('.more-links__dropdown');
+	var $menu = $('.more-links');
 	var existingTarget = '';
 	$buttons.on('click', function(event) {
 		event.preventDefault();
 		var $this = $(this);
 		var target = $this.attr("button"); // get attribute
-		var dropDown = $dropDownList.find($('[dropdown="' + target + '"]')); // get right dropdown item
+		var dropdown = $dropdownList.find($('[dropdown="' + target + '"]')); // get right dropdown item
+		var dropdownHeight = '';
+		var menuHeight = '';
+		var windowWidth = window.innerWidth;
 		// add show onto target
 		// remove show from every target
 		// except if target already has show, in which case remove
-		if (!dropDown.hasClass('show')) {
-			$dropDownItems.removeClass('show');
-			dropDown.addClass('show');
+		
+		if (!dropdown.hasClass('show')) {
+			$dropdownItems.removeClass('show');
+			dropdown.addClass('show');
+			if (checkHeight(windowWidth)) { // if large screen, animate
+				// get height of dropdown
+				dropdownHeight = dropdown.outerHeight();
+				// get height of menu
+				menuHeight = $menu.height();
+				// subtract height of dropdown from dropdown 'top'
+				$dropdownList.css('top', "-"+dropdownHeight+"px");
+				// add height of dropdown as padding-bottom to container
+				$menu.css('padding-bottom', dropdownHeight);
+				// animate: add height of dropdown AND height of menu to dropdown
+				$dropdownList.animate({
+					top: menuHeight
+				}, 400, 'easeOutSine');
+			}
 		} else {
-			dropDown.removeClass('show');
+			if (checkHeight(windowWidth)) { // if large screen
+				// get height of dropdown
+				dropdownHeight = dropdown.height();
+				// get height of menu
+				menuHeight = $menu.height();
+				var remove = (menuHeight - dropdownHeight);
+				$dropdownList.animate({
+					top: remove
+				}, 400, 'easeOutSine', function() {
+					dropdown.removeClass('show');
+				});
+			} else {
+				dropdown.removeClass('show');
+			}
 		}
 	});
 })();
@@ -243,12 +275,11 @@ function parallaxScroll(scrolledY){
 	        if ($('.selected').length > 0) {
 	        	$('.selected').trigger('click');
 	        }
-	        $('.header__mobile-collapse').removeClass('show');
+	        $('.header__mobile-collapse').removeClass('show-inline-block');
 	    } else {
 	        // Scroll Up
 	        if(st + $(window).height() < $(document).height()) {
 	            $header.removeClass('nav-up').addClass('nav-down');
-	            $('.header__mobile-collapse');
 	        }
 	    }
 	    lastScrollTop = st;
@@ -262,6 +293,8 @@ $('.show-meekats').on('click', function(event) {
 	event.preventDefault();
 	var $this = $(this);
 	var $heroContainer = $('.hero__background-container');
+	var video = $('video');
+
 	$.each($heroContainer, function(index, val) {
 		var $this = $(this);
 		if ($this.children('video').hasClass('selected')) {
@@ -272,6 +305,8 @@ $('.show-meekats').on('click', function(event) {
 			$this.children('.hero-image').addClass('disappear');
 			$this.children('.hero-image--small').addClass('disappear');
 			$this.children('video').removeClass('disappear').addClass('selected appear');
+			video.play();
+
 		}
 	});
 });
@@ -295,7 +330,6 @@ $('.show-meekats').on('click', function(event) {
 		var changeFileType = changeFolder.replace('.png', '.jpg');
 		$this.attr('src', changeFileType);
 		$this.removeClass('pre-loaded').addClass(postLoadedClass);
-
 	});
 })();
 
@@ -326,6 +360,8 @@ $('img.svg').each(function(){
     }, 'xml');
 });
 
+// Minor amendment to ensure mainn navigation submenu items, line up equally
+// if list multiple of 7 - simulates fake 8th
+$('.navigation__product-categories').children('li').eq(6).css('margin-right', '20%');
 
-	
 }); // END JQUERY

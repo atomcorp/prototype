@@ -13,7 +13,7 @@
 }
 
 .nav-up {
-    top: -65px;
+    top: -70px;
 }
 
 .logo {
@@ -34,7 +34,6 @@
 }
 
 .header__mobile-collapse {
-	padding: 0 0 20px 0;
 	display: block;
 	z-index: 99;
 }
@@ -185,6 +184,7 @@
 	    position: absolute;
 	    z-index: 5;
 	    display: none; // on initial load
+	    padding: 0;
 	}	
 	.dropdown-menu-location__fullscreen {
 		display: none;
@@ -222,29 +222,34 @@
 	    left: 0;
 	    z-index: -1;
 	}
+
+	.navigation__item {
+		font-size: 14px;
+	}
+
 	.mobile-menu {
 		// display:none;
 	}
+
 	.more-links {
 	    padding: 0;
 	}
+
 	.icon-links {
 		padding: 10px 15px;
 	}
+
 	// when mobile view hide all submenus used in larger screen modes
 	.dropdown-menu__hidden {
 	display: none;
 	}
 	
-	// Hover on
 }
 
 .fixed-header {
 	position: fixed;
 	width: 100%;
 }
-
-
 
 @media (min-width: 768px) {
 
@@ -323,7 +328,7 @@
 	.header__mobile-collapse {
 		margin-left: -4px;
 		display: inline-block;
-
+		padding: 0px 0 19px 0;
 	}
 
 	.logo {
@@ -346,7 +351,6 @@
 
 	.more-links {
 		margin-left: -4px;
-		top: -10px;
 		.list-inline {
 			margin-left: 0; // gets rid of some bootstrap thing
 		}
@@ -385,5 +389,14 @@
 	// hide the mobile submenu view (if open) when switched to larger screen mode 
 	.navigation--parent > ul > .navigation__product-categories  {
 		display: none!important;
+	}
+}
+
+@media (min-width: 992px) {
+	.more-links {
+		top: -10px;
+	}
+	.header__mobile-collapse {
+		padding: 0px 0 20px 0;
 	}
 }

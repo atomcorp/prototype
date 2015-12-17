@@ -21,8 +21,26 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 (function showMobileMenu() {
 	$('.hamburger').on('click', function(event) {
 		event.preventDefault();
+		// this is because 'display: block' messes up large screen mode
 		$('.header__mobile-collapse').toggleClass('show-inline-block');
+		// this adds overflow for scrolling
+		$('.header').toggleClass('mobile-scroll');
+		if ($('.header').hasClass('mobile-scroll')) {
+			$('.header').on('click', function(event) {
+				event.preventDefault();
+				var count = $('.header-background').outerHeight() + $('.header__mobile-collapse').outerHeight() + $('.more-links').outerHeight();
+				$('body').css({
+					'overflow': 'hidden',
+					'max-height': count
+				});
+			});
+		} else {
+			c('y');
+			$('.header').off();
+			$('body').attr('style', '');
+		}
 	});
+
 })();
 
 // Navigation Menu Functionality
@@ -246,13 +264,15 @@ function parallaxScroll(scrolledY){
 	var delta = 5;
 	var $header = $('.header');
 	var navbarHeight = $header.outerHeight();
+	
 
 	$(window).scroll(function(event){
 	    didScroll = true;
 	});
 
 	setInterval(function() {
-	    if (didScroll) {
+		var windowWidth = window.innerWidth;
+	    if (didScroll && checkHeight(windowWidth)) {
 	        hasScrolled();
 	        didScroll = false;
 
@@ -289,27 +309,30 @@ function parallaxScroll(scrolledY){
 
 // Meekats bit 
 // todo: this will be cleaned up classes etc ((?) - this will be removed...)
-$('.show-meekats').on('click', function(event) {
-	event.preventDefault();
-	var $this = $(this);
-	var $heroContainer = $('.hero__background-container');
-	var video = $('video');
-
-	$.each($heroContainer, function(index, val) {
+function meekat() {
+	$('.show-meekats').on('click', function(event) {
+		event.preventDefault();
 		var $this = $(this);
-		if ($this.children('video').hasClass('selected')) {
-			$this.children('.hero-image').removeClass('disappear');
-			$this.children('.hero-image--small').removeClass('disappear');
-			$this.children('video').addClass('disappear').removeClass('selected appear');
-		} else {
-			$this.children('.hero-image').addClass('disappear');
-			$this.children('.hero-image--small').addClass('disappear');
-			$this.children('video').removeClass('disappear').addClass('selected appear');
-			video.play();
+		var $heroContainer = $('.hero__background-container');
+		var video = $('video');
 
-		}
+		$.each($heroContainer, function(index, val) {
+			var $this = $(this);
+			if ($this.children('video').hasClass('selected')) {
+				$this.children('.hero-image').removeClass('disappear');
+				$this.children('.hero-image--small').removeClass('disappear');
+				$this.children('video').addClass('disappear').removeClass('selected appear');
+			} else {
+				$this.children('.hero-image').addClass('disappear');
+				$this.children('.hero-image--small').addClass('disappear');
+				$this.children('video').removeClass('disappear').addClass('selected appear');
+				video.play();
+
+			}
+		});
 	});
-});
+}
+
 
 // Image processing
 // Swap 1kb blurry images for nice ones on page load

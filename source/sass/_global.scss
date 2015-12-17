@@ -111,7 +111,26 @@ body {
 
 
 @media (max-width: 767px) {
+	// /* http://stackoverflow.com/questions/16637031/completely-disable-scrolling-of-webpage */
+	// Powers header on mobile only scrolling
+	body, html { 
+		height:100%;
+	}
 
+	.content-wrap-hide {
+		height:100%; 
+		overflow:hidden;
+	}
+
+	.content-wrap-visible {
+		height:100%; 
+		overflow:auto;
+	}
+
+	.mobile-scroll {
+		overflow-y: auto;
+		height: 100%;
+	}
 
 }
 

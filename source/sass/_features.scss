@@ -35,9 +35,6 @@
 
 }
 
-.article--large__image {
-	padding-right: 8.33333%;
-}
 
 .features__more-articles {
 	padding-bottom: 20px;
@@ -67,5 +64,9 @@
 	.features__more-articles {
 		padding-top: 20px;
 		padding-bottom: 60px;
+	}
+	
+	.article--large__image {
+		padding-right: 8.33333%;
 	}
 }

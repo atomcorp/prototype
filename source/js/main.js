@@ -249,7 +249,8 @@ $(window).bind('scroll',function(e){
 
 function parallaxScroll(scrolledY){
 	$('.hero-image').css('bottom','-'+((scrolledY*0.4))+'px');
-	$('.get-closer').css('top','-'+((scrolledY*0.2))+'px');
+	$('.get-closer').css('top',(scrolledY*0.3)+'px');
+	$('.category__page-heading').css('top',(scrolledY*0.3)+'px');
 	$('.brit-logo').css('top','-'+((scrolledY*0.6))+'px');
 }
 

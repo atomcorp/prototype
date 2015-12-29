@@ -138,6 +138,10 @@ p {
 	text-transform: uppercase;
 }
 
+.strapline {
+	text-transform: uppercase;
+}
+
 @media (min-width: 768px) {
 	
 	.category__page-title--title {
@@ -147,7 +151,7 @@ p {
 
 	.category__page-title--sub-title {
 		// font-size: 38px;
-		font-size: 3vw;
+		font-size: 2.5vw;
 		letter-spacing: 0.5em;
 	}
 

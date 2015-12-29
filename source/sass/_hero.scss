@@ -130,6 +130,9 @@
 		position: absolute;
 		bottom: 0;
 		display: block;
+		path {
+			fill: $header-blue;
+		}
 	}
 	.hero-text {
 		margin-bottom: 0;

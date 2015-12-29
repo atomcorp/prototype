@@ -5,9 +5,84 @@
 
 }
 
+.category__page {
+	padding: 0 15px;
+}
+
+.category__group {
+    padding: 60px 15px 0 15px;
+	border-bottom: 1px solid $black;
+}
+
+.category__group--last {
+	border-bottom: 0;
+	padding-bottom: 50px;
+} 
+
+.category__group__content {
+	padding: 0 15px;
+}
+
+.category__group__product {
+	padding-bottom: 50px;
+}
+
+.category__group__product__heading {
+	margin-bottom: 0;
+	border-bottom: 1px solid;
+}
+
+.strapline {
+	padding-top: 5px;
+	padding-bottom: 20px;
+}
+
+.product-group__more {
+    border: 1px solid;
+    padding: 10px 25px;
+    width: 50%;
+    margin-left: 25%;
+    &:hover {
+    	background-color: $pink;
+    	color: #fff;
+    }
+}
+
+.hero-text--category {
+	background-color: #eee;
+}
+
+.hero-text--category:after {
+	background-image: url("/../source/img/cutoff-light-white.svg");
+}
+
 @media (min-width: 768px) {
 	.category__page-heading {
 		padding-top: 0;
 
+	}
+
+	.category__hero__cutoff {
+		path {
+			fill: #eee;
+		}
+	}
+
+	.category__group__product {
+		padding: 0; // override bootstrap
+		margin-right: 12.5%;
+		vertical-align: top;
+		float: none;
+		display: inline-block;
+		&:nth-of-type(3n+1) {
+			margin-left: 0;
+		}
+		&:nth-of-type(3n+2) {
+			margin-left: -4px;
+		}
+		&:nth-of-type(3n+3) {
+			margin-left: -4px;
+			margin-right: 0;
+		}
 	}
 }

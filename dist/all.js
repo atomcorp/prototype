@@ -26,6 +26,7 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 		// this adds overflow for scrolling
 		$('.header').toggleClass('mobile-scroll');
 		if ($('.header').hasClass('mobile-scroll')) {
+			// add event listener
 			$('.header').on('click', function(event) {
 				event.preventDefault();
 				var count = $('.header-background').outerHeight() + $('.header__mobile-collapse').outerHeight() + $('.more-links').outerHeight();
@@ -35,7 +36,7 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 				});
 			});
 		} else {
-			c('y');
+			// removes event listener
 			$('.header').off();
 			$('body').attr('style', '');
 		}
@@ -248,7 +249,8 @@ $(window).bind('scroll',function(e){
 
 function parallaxScroll(scrolledY){
 	$('.hero-image').css('bottom','-'+((scrolledY*0.4))+'px');
-	$('.get-closer').css('top','-'+((scrolledY*0.2))+'px');
+	$('.get-closer').css('top',(scrolledY*0.3)+'px');
+	$('.category__page-heading').css('top',(scrolledY*0.3)+'px');
 	$('.brit-logo').css('top','-'+((scrolledY*0.6))+'px');
 }
 
@@ -275,7 +277,6 @@ function parallaxScroll(scrolledY){
 	    if (didScroll && checkHeight(windowWidth)) {
 	        hasScrolled();
 	        didScroll = false;
-
 	    }
 	}, 250);
 

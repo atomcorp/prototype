@@ -26,6 +26,7 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 		// this adds overflow for scrolling
 		$('.header').toggleClass('mobile-scroll');
 		if ($('.header').hasClass('mobile-scroll')) {
+			// add event listener
 			$('.header').on('click', function(event) {
 				event.preventDefault();
 				var count = $('.header-background').outerHeight() + $('.header__mobile-collapse').outerHeight() + $('.more-links').outerHeight();
@@ -35,7 +36,7 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 				});
 			});
 		} else {
-			c('y');
+			// removes event listener
 			$('.header').off();
 			$('body').attr('style', '');
 		}

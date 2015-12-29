@@ -186,9 +186,11 @@
 	    display: none; // on initial load
 	    padding: 0;
 	}	
+
 	.dropdown-menu-location__fullscreen {
 		display: none;
 	}
+	
 	.navigation-selected {
 		& > div {
 			background-color: $yellow;

@@ -98,6 +98,25 @@ p {
 	}
 }
 
+// Content
+
+.category__page-heading {
+	font-family: $brown-thin;
+	color: $yellow;
+	text-transform: uppercase;
+}
+
+.category__page-title--title {
+    font-size: 8vw;
+    letter-spacing: 0.5em;
+}
+
+.category__page-title--sub-title {
+    font-size: 5vw;
+    letter-spacing: 0.25em;
+}
+
+
 .more-link {
 	font-size: 12px;
 	font-family: $brown-regular;
@@ -117,5 +136,31 @@ p {
 	font-size: 12px;
 	font-family: $brown-regular;
 	text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+	
+	.category__page-title--title {
+		// font-size: 76px;
+		letter-spacing: 0.5em;
+	}
+
+	.category__page-title--sub-title {
+		// font-size: 38px;
+		font-size: 3vw;
+		letter-spacing: 0.5em;
+	}
+
+}
+
+@media (min-width: 1200px) {
+	.category__page-title--title {
+		font-size: 112px;
+		letter-spacing: 0.5em;
+	}
+
+	.category__page-title--sub-title {
+	}
+
 }
 

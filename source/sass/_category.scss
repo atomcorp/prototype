@@ -1,0 +1,13 @@
+.category__page-heading {
+	padding-left: 30px;
+	padding-top: 101px;
+	z-index: 1;
+
+}
+
+@media (min-width: 768px) {
+	.category__page-heading {
+		padding-top: 0;
+
+	}
+}

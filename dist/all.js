@@ -392,8 +392,8 @@ $('.carousel').slick({
 	centerMode: true,
 	centerPadding: '25%',
 	slidesToShow: 1,
-	prevArrow: '<div class="slide-arrow previous-slide">Prev</div>',
-	nextArrow: '<div class="slide-arrow next-slide">Next</div>'
+	prevArrow: '<div class="previous-slide slide-arrow"><div class="icon-container"><div class="icon"><</div></div></div>',
+	nextArrow: '<div class="slide-arrow next-slide"><div class="icon-container"><div class="icon">></div></div></div>'
 });
 
 // Minor amendment to ensure mainn navigation submenu items, line up equally

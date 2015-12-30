@@ -72,6 +72,11 @@ p {
 	color: $pink;
 }
 
+.author {
+	font-family: $brown-regular;
+	color: $pink;
+}
+
 .get-closer__letter {
 	font-family: $brown-thin;
 	font-size: 64px;
@@ -140,6 +145,10 @@ p {
 
 .strapline {
 	text-transform: uppercase;
+}
+
+.article-headline {
+	font-size: 48px;
 }
 
 @media (min-width: 768px) {

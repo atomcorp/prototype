@@ -5,9 +5,13 @@
 @import "header";
 @import "footer";
 
+// PLugins
+@import "slick";
+
 // front
 @import "front-showpieces";
 @import "front-social-media";
 @import "hero";
 @import "features";
 @import "category";
+@import "article";

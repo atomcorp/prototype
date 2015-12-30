@@ -384,6 +384,18 @@ $('img.svg').each(function(){
     }, 'xml');
 });
 
+// Slideshow / Carousel
+
+// there is a responsive option thingy
+
+$('.carousel').slick({
+	centerMode: true,
+	centerPadding: '25%',
+	slidesToShow: 1,
+	prevArrow: '<div class="slide-arrow previous-slide">Prev</div>',
+	nextArrow: '<div class="slide-arrow next-slide">Next</div>'
+});
+
 // Minor amendment to ensure mainn navigation submenu items, line up equally
 // if list multiple of 7 - simulates fake 8th
 $('.navigation__product-categories').children('li').eq(6).css('margin-right', '20%');

@@ -1,0 +1,74 @@
+.article {
+	padding: 50px 8.333% 0;
+	background-color: #fff;
+}
+
+.article__first-section {
+	margin-top: -30%;
+}
+
+.article__details {
+	padding: 10px 0 20px;
+}
+
+.article__author {
+	font-size: 14px;
+}
+
+.article__date {
+	font-size: 14px;
+}
+
+.article__introduction {
+	font-size: 18px;
+	font-style: italic;
+	font-family: $tisa-pro-light;
+	padding: 10px 0 20px;
+}
+
+.article__content {
+	font-family: $tisa-pro-light;
+}
+
+.article__question {
+	font-weight: 700;
+	padding-bottom: 5px;
+}
+
+.article__answer {
+    padding-bottom: 15px;
+}
+
+// Carousel
+// Might move to it's own thing
+
+.image-slide {
+	img {
+		padding: 0 10%;
+	}
+}
+
+// todo: when slide animates prev/next icons overlay images
+// they can't be perm placed behind images as you can't click them then
+// need so when transitioning they go z-index -1, then back to 0 after complete
+
+.slide-arrow {
+	position: absolute;
+	z-index: 99;
+	text-align: center;
+	width: 10%;
+	height: 100%;
+	top: 0;
+	vertical-align: middle;
+	top: 50%;
+	height: 50%;
+}
+
+.previous-slide {
+	margin-left: 20%;
+
+}
+
+.next-slide {
+	margin-left: 70%;
+}

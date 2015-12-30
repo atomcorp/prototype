@@ -12,8 +12,8 @@
 	overflow: hidden;
 }
 
-.hero__cutoff {
-
+.hero__cutoff.replaced-svg {
+	bottom: -1px; // fixes where slight gap appears
 }
 
 .hero-image {
@@ -130,9 +130,6 @@
 		position: absolute;
 		bottom: 0;
 		display: block;
-		path {
-			fill: $header-blue;
-		}
 	}
 	.hero-text {
 		margin-bottom: 0;

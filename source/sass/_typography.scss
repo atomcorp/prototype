@@ -151,6 +151,14 @@ p {
 	font-size: 48px;
 }
 
+
+.article-quote {
+	text-align: center;
+	font-size: 28px;
+	font-style: italic;
+	font-family: $tisa-pro-light;
+}
+
 @media (min-width: 768px) {
 	
 	.category__page-title--title {

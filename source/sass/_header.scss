@@ -72,8 +72,6 @@
 	li {
 		width: 50%;
 		display: inline-block;
-		position: relative;
-		border-bottom: 1px solid $white;
 		padding-bottom: 8px;
 		&:nth-of-type(even) {
 			margin-left: -4px;
@@ -86,6 +84,25 @@
 			height: 100%;
 			width: 1px;
 			background-color: $white;
+		}
+		/* credit: http://codepen.io/Merri/pen/ptwcg?editors=010 */
+		&:before {
+		  border-top: 1px solid #fff;
+		  content: '';
+		  left: 0;
+		  margin-top: -1px;
+		  position: absolute;
+		  width: 100%;
+		}
+
+		&:after {
+		  border-left: 1px solid #fff;
+		  content: '';
+		  display: block;
+		  height: 100%;
+		  margin-left: 0;
+		  position: absolute;
+		  top: 0;
 		}
 	}
 	.header--front {
@@ -245,6 +262,10 @@
 	.dropdown-menu__hidden {
 	display: none;
 	}
+
+	.nav-up {
+	    top: 0;
+	}
 	
 }
 
@@ -291,7 +312,11 @@
 			padding: 0 20px;
 			cursor: pointer; // todo: remove
 			margin-left: -4px;
-			&:nth-of-type(5n+1) {
+			position: relative;
+			&:after {
+			  border-left: 0;
+			}
+			&:nth-of-type(4n+1) {
 				margin-left: 0;
 			}
 			&:nth-of-type(even):after {
@@ -302,6 +327,9 @@
 				height: 100%;
 				width: 1px;
 				background-color: #636E7B;
+			}
+			&:nth-of-type(4n+4):after {
+				background-color: transparent;
 			}
 			&:nth-of-type(odd):after {
 				background-color: #636E7B;
@@ -314,6 +342,9 @@
 				svg path {
 					stroke: $yellow;
 				}
+			}
+			&:before {
+			  border-top: 0;
 			}
 			svg path {
 				stroke: $white;

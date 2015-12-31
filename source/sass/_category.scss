@@ -11,7 +11,6 @@
 
 .category__group {
     padding: 60px 15px 0 15px;
-	border-bottom: 1px solid $black;
 }
 
 .category__group__title {
@@ -61,9 +60,15 @@
 }
 
 @media (min-width: 768px) {
+
+
 	.category__page-heading {
 		padding-top: 0;
 
+	}
+
+	.category__group--article {
+		border-bottom: 1px solid $black;
 	}
 
 	.category__hero__cutoff {

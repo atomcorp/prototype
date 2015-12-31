@@ -172,10 +172,6 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 
 				hideDropdown(checkHeight(originalWidth), false);
 				minorResize = false;
-			} else if (minorResize) {
-				// this resizes the height of submenu incase user resizes 
-				// todo: if i fix the submenus to use flexible heights for sliding purposes I can remove this
-				displayDropdown(null, $('.navigation__product-categories.show'), true, false);
 			}
 			// after business make new width original
 			originalWidth = newWidth;
@@ -393,8 +389,20 @@ if ($('.carousel').length > 0) {
 		centerMode: true,
 		centerPadding: '25%',
 		slidesToShow: 1,
-		prevArrow: '<div class="previous-slide slide-arrow"><div class="icon-container"><div class="icon"><</div></div></div>',
-		nextArrow: '<div class="slide-arrow next-slide"><div class="icon-container"><div class="icon">></div></div></div>'
+		dots: false, 
+		prevArrow: '<div class="previous-slide slide-arrow"><div class="icon-container"><div class="icon"><img src="/source/img/carousel-arrow.svg" class="responsive-image"></div></div></div>',
+		nextArrow: '<div class="slide-arrow next-slide"><div class="icon-container"><div class="icon"><img src="/source/img/carousel-arrow.svg" class="responsive-image flip"></div></div></div>',
+		responsive: [
+			{	
+				breakpoint: 768,
+				settings: {
+					centerMode: false,
+					dots: true,
+					arrows: false,
+					infinite: false
+				}
+		}
+		]
 	});
 }
 

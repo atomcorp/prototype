@@ -388,16 +388,15 @@ $('img.svg').each(function(){
 
 // there is a responsive option thingy
 
-$('.carousel').slick({
-	centerMode: true,
-	centerPadding: '25%',
-	slidesToShow: 1,
-	prevArrow: '<div class="previous-slide slide-arrow"><div class="icon-container"><div class="icon"><</div></div></div>',
-	nextArrow: '<div class="slide-arrow next-slide"><div class="icon-container"><div class="icon">></div></div></div>'
-});
+if ($('.carousel').length > 0) {
+	$('.carousel').slick({
+		centerMode: true,
+		centerPadding: '25%',
+		slidesToShow: 1,
+		prevArrow: '<div class="previous-slide slide-arrow"><div class="icon-container"><div class="icon"><</div></div></div>',
+		nextArrow: '<div class="slide-arrow next-slide"><div class="icon-container"><div class="icon">></div></div></div>'
+	});
+}
 
-// Minor amendment to ensure mainn navigation submenu items, line up equally
-// if list multiple of 7 - simulates fake 8th
-$('.navigation__product-categories').children('li').eq(6).css('margin-right', '20%');
 
 }); // END JQUERY

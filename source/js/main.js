@@ -380,7 +380,7 @@ $('img.svg').each(function(){
     }, 'xml');
 });
 
-// Slideshow / Carousel
+// Slideshow / Carousel (slick.js)
 
 // there is a responsive option thingy
 
@@ -404,7 +404,75 @@ if ($('.carousel').length > 0) {
 		}
 		]
 	});
+	// without these before/afters the arrows will 
+	// float above the images when the carousel is sliding
+	$('.carousel').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+		$('.slick-list').addClass('high-z-index');
+	});
+	$('.carousel').on('afterChange', function (event, slick, currentSlide, nextSlide) {
+		$('.slick-list').removeClass('high-z-index');
+	});
 }
 
+(function makeWavesurfer() {
+	var wavesurfer = Object.create(WaveSurfer);
+
+	wavesurfer.init({
+		container: '#waveform',
+		waveColor: 'violet',
+		progressColor: 'purple',
+		barWidth: 3,
+		hideScrollbar: true
+	});
+
+	var actualTime = 0;
+
+	$('.play').on('click', function () {
+		if (!wavesurfer.isPlaying()) {
+			wavesurfer.play();
+			actualTime = timeSpace();
+		} else {
+			wavesurfer.pause();
+			actualTime = timeSpace();
+		}
+	});
+
+	function displayTime(time) {
+		var importedTime = time;
+		var seconds = 0;
+		var minutes = 0;
+		var timeFormatted = '';
+
+		seconds = importedTime % 60;
+		minutes = Math.floor(importedTime / 60);
+
+		if (seconds <= 9) {
+			seconds = '0' + seconds;
+		}
+
+		if (minutes <= 9) {
+			minutes = '0' + minutes;
+		}
+
+		timeFormatted = minutes + ':' + seconds;
+		return timeFormatted;
+	}
+
+
+
+	
+
+	var timeSpace = function() {
+		setInterval(function(){ 
+			this.time = parseInt(wavesurfer.getCurrentTime());
+			$('#time').text(displayTime(this.time));			
+		}, 1000);
+		return this.time;
+	};
+
+	wavesurfer.load('../source/audio/test.ogg');
+
+
+})();
 
 }); // END JQUERY

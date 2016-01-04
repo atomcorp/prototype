@@ -137,22 +137,28 @@ a, a:hover {
 	transform: scaleX(-1);
 }
 
+.high-z-index {
+	z-index: 9999;
+}
+
 
 @media (max-width: 767px) {
 	// /* http://stackoverflow.com/questions/16637031/completely-disable-scrolling-of-webpage */
 	// Powers header on mobile only scrolling
 	body, html { 
-		height:100%;
+		// did have this as 100% but made a weird bug
+		// didn't enclose the whole page
+		height: auto;  
 	}
 
 	.content-wrap-hide {
-		height:100%; 
-		overflow:hidden;
+		height: 100%; 
+		overflow: hidden;
 	}
 
 	.content-wrap-visible {
-		height:100%; 
-		overflow:auto;
+		height: 100%; 
+		overflow: auto;
 	}
 
 	.mobile-scroll {

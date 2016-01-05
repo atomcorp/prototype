@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+console.time('label');
 
 var bootstrapWidth = 768; // When width turns from fluid to fixed
 
@@ -141,7 +142,6 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 		// var dropdownHeight = '';
 		if (largeScreen) {
 			if (direction === 'up') {
-				// dropdownHeight = dropdown.height()+"px";
 				dropdown.addClass('show');
 				$dropdown
 					.css('height', dropdown.height())
@@ -196,6 +196,7 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 
 
 // Do More Links bit
+// todo: this looks needlessly complex
 (function moreLinks() {
 	var $buttons = $('li.icon-link');
 	var $dropdownList = $('.more-links__dropdowns');
@@ -435,6 +436,20 @@ if ($('.carousel').length > 0) {
 	});
 }
 
+(function showHideCategory() {
+	var $products = $('.category__group__content');
+	var $buttons = $('.category__show-products');
+	$products.addClass('hidden-xs');
+	$buttons.on('click', function(event) {
+		event.preventDefault();
+		$(this).next().removeClass('hidden-xs');
+		$(this).remove();
+	});
+
+})();
+
+// this isn't very necessary
+
 (function makeWavesurfer() {
 	if ($('#waveform').length > 0) {
 		var wavesurfer = Object.create(WaveSurfer);
@@ -458,11 +473,6 @@ if ($('.carousel').length > 0) {
 				actualTime = timeSpace();
 			}
 		});
-
-
-
-
-		
 
 		var timeSpace = function() {
 			setInterval(function(){ 
@@ -499,4 +509,8 @@ if ($('.carousel').length > 0) {
 
 })();
 
+console.timeEnd('label');
+// index inital page load: 05/01/2015 = 35.528ms;
+
 }); // END JQUERY
+

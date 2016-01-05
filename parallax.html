@@ -8,6 +8,7 @@
 	.box {
 		height: 600px;
 		border: 3px solid #111111;
+		width: 100%;
 	}
 	.box-top {
 		background-color: #FF851B;
@@ -15,8 +16,14 @@
 	.box-middle {
 		background-color: #2ECC40;
 	}
-	.box-middle {
+	.box-bottom {
 		background-color: #0074D9;
+	}
+	.header-ignore {
+		height: 200px;
+		background-color: #001f3f;
+		border: 3px solid #111111;
+		width: 100%;
 	}
 	</style>
 </head>
@@ -25,9 +32,13 @@
 	<link rel="stylesheet" href="/dist/main.css">
 
 	<div class="container">
-		<div class="col-xs-12 box box-top"></div>
-		<div class="col-xs-12 box box-middle"></div>
-		<div class="col-xs-12 box box-bottom"></div>
+		<div class="col-xs-12">
+			<div class="header-ignore">It's the header</div>
+			<div class="orange box box-top parallax-this"></div>
+			<div class="green box box-middle parallax-this"></div>
+			<div class="blue box box-bottom parallax-this"></div>
+
+		</div>
 	</div>
 
 

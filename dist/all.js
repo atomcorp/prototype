@@ -246,27 +246,106 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 	});
 
 	var $window = $(window);
-	var $featuresSection = $('.features');
-	var featuresTop = $featuresSection.offset().top;
+	// var $featuresSection = $('.features');
+	// var featuresTop = $featuresSection.offset().top;
 	var featuresHeight = '';
 	var heightDiff = '';
+
+	// get list of elements used, get window
+	// todo: run each time window resized
+	var parallaxList = $('.parallax-this');
+	var currentPosition = 0;
+	var parallaxArray = [];
+
+	$.each(parallaxList, function(index, val) {
+		var $this = $(this);
+		// array order: orderNo, taller than window?, element offset no
+		var thisElement = {};
+		var isTallerThanWindow = false;
+		thisElement.order = index + 1; // order no
+		if ($this.height() > $window.height()) {
+			isTallerThanWindow = true;
+		}
+		thisElement.tallerThanWindow = isTallerThanWindow;
+		thisElement.offset = $this.offset().top;
+		thisElement.html = $this;
+		thisElement.height = $this.height();
+		parallaxArray.push(thisElement);
+	});
+
+	console.table(parallaxArray);
+
+	// end function
+
 	function parallaxScroll(scrolledY){
-		$('.hero-image').css('top',((scrolledY*1))+'px'); 
+		// $('.hero-image').css('top',((scrolledY*1))+'px'); 
 		// when it goes part certain point remove jquery stuff,
 		// but when 
 		// $('.get-closer').css('top',((scrolledY*1))+'px');
 		// when element reaches of screen keep in position
-		var featuresHeight = $featuresSection.height();
-		var windowHeight = $window.height();
-		if (featuresHeight > windowHeight) {
-			heightDiff = featuresHeight - windowHeight;
-			$featuresSection.toggleClass('fixed--bottom', ($window.scrollTop() - heightDiff) > featuresTop); 
-		}
+		// // var featuresHeight = $featuresSection.height();
+		// // var windowHeight = $window.height();
+		// // if (featuresHeight > windowHeight) {
+		// // 	heightDiff = featuresHeight - windowHeight;
+		// // }
+		// // // params (window distance - )
+		// // $featuresSection.toggleClass('fixed--bottom', ($window.scrollTop() - heightDiff) > featuresTop); 
+
 		// $('.front__social-media').css('paddingTop',featuresHeight);
-// 
 		// // $('.features').css('top','-'+(featuresTop - (scrolledY*1))+'px'); 
 		// $('.category__page-heading').css('top',(scrolledY*0.3)+'px');
 		// $('.brit-logo').css('top','-'+((scrolledY*0.6))+'px');
+	
+		// new attempt
+		// when window is scrolled to the following:
+
+		// need to keep track of order of elements and if they have been triggered
+		// get list of elements used, get window
+
+
+		// if top of element reached window top (or if element is higher than window height, the bottom of the element reaches the bottom of the window)
+		// fixed element has position fixed applied
+		// following elements have relative pushing them down the height of fixed element
+		// and scroll up until next following element reaches top of screen etc
+
+		// look for first target
+
+		function windowElementComparison() {
+			var currentNumber = 0;
+			var newNumber = 0 ;
+			for (var i = 0; i < parallaxArray.length; i++) {
+				if ($window.scrollTop() >= parallaxArray[i].offset) {
+					newNumber = parallaxArray[i].order;
+					if (newNumber > currentNumber) {
+						currentNumber = newNumber;
+					}
+				}
+			}
+			if (currentNumber) {
+				return currentNumber;
+			}
+		}
+
+		var slide = windowElementComparison();
+
+		// use absolute postion?
+		// http://stackoverflow.com/questions/13279725/getting-a-sticky-header-to-push-up-like-in-instagrams-iphone-app-using-css-a
+
+		if (slide) {
+			if (parallaxArray[slide - 1].offset <=  $window.scrollTop()) {
+				parallaxArray[slide - 1].html.addClass('fixed');
+				c(parallaxArray[slide].order + ' ' + parallaxArray.length);
+				for (var i = parallaxArray[slide - 1].order; i < parallaxArray.length; i++) {
+					c(i);
+					parallaxArray[i].html.css('top', parallaxArray[i].height + 'px');
+				}
+			} 
+			console.log(parallaxArray[slide - 1].offset + ' ' +  $window.scrollTop())
+;			if (parallaxArray[slide - 1].offset >=  ($window.scrollTop()  - 10)) {
+				parallaxArray[slide - 1].html.removeClass('fixed');
+			}
+		}
+
 	}
 
 })();

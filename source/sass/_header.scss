@@ -300,32 +300,41 @@
 		background-color: $header-front-colour-light;
 		color: $white;
 		z-index: 1;
-		width: 100%;
+		// width: 100%;
+		width: 750px;
+		padding: 0 15px;
 		border-bottom: none;
 		margin-bottom: 0;
-		bottom: 0;				
+		top: 0;		
+		// left: 0;		
 		li {
-			width: 25%;
+			width: 19%;
 			border-bottom: 0;
-			text-align: center;
+			text-align: left;
 			margin: 10px 0;
-			padding: 0 20px;
+			padding: 0 15px;
 			cursor: pointer; // todo: remove
 			margin-left: -4px;
 			position: relative;
+			vertical-align: top;
 			&:after {
 			  border-left: 0;
 			}
 			&:nth-of-type(4n+1) {
 				margin-left: 0;
 			}
+			// remove this for borders
+			&:nth-of-type(odd):after {
+				content: '';
+				width: 0;
+			}
 			&:nth-of-type(even):after {
-				content: ' ';
+				content: ''; // enable these for borders
 				position: absolute;
 				top: 0;
 				right: 0;
 				height: 100%;
-				width: 1px;
+				width: 0; // enable these for borders
 				background-color: #636E7B;
 			}
 			&:nth-of-type(4n+4):after {
@@ -353,6 +362,13 @@
 		}
 	}
 
+	.dropdown-menu__hidden {
+		// position: relative;
+		// width: 100%;
+		position: relative;
+		background-color: $header-front-colour-light;
+	}
+
 	.pull-down {
 		top: 100%;
 		transition: 1s;
@@ -371,7 +387,7 @@
 	.navigation__item {
 		border-bottom: none;
 		cursor: pointer; // todo: remove
-		padding: 0 7.5px;
+		padding: 5px 7.5px 0;
 		&.selected {
 			background-color: transparent;
 			color: #faeb14;
@@ -384,6 +400,7 @@
 
 	.more-links {
 		margin-left: -4px;
+		bottom: 19px;
 		.list-inline {
 			margin-left: 0; // gets rid of some bootstrap thing
 		}
@@ -391,6 +408,7 @@
 
 	.header--front {
 		background-color: $header-front-colour;
+		height: 70px;
 	}
 
 	.navigation-selected {
@@ -431,5 +449,22 @@
 	}
 	.header__mobile-collapse {
 		padding: 0px 0 20px 0;
+	}
+	.navigation__product-categories {
+		width: 970px;
+		padding: 0 15px;
+		li {
+			width: 14%;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.navigation__product-categories {
+		width: 1170px;
+		padding: 0 15px;
+		li {
+			width: 14%;
+		}
 	}
 }

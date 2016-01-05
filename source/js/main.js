@@ -94,7 +94,11 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 				animateDropdown(dropdown, largeScreen, 'up');
 			} else {
 				var dropdownHeight = "-"+dropdown.height()+"px";
-				dropdown.css('bottom', dropdownHeight).addClass('show');
+				dropdown.addClass('show');
+				$dropdown.css('bottom', dropdownHeight)
+					.animate({
+						height: dropdown.height()
+					}, 200, 'easeOutSine');
 			}
 		} else {
 			// copy dropdown, place under relevant category and show
@@ -114,7 +118,7 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 		// if large screen - hide all divs in .dropdown-menu__hidden
 		if (doAnimate) {
 			if (largeScreen) {
-				animateDropdown($dropdown.children(), largeScreen, 'down');
+				animateDropdown($dropdown.find('.navigation__product-categories'), largeScreen, 'down');
 				// 
 			} else if (!largeScreen) {
 				// if small remove dropdown under .selected
@@ -122,7 +126,7 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 			}
 		} else {
 			if (largeScreen) {
-				$dropdown.children().removeClass('show').attr('style','');
+				$dropdown.find('.navigation__product-categories').removeClass('show').attr('style','');
 				// 
 			} else if (!largeScreen) {
 				// if small remove dropdown under .selected
@@ -130,24 +134,30 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 			}
 		}
 		$menu.removeClass('selected');
-
 	}
 
 	function animateDropdown(dropdown, largeScreen, direction) {
 		// see http://easings.net/ for easing examples
-		var dropdownHeight = '';
+		// var dropdownHeight = '';
 		if (largeScreen) {
 			if (direction === 'up') {
-				dropdownHeight = "-"+dropdown.height()+"px";
+				// dropdownHeight = dropdown.height()+"px";
 				dropdown.addClass('show');
-				dropdown.animate({
-					bottom: dropdownHeight
-				}, 400, 'easeOutSine');
+				$dropdown
+					.css('height', dropdown.height())
+					.css('top', '-'+dropdown.height()+'px')
+					.animate({
+						top: 0
+					}, 400, 'easeOutSine');
 			} else if (direction === 'down') {
-				dropdown.remove('show');
-				dropdown.animate({
-					bottom: 0
-				}, 400, 'easeOutSine');
+				$dropdown.animate({
+					top: '-'+dropdown.height()+'px'
+				}, 400, 'easeOutSine', function() {
+					$dropdown.css('height', 0);
+					dropdown.removeClass('show');
+				});
+
+
 			}
 		} else {
 			dropdown.addClass('show');
@@ -164,8 +174,12 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 	  	resizeTimer = setTimeout(function() {
 	  		var newWidth = $(window).width();
 	  		var minorResize = true; // resize 
+	  		$dropdown.animate({
+	  				height: $('.navigation__product-categories.show').height()
+	  			}, 200, 'easeOutSine');
 			if (originalWidth >= 768 && newWidth <= 767 ) { // was big, now small 
 				hideDropdown(checkHeight(originalWidth), false);
+				$dropdown.css('height',0);
 				minorResize = false;
 			} else if (originalWidth <= 767 && newWidth >= 768 ) { // was small, now big
 				$('.header__mobile-collapse').removeClass('show-inline-block');
@@ -246,7 +260,12 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 	});
 
 	function parallaxScroll (scrolledY) { 
-		$('.hero-image').css('top',((scrolledY*1))+'px');
+		if (scrolledY < $('.hero-image').height()) {
+			$('.hero-image').css('top',((scrolledY*1))+'px');
+			$('.category__page-heading').css('top',(scrolledY*0.3)+'px');
+			$('.brit-logo').css('top','-'+((scrolledY*0.6))+'px');
+			// todo: maybe animate the diagonal line
+		}
 	}
 
 })();

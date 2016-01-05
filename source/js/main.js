@@ -340,8 +340,8 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 					parallaxArray[i].html.css('top', parallaxArray[i].height + 'px');
 				}
 			} 
-			console.log(parallaxArray[slide - 1].offset + ' ' +  $window.scrollTop())
-;			if (parallaxArray[slide - 1].offset >=  ($window.scrollTop()  - 10)) {
+			console.log(parallaxArray[slide - 1].offset + ' ' +  $window.scrollTop());
+			if (parallaxArray[slide - 1].offset >=  ($window.scrollTop()  - 10)) {
 				parallaxArray[slide - 1].html.removeClass('fixed');
 			}
 		}

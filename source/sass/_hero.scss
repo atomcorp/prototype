@@ -10,7 +10,21 @@
 	position: relative;
 	max-height: 960px;
 	overflow: hidden;
+	// this is the diagonal line
+	&:after {
+	    content: ' ';
+	    height: 100%;
+	    width: 1px;
+	    background-color: #ffff00;;
+	    position: absolute;
+	    z-index: 0;
+	    left: 88%;
+	    top: 0;
+	    transform: skew(-24deg);
+	}
 }
+
+
 
 .hero__cutoff.replaced-svg {
 	bottom: -1px; // fixes where slight gap appears
@@ -131,7 +145,13 @@
 		position: absolute;
 		bottom: 0;
 		display: block;
+		z-index: 1;
 	}
+
+	.hero__background-text {
+		z-index: 1;
+	}
+	
 	.hero-text {
 		margin-bottom: 0;
 		&:after {

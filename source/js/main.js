@@ -238,17 +238,39 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 
 // Parallax
 
-$(window).bind('scroll',function(e){
-	var scrolledY = $(window).scrollTop();
-	parallaxScroll(scrolledY);
-});
+(function parallaxFunction () {
 
-function parallaxScroll(scrolledY){
-	$('.hero-image').css('bottom','-'+((scrolledY*0.4))+'px');
-	$('.get-closer').css('top',(scrolledY*0.3)+'px');
-	$('.category__page-heading').css('top',(scrolledY*0.3)+'px');
-	$('.brit-logo').css('top','-'+((scrolledY*0.6))+'px');
-}
+	$(window).bind('scroll',function(e){
+		var scrolledY = $(window).scrollTop();
+		parallaxScroll(scrolledY);
+	});
+
+	var $window = $(window);
+	var $featuresSection = $('.features');
+	var featuresTop = $featuresSection.offset().top;
+	var featuresHeight = '';
+	var heightDiff = '';
+	function parallaxScroll(scrolledY){
+		$('.hero-image').css('top',((scrolledY*1))+'px'); 
+		// when it goes part certain point remove jquery stuff,
+		// but when 
+		// $('.get-closer').css('top',((scrolledY*1))+'px');
+		// when element reaches of screen keep in position
+		var featuresHeight = $featuresSection.height();
+		var windowHeight = $window.height();
+		if (featuresHeight > windowHeight) {
+			heightDiff = featuresHeight - windowHeight;
+			$featuresSection.toggleClass('fixed--bottom', ($window.scrollTop() - heightDiff) > featuresTop); 
+		}
+		// $('.front__social-media').css('paddingTop',featuresHeight);
+// 
+		// // $('.features').css('top','-'+(featuresTop - (scrolledY*1))+'px'); 
+		// $('.category__page-heading').css('top',(scrolledY*0.3)+'px');
+		// $('.brit-logo').css('top','-'+((scrolledY*0.6))+'px');
+	}
+
+})();
+
 
 // when nav bar goes past (eg) 600px slides up
 // iff scroll height is less than previous scroll it down
@@ -415,27 +437,45 @@ if ($('.carousel').length > 0) {
 }
 
 (function makeWavesurfer() {
-	var wavesurfer = Object.create(WaveSurfer);
+	if ($('#waveform').length > 0) {
+		var wavesurfer = Object.create(WaveSurfer);
 
-	wavesurfer.init({
-		container: '#waveform',
-		waveColor: 'violet',
-		progressColor: 'purple',
-		barWidth: 3,
-		hideScrollbar: true
-	});
+		wavesurfer.init({
+			container: '#waveform',
+			waveColor: 'violet',
+			progressColor: 'purple',
+			barWidth: 3,
+			hideScrollbar: true
+		});
 
-	var actualTime = 0;
+		var actualTime = 0;
 
-	$('.play').on('click', function () {
-		if (!wavesurfer.isPlaying()) {
-			wavesurfer.play();
-			actualTime = timeSpace();
-		} else {
-			wavesurfer.pause();
-			actualTime = timeSpace();
-		}
-	});
+		$('.play').on('click', function () {
+			if (!wavesurfer.isPlaying()) {
+				wavesurfer.play();
+				actualTime = timeSpace();
+			} else {
+				wavesurfer.pause();
+				actualTime = timeSpace();
+			}
+		});
+
+
+
+
+		
+
+		var timeSpace = function() {
+			setInterval(function(){ 
+				this.time = parseInt(wavesurfer.getCurrentTime());
+				$('#time').text(displayTime(this.time));			
+			}, 1000);
+			return this.time;
+		};
+
+		wavesurfer.load('../source/audio/test.ogg');
+	}
+	
 
 	function displayTime(time) {
 		var importedTime = time;
@@ -457,21 +497,6 @@ if ($('.carousel').length > 0) {
 		timeFormatted = minutes + ':' + seconds;
 		return timeFormatted;
 	}
-
-
-
-	
-
-	var timeSpace = function() {
-		setInterval(function(){ 
-			this.time = parseInt(wavesurfer.getCurrentTime());
-			$('#time').text(displayTime(this.time));			
-		}, 1000);
-		return this.time;
-	};
-
-	wavesurfer.load('../source/audio/test.ogg');
-
 
 })();
 

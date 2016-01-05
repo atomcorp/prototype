@@ -45,6 +45,18 @@ $pink: #ec7595;
 	transform: scaleX(-1);
 }
 
+.fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.fixed--bottom {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
 // Lists
 
 ul {

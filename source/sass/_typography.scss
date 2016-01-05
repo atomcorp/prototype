@@ -46,6 +46,7 @@ body {
 
 .headline {
 	font-family: $tisa-pro-light;
+	font-kerning: normal;
 }
 
 .headline__front-page--small {
@@ -109,16 +110,19 @@ p {
 	font-family: $brown-thin;
 	color: $yellow;
 	text-transform: uppercase;
+	font-kerning: normal;
 }
 
 .category__page-title--title {
     font-size: 8vw;
     letter-spacing: 0.5em;
+    font-kerning: normal;
 }
 
 .category__page-title--sub-title {
     font-size: 5vw;
     letter-spacing: 0.25em;
+    font-kerning: normal;
 }
 
 

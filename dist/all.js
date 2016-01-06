@@ -59,7 +59,7 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 		var $this = $(this);
 		var target = $this.attr("button");
 		var windowWidth = window.innerWidth;
-
+		removeMoreLinks(true);
 		// check clicked status of item
 		if ($this.hasClass('selected')) { 
 			// hide this submenu
@@ -161,6 +161,69 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 		}
 	}
 
+	// Links for changing language, search etc
+	(function moreLinks() {
+		var $menu = $('.icon-links');
+		var $menuLink = $menu.children('li');
+		var $dropdown = $('.more-links__dropdowns');
+		$menuLink.on('click', function(event) {
+			event.preventDefault();
+			var $this = $(this);
+			var target = $this.attr("button");
+			var $chosen = $dropdown.find($('[dropdown="' + target + '"]')); // get right dropdown item
+			var menuHeight = $menu.height();
+			var dropdownHeight = $chosen.height();
+			hideDropdown(true, true);
+			var windowWidth = window.innerWidth;
+			if  (checkHeight(windowWidth)) {
+				if ($this.hasClass('selected')) { 
+					// hide dropdown
+					$this.removeClass('selected');
+					$currentSelection.animate({'top': '-' + $currentSelection.height() + 'px'}, 400, function() {
+						$(this).removeClass('show');
+					});
+					$currentSelection = '';
+				} else if ($this.siblings().hasClass('selected')) {
+					// swap open dropdown for new (don't animate)
+					$this.siblings().removeClass('selected');
+					$this.addClass('selected');
+					$currentSelection.removeClass('show').css(' ');
+					$chosen.css({top: menuHeight}).addClass('show');
+					$currentSelection = $chosen;
+				} else {
+					// add selected to this
+					$this.addClass('selected');
+					$chosen.css('top', '-' + dropdownHeight + 'px').addClass('show');
+					$chosen.animate({top: menuHeight}, 500, 'easeOutSine');
+					$currentSelection = $chosen;
+				}
+			} else if (!$this.hasClass('selected')) {
+				$menuLink.removeClass('selected');
+
+				$this.addClass('selected');
+				$chosen.addClass('show');	
+			} else {
+				$this.removeClass('selected');
+				$chosen.removeClass('show');
+				$currentSelection = '';
+			}
+		});
+	})();
+
+	function removeMoreLinks(animate) {
+		if ($('.icon-link').hasClass('selected')) {
+			$('.icon-link').removeClass('selected');
+			var dropdown = $('.more-links__dropdowns .show');
+			if (animate) {
+				dropdown.animate({'top': '-' + dropdown.height() + 'px'}, 400, function() {
+					$(this).removeClass('show').css(' ');
+				});
+			} else {
+				dropdown.css({'top':0}).removeClass('show');
+			}
+		}
+	}
+
 	// This checks whether the user has resized the window
 	// If moved from mobile to desktop (& vice-versa)
 	// resets menus to provent weirdness
@@ -178,9 +241,10 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 				hideDropdown(checkHeight(originalWidth), false);
 				$dropdown.css('height',0);
 				minorResize = false;
+				removeMoreLinks(false);
 			} else if (originalWidth <= 767 && newWidth >= 768 ) { // was small, now big
 				$('.header__mobile-collapse').removeClass('show-inline-block');
-
+				removeMoreLinks(false);
 				hideDropdown(checkHeight(originalWidth), false);
 				minorResize = false;
 			}
@@ -188,13 +252,12 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 			originalWidth = newWidth;
 	  }, 100);
 	});
-
 })();
 
 
 // Do More Links bit
 // todo: this looks needlessly complex
-(function moreLinks() {
+/*(function moreLinks() {
 	var $buttons = $('li.icon-link');
 	var $dropdownList = $('.more-links__dropdowns');
 	var $dropdownItems = $('.more-links__dropdown');
@@ -246,7 +309,7 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 			}
 		}
 	});
-})();
+})();*/
 
 // Parallax
 

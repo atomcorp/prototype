@@ -89,7 +89,6 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 	}
 	
 	function displayDropdown(menu, dropdown, largeScreen, doAnimate) {
-		// todo: check screen size ; add animation
 		if (largeScreen) {
 			if (doAnimate) {
 				animateDropdown(dropdown, largeScreen, 'up');
@@ -102,8 +101,6 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 					}, 200, 'easeOutSine');
 			}
 		} else {
-			// copy dropdown, place under relevant category and show
-
 			dropdown.clone().insertAfter(menu).show();
 			// todo: add animation for submenus to appear/disappear
 			// var replacedDropdown = dropdown.clone().insertAfter(menu).slideDown({
@@ -265,7 +262,9 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 			$('.hero-image').css('top',((scrolledY*1))+'px');
 			$('.category__page-heading').css('top',(scrolledY*0.3)+'px');
 			$('.brit-logo').css('top','-'+((scrolledY*0.6))+'px');
+			$('.get-closer').css('top',((scrolledY*0.2))+'px');
 			// todo: maybe animate the diagonal line
+
 		}
 	}
 
@@ -325,34 +324,6 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 	}
 })();
 
-
-// Meekats bit 
-// todo: this will be cleaned up classes etc ((?) - this will be removed...)
-function meekat() {
-	$('.show-meekats').on('click', function(event) {
-		event.preventDefault();
-		var $this = $(this);
-		var $heroContainer = $('.hero__background-container');
-		var video = $('video');
-
-		$.each($heroContainer, function(index, val) {
-			var $this = $(this);
-			if ($this.children('video').hasClass('selected')) {
-				$this.children('.hero-image').removeClass('disappear');
-				$this.children('.hero-image--small').removeClass('disappear');
-				$this.children('video').addClass('disappear').removeClass('selected appear');
-			} else {
-				$this.children('.hero-image').addClass('disappear');
-				$this.children('.hero-image--small').addClass('disappear');
-				$this.children('video').removeClass('disappear').addClass('selected appear');
-				video.play();
-
-			}
-		});
-	});
-}
-
-
 // Image processing
 // Swap 1kb blurry images for nice ones on page load
 
@@ -372,6 +343,7 @@ function meekat() {
 		var changeFileType = changeFolder.replace('.png', '.jpg');
 		$this.attr('src', changeFileType);
 		$this.removeClass('pre-loaded').addClass(postLoadedClass);
+
 	});
 })();
 

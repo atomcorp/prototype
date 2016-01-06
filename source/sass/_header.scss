@@ -308,7 +308,7 @@
 		top: 0;		
 		// left: 0;		
 		li {
-			width: 19%;
+			width: auto;
 			border-bottom: 0;
 			text-align: left;
 			margin: 10px 0;
@@ -454,7 +454,6 @@
 		width: 970px;
 		padding: 0 15px;
 		li {
-			width: 14%;
 		}
 	}
 }
@@ -464,7 +463,6 @@
 		width: 1170px;
 		padding: 0 15px;
 		li {
-			width: 14%;
 		}
 	}
 }

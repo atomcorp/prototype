@@ -59,7 +59,9 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 		var $this = $(this);
 		var target = $this.attr("button");
 		var windowWidth = window.innerWidth;
-		removeMoreLinks(true);
+		if (checkHeight(windowWidth)) {
+			removeMoreLinks(true);
+		}
 		// check clicked status of item
 		if ($this.hasClass('selected')) { 
 			// hide this submenu
@@ -101,6 +103,7 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 					}, 200, 'easeOutSine');
 			}
 		} else {
+			$('.navigation--parent .navigation__product-categories').remove();
 			dropdown.clone().insertAfter(menu).show();
 			// todo: add animation for submenus to appear/disappear
 			// var replacedDropdown = dropdown.clone().insertAfter(menu).slideDown({
@@ -173,9 +176,9 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 			var $chosen = $dropdown.find($('[dropdown="' + target + '"]')); // get right dropdown item
 			var menuHeight = $menu.height();
 			var dropdownHeight = $chosen.height();
-			hideDropdown(true, true);
 			var windowWidth = window.innerWidth;
 			if  (checkHeight(windowWidth)) {
+				hideDropdown(true, true);
 				if ($this.hasClass('selected')) { 
 					// hide dropdown
 					$this.removeClass('selected');
@@ -199,8 +202,8 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 				}
 			} else if (!$this.hasClass('selected')) {
 				$menuLink.removeClass('selected');
-
 				$this.addClass('selected');
+				$('.more-links__dropdown').removeClass('show');
 				$chosen.addClass('show');	
 			} else {
 				$this.removeClass('selected');
@@ -418,6 +421,7 @@ $('img.svg').each(function(){
     var imgID = $img.attr('id');
     var imgClass = $img.attr('class');
     var imgURL = $img.attr('src');
+    console.log(imgURL);
     $.get(imgURL, function(data) {
         // Get the SVG tag, ignore the rest
         var $svg = $(data).find('svg');

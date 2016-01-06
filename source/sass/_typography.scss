@@ -21,6 +21,7 @@ $tisa-pro-light: 'tisa-pro-light', 'comic sans';
 
 body {
 	color: #3d4550;
+	font-size: 16px;
 }
 
 .brown-regular {
@@ -55,7 +56,7 @@ body {
 
 .sub-heading {
 	font-family: $brown-regular;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 .sub-heading--yellow {
@@ -68,7 +69,7 @@ p {
 
 .date {
 	font-family: $brown-regular;
-	font-size: 12px;
+	font-size: 14px;
 	text-transform: uppercase;
 	color: $pink;
 }
@@ -86,7 +87,7 @@ p {
 
 // Main navigation
 .navigation {
-	font-size: 12px;
+	font-size: 14px;
 	font-family: $brown-regular;
 }
 
@@ -96,7 +97,7 @@ p {
 }
 
 .navigation__product-categories {
-	font-size: 12px;
+	font-size: 14px;
 	font-family: $brown-regular;
 	text-transform: uppercase;
 	li {
@@ -127,7 +128,7 @@ p {
 
 
 .more-link {
-	font-size: 12px;
+	font-size: 14px;
 	font-family: $brown-regular;
 	text-transform: uppercase;
 	padding-left: 10px;
@@ -137,12 +138,12 @@ p {
 
 .playlist-title {
 	font-family: $brown-regular;
-	font-size: 12px;
+	font-size: 14px;
 	text-transform: uppercase;
 }
 
 .footer__links {
-	font-size: 12px;
+	font-size: 14px;
 	font-family: $brown-regular;
 	text-transform: uppercase;
 }
@@ -161,6 +162,17 @@ p {
 	font-size: 28px;
 	font-style: italic;
 	font-family: $tisa-pro-light;
+}
+
+.features__more-articles {
+	font-family: $brown-regular;
+	font-size: 14px;
+	text-transform: uppercase;
+	color: $pink;
+	// todo: remove, prototype only
+	.pink {
+		cursor: pointer;
+	}
 }
 
 @media (min-width: 768px) {

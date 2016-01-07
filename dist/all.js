@@ -1,5 +1,6 @@
 jQuery(document).ready(function($) {
-console.time('label');
+
+// console.time('label');
 
 var bootstrapWidth = 768; // When width turns from fluid to fixed
 
@@ -20,15 +21,19 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 
 // View Menu on Mobile Devices 
 (function showMobileMenu() {
+	var cover = $('<div class="cover"></div>');
+	var $header = $('.header');
 	$('.hamburger').on('click', function(event) {
 		event.preventDefault();
 		// this is because 'display: block' messes up large screen mode
 		$('.header__mobile-collapse').toggleClass('show-inline-block');
 		// this adds overflow for scrolling
-		$('.header').toggleClass('mobile-scroll');
-		if ($('.header').hasClass('mobile-scroll')) {
+		$header.toggleClass('mobile-scroll');
+		// adds background that can be pressed to close menu
+		cover.appendTo('.header');
+		if ($header.hasClass('mobile-scroll')) {
 			// add event listener
-			$('.header').on('click', function(event) {
+			$header.on('click', function(event) {
 				event.preventDefault();
 				var count = $('.header-background').outerHeight() + $('.header__mobile-collapse').outerHeight() + $('.more-links').outerHeight();
 				$('body').css({
@@ -36,12 +41,18 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 					'max-height': count
 				});
 			});
+			$('.cover').on('click', function(event) {
+				event.preventDefault();
+				$('.hamburger').trigger('click');
+			});
 		} else {
 			// removes event listener
-			$('.header').off();
+			$header.off();
+			$('.cover').remove();
 			$('body').attr('style', '');
 		}
 	});
+
 
 })();
 
@@ -421,7 +432,6 @@ $('img.svg').each(function(){
     var imgID = $img.attr('id');
     var imgClass = $img.attr('class');
     var imgURL = $img.attr('src');
-    console.log(imgURL);
     $.get(imgURL, function(data) {
         // Get the SVG tag, ignore the rest
         var $svg = $(data).find('svg');
@@ -548,7 +558,7 @@ if ($('.carousel').length > 0) {
 
 })();
 
-console.timeEnd('label');
+// console.timeEnd('label');
 // index inital page load: 05/01/2015 = 35.528ms;
 
 }); // END JQUERY

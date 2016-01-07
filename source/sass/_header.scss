@@ -144,7 +144,9 @@
 	text-align: center;
 	margin-left: -6px;
 	&.selected {
-		border-bottom: 1px solid #3D4550;
+		background-color: #FAEB14;
+		color: #3D4550;
+		border-color: #FAEB14;
 	}
 	&:first-child {
 		margin-left: 0;
@@ -187,6 +189,8 @@
 	}
 	input {
 		width: 100%;
+		color: #3D4550;
+
 	}
 }
 
@@ -270,7 +274,13 @@
 	    top: 0;
 	}
 
-	
+	.cover {
+	    height: 100%;
+	    width: 100%;
+	    top: 0;
+	    left: 0;
+	    position: absolute;
+	}
 }
 
 .fixed-header {
@@ -466,8 +476,10 @@
 	.icon-link {
 		width: 25%;
 		&.selected {
-			background-color: #4E5865;
-			border-bottom: 1px solid #4E5865;
+			border-color: #D3D3D3;
+			background-color:  #4E5865;
+			border-bottom: 1px solid #d3d3d3;
+			color: #D3D3D3;
 		}
 	}	
 	.more-links__dropdowns {

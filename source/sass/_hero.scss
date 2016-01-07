@@ -10,19 +10,7 @@
 	position: relative;
 	max-height: 960px;
 	overflow: hidden;
-	// this is the diagonal line
-	&:before {
-	    content: ' ';
-	    height: 100%;
-	    width: 1px;
-	    background-color: #ffff00;;
-	    position: absolute;
-	    z-index: 0;
-	    left: 88%;
-	    top: 0;
-	    transform: skew(-24deg);
-	    z-index: 1;
-	}
+
 }
 
 
@@ -142,6 +130,20 @@
 @media (min-width: 768px) {
 
 	.hero__background-container {
+		// this is the diagonal line
+		&:before {
+		    content: ' ';
+		    height: 100%;
+		    width: 1px;
+		    background-color: #ffff00;;
+		    position: absolute;
+		    z-index: 0;
+		    left: 88%;
+		    top: 0;
+		    transform: skew(-24deg);
+		    z-index: 1;
+		}
+		// cutoff
 		&:after {
 			content: ' ';
 			width: 100%;

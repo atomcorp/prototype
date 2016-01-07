@@ -46,18 +46,6 @@
 	margin-left: 70%;
 }
 
-.article__tags {
-	text-align: center;
-	padding: 0;
-	li {
-		border: 1px solid #778189;
-		text-transform: uppercase;
-		padding: 4px 9px;
-		font-size: 12px;
-		margin-right: 3px;
-	}
-}
-
 .slick-dots {
 	text-align: center;
 	li {
@@ -97,4 +85,24 @@
 .slick-dots li.slick-active button:before {
     opacity: .75;
     color: black;
+}
+
+
+@media (max-width: 767px) {
+
+	.image-slide {
+		img {
+			padding: 0;
+		}
+	}
+
+	.previous-slide {
+		margin-left: 0;
+
+	}
+
+	.next-slide {
+		margin-left: 0;
+	}
+
 }

@@ -142,7 +142,7 @@
 	border: 1px solid;
 	width: 40px;
 	text-align: center;
-	margin-left: -6px;
+	margin-left: -4px;
 	&.selected {
 		background-color: #FAEB14;
 		color: #3D4550;
@@ -330,7 +330,7 @@
 			cursor: pointer; // todo: remove
 			margin-left: -4px;
 			position: relative;
-			vertical-align: top;
+			vertical-align: bottom;
 			&:after {
 			  border-left: 0;
 			}
@@ -486,7 +486,7 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 97%;
+		width: 140px;
 	}
 	.hamburger {
 		display: none;
@@ -526,7 +526,7 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 155px;
+		width: 160px;
 	}
 
 }
@@ -537,5 +537,11 @@
 		padding: 0 15px;
 		li {
 		}
+	}
+	.more-links__dropdowns {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 160px;
 	}
 }

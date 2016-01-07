@@ -335,7 +335,7 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 	});
 
 	function parallaxScroll (scrolledY) { 
-		if (scrolledY < $('.hero-image').height()) {
+		if (scrolledY < $('.hero-image').height() && $(window).width()) {
 			$('.hero-image').css('top',((scrolledY*1))+'px');
 			$('.category__page-heading').css('top',(scrolledY*0.3)+'px');
 			$('.brit-logo').css('top','-'+((scrolledY*0.6))+'px');

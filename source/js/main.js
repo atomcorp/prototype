@@ -485,6 +485,24 @@ if ($('.carousel').length > 0) {
 	});
 }
 
+// Front Page
+//
+if ($('.front__carousel').length > 0) {
+	$('.front__carousel').slick({
+		prevArrow: '',
+		nextArrow: ''
+
+	});
+	// without these before/afters the arrows will 
+	// float above the images when the carousel is sliding
+	$('.carousel').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+		$('.slick-list').addClass('high-z-index');
+	});
+	$('.carousel').on('afterChange', function (event, slick, currentSlide, nextSlide) {
+		$('.slick-list').removeClass('high-z-index');
+	});
+}
+
 (function showHideCategory() {
 	var $products = $('.category__group__content');
 	var $buttons = $('.category__show-products');

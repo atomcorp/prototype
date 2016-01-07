@@ -185,21 +185,21 @@ a, a:hover {
 @media (min-width: 768px) {
 	.absolute-container {
 		left: 50%;
-		margin-left: -375px; // to center div, .container width for pos:abs
-		width: 750px;
+		margin-left: -360px; // to center div, .container width for pos:abs
+		width: 720px;
 	}
 }
 
 @media (min-width: 992px) {
 	.absolute-container {
-		margin-left: -485px; // to center div, .container width for pos:abs
-		width: 970px;
+		margin-left: -470px; // to center div, .container width for pos:abs
+		width: 940px;
 	}
 }
 
 @media (min-width: 1200px) {
 	.absolute-container {
-		margin-left: -585px; // to center div, .container width for pos:abs
-		width: 1170px;
+		margin-left: -570px; // to center div, .container width for pos:abs
+		width: 1140px;
 	}
 }

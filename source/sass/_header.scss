@@ -416,7 +416,7 @@
 		margin-left: -4px;
 		bottom: 19px;
 		text-align: right;
-		right: 0;
+		padding-right: 11px;
 		.list-inline {
 			margin-left: 0; // gets rid of some bootstrap thing
 		}
@@ -486,7 +486,9 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 140px;
+		width: 129px;
+		margin-right: 11px;
+
 	}
 	.hamburger {
 		display: none;
@@ -526,7 +528,7 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 160px;
+		width: 159px;
 	}
 
 }
@@ -542,6 +544,6 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 160px;
+		width: 159px;
 	}
 }

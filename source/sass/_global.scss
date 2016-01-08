@@ -32,6 +32,10 @@ $pink: #ec7595;
 	color: $grey;
 }
 
+.black {
+	color: $black;
+}
+
 .pink {
 	color: $pink;
 }
@@ -169,6 +173,12 @@ a, a:hover {
 	overflow: hidden;
 }
 
+.btn-pink {
+	border-color: $pink;
+	color: $pink;
+	background-color: #fff;
+}
+
 // used with a container set to overflow hidden
 // https://css-tricks.com/fluid-width-equal-height-columns/ - One True Layout Method
 .baseline-align {
@@ -176,6 +186,10 @@ a, a:hover {
 	margin-bottom: -99px;
 }
 
+// offset / bug fixes
+.pd40 {
+	padding-bottom: 40px;
+}
 
 @media (max-width: 767px) {
 	// /* http://stackoverflow.com/questions/16637031/completely-disable-scrolling-of-webpage */

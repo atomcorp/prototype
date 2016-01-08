@@ -25,6 +25,7 @@
 
 .article--small {
 	border-top: 20px solid #EEEEEE;
+	padding-bottom: 15px;
 	.headline {
 		margin-top: 10px;
 	}
@@ -47,7 +48,7 @@
 .front-page__more-link--large {
 	span {
 		border: 1px solid;
-		padding: 10px;
+		padding: 5px 10px;
 	}
 	position: relative;
 	padding: 10px 0;
@@ -57,9 +58,9 @@
 
 .front-page__more-link--small {
 	text-align: right;
-	padding: 10px 15px;
+	padding: 5px 15px;
 	span {
-		padding: 10px 15px;
+		padding: 5px 15px;
 		border: 1px solid;
 	}
 }
@@ -105,7 +106,7 @@
 		span {
 			border: 0;
 		}
-		padding: 10px;
+		padding: 5px 10px;
 		border: 1px solid;
 		bottom: 0;
 		position: absolute;

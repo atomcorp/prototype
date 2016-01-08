@@ -1,0 +1,46 @@
+.newsletter-signup {
+	margin-top: 20px;
+	margin-bottom: 40px;
+	:placeholder-shown {
+	  color: $black;
+	}
+	.form-group {
+		width: 30%;
+		&:nth-of-type(3n+2) {
+			margin-left: -4px;
+		}
+		&:nth-of-type(3n+3) {
+			margin-left: -4px;
+		}
+	}
+	.form-control {
+		width: 95%;
+	}
+	input {
+		width: 10%;
+		margin-left: -4px;
+	}
+}
+
+.lounge__article {
+	&:nth-of-type(3n+2) {
+		margin-left: -4px;
+	}
+	&:nth-of-type(3n+3) {
+		margin-left: -4px;
+	}
+}
+
+.lounge__filter__item {
+	padding-right: 20px;
+}
+
+.lounge__more-link--small {
+    text-align: right;
+    padding: 5px 15px 20px;
+    span {
+    	padding: 5px 15px;
+     	border: 1px solid;
+    }
+}
+

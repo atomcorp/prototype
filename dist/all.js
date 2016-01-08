@@ -415,7 +415,7 @@ if ($('.carousel').length > 0) {
 					arrows: false,
 					infinite: false
 				}
-		}
+			}
 		]
 	});
 	// without these before/afters the arrows will 
@@ -433,7 +433,8 @@ if ($('.carousel').length > 0) {
 if ($('.front__carousel').length > 0) {
 	$('.front__carousel').slick({
 		prevArrow: '',
-		nextArrow: ''
+		nextArrow: '',
+		dots: true
 
 	});
 	// without these before/afters the arrows will 
@@ -456,6 +457,36 @@ if ($('.front__carousel').length > 0) {
 		$(this).remove();
 	});
 
+})();
+
+(function filterLounge() {
+	// todo: remove whengoing to full site
+	// can't actually use this in full thing
+	var articles = $('.lounge__article');
+	$('.lounge__filter__item').on('click', function(event) {
+		event.preventDefault();
+		var $this = $(this);
+		var selected = $this.attr('lounge-filter');
+		$.each(articles, function(index, val) {
+			var $this = $(this);
+			var comparisonVal = $this.children('.hide').attr('lounge-filter');
+			c('sel:' + selected + ', com:' + comparisonVal);
+			if (selected === comparisonVal) {
+				$this.addClass('show-inline-block').appendTo($('.hide-overflow').eq(0));
+				$this.removeClass('hide');
+			} else {
+				$this.addClass('hide');
+				$this.removeClass('show-inline-block');
+			}
+		});
+	});
+	$('.lounge__clear').on('click', function(event) {
+		event.preventDefault();
+		$.each(articles, function(index, val) {
+			var $this = $(this);
+			$this.addClass('show-inline-block');
+		});
+	});
 })();
 
 // this isn't very necessary

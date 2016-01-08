@@ -86,10 +86,13 @@ p {
 	color: $pink;
 }
 
-.get-closer__letter {
+.letter-grid__letter {
 	font-family: $brown-thin;
 	font-size: 64px;
-	color: #FAE03B;
+}
+
+.letter-grid--lounge {
+	color: #d0d2d3;
 }
 
 // Main navigation

@@ -4,10 +4,6 @@
 	}
 }
 
-// todo: when slide animates prev/next icons overlay images
-// they can't be perm placed behind images as you can't click them then
-// need so when transitioning they go z-index -1, then back to 0 after complete
-
 .slide-arrow {
 	position: absolute;
 	z-index: 9;
@@ -84,6 +80,37 @@
 .slick-dots li.slick-active button:before {
     opacity: .75;
     color: black;
+}
+
+.front__carousel {
+	.slick-dots {
+		line-height: 0;
+		padding: 0;
+		display: block;
+		margin-top: -30px;
+		z-index: 1;
+		position: absolute;
+		width: 100%;
+		li {
+			width: 7%;
+			padding-right: 1%;
+		}
+		li button {
+			height: 5px;
+			padding: 0;
+			width: 100%;
+			background: #fff;
+			&:before {
+				content: ' ';
+				display: none;
+			}
+		}	
+		.slick-active {
+			button {
+				background: $yellow;
+			}
+		}
+	}
 }
 
 

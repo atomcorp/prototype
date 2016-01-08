@@ -47,7 +47,7 @@
 // 	height: 100%;
 // }
 
-.get-closer__letter {
+.letter-grid__letter {
     width: 33%;
     display: inline-block;
 
@@ -65,17 +65,17 @@
     }
 }
 
-.text-wrap {
-	position: absolute;
-	height: 100%;
-}
-
-.get-closer {
+.letter-grid {
 	position: absolute;
 	top: 0;
 	margin-top: -25px;
 	padding-top: 90px;
 	z-index: 2;
+}
+
+.text-wrap {
+	position: absolute;
+	height: 100%;
 }
 
 .brit-logo {
@@ -104,7 +104,7 @@
 }
 
 .hero__lower-text {
-	padding-bottom: 20px;
+	padding-bottom: 30px;
 	padding-right: 15px;
 }
 
@@ -138,6 +138,15 @@
 	z-index: 1;
 	padding: 0;
 	position: relative;
+}
+
+.more-link__hero {
+	color: $yellow;
+	padding: 10px 0; 
+	span {
+		border: 1px solid;
+		padding: 5px 15px;
+	}
 }
 
 @media (max-width: 767px) {
@@ -186,6 +195,12 @@
 		}
 	}
 
+	.hero__background-container--grey-cut {
+		&:before {
+			background-image: url('/../source/img/vertical-cut-grey.svg');
+		}
+	}
+
 	.horizontal__cutoff {
 		&:after {
 			content: ' ';
@@ -226,12 +241,18 @@
 		padding-right: 0;
 	}
 
-	.get-closer {
+	.letter-grid {
 		padding-top: 130px;
 	}
 
-	.get-closer__letter {
+	.letter-grid__letter {
 		font-size: 48px;
+	}
+
+	.letter-grid--lounge {
+		.letter-grid__letter {
+			font-size: 28px;
+		}
 	}
 
 	.brit-logo__container {
@@ -249,10 +270,17 @@
 }
 
 @media (min-width: 992px) {
-	.get-closer__letter {
+	.letter-grid__letter {
 		font-size: 54px;
 		padding-bottom: 10px;
 	}
+	
+	.letter-grid--lounge {
+		.letter-grid__letter {
+			font-size: 34px;
+		}
+	}
+
 	.brit-logo {
 
 	}
@@ -265,14 +293,22 @@
 	.hero-text {
 		margin-bottom: 50px;
 	}
-	.get-closer {
+	.letter-grid {
 		padding-top: 130px;
 	}
-	.get-closer__letter {
+	.letter-grid__letter {
 		font-size: 64px;
 		padding-bottom: 30px;
 	}
+
+	.letter-grid--lounge {
+		.letter-grid__letter {
+			font-size: 42px;
+		}
+	}
+
 	.brit-logo {
 		padding-left: 8px; // align with More Links
 	}
+
 }

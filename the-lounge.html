@@ -271,56 +271,133 @@
 				</div>
 			</div>
 		</div>
+		<div class="newsletter-signup">
+			<div class="container">
+				<h3>Get stories from the lounge sent straight to your indox:</h3>
+				<form class="form-inline">
+					<div class="form-group">
+					  <input type="text" class="form-control" id="exampleInputName2" placeholder="Name: ">
+					</div>
+					<div class="form-group">
+					  <input type="text" class="form-control" id="exampleInputName2" placeholder="Email: ">
+					</div>
+					<div class="form-group">
+					  <input type="text" class="form-control" id="exampleInputName2" placeholder="Country: ">
+					</div>
+					<input class="btn btn-pink" type="submit">
+
+				</form>
+			</div>
+		</div>
 		<div class="features background-colour-grey">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-12">
-						<h2 class="heading">Features</h2>
-					</div>
-					<div class="front__article article--large col-sm-12 ">
-						<div class="background-fff clearfix relative">
-							<div class="col-sm-8">
-								<img src="/source/img/examples/1.jpg" alt="" class="responsive-image article--large__image">
-							</div>
-							<div class="col-sm-4">
-								<h3 class="headline headline__front-page--large">Artist Interview: We get close to Nick Mulvey</h3>
-								<div class="date">13 April 2015</div>
-								<p class="pd40">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et laboriosam nam, architecto tenetur culpa nulla 	assumenda. Repellat odit nesciunt ipsa iste minus ratione doloremque. Tempore minima dolore at ex quia!</p>
-							</div>
-							<div class="front-page__more-link--large text-uppercase pink more-link"><span>More</span></div>
+					<div class="col-xs-12 lounge__filter">
+						<h5 class="text-uppercase">FILTER BLOGS BY:</h5>
+						<div class="lounge__filter__list">
+							<a href="#" class="pink text-uppercase lounge__filter__item" lounge-filter="techie">Kepp it techie</a>
+							<a href="#" class="pink text-uppercase lounge__filter__item" lounge-filter="closer">Get closer to the music</a>
+							<a href="#" class="pink text-uppercase lounge__filter__item" lounge-filter="stuff">Shiny new stuff</a>
+							<a href="#" class="text-uppercase lounge__clear">Clear</a>
 						</div>
-						
 					</div>
 				</div>
 				<div class="row hide-overflow">
-					<div class="front__article article--small col-xs-12 col-sm-4">
-						<div class="background-fff clearfix baseline-align">
+					<div class="lounge__article article--small col-xs-12 col-sm-4 vertical-align vertical-align--top">
+						<div class="hide" lounge-filter="techie"></div>
+						<div class="background-fff clearfix">
 							<img src="/source/img/examples/2.jpg" alt="" class="responsive-image">
 							<div class="article__text">
 								<div class="date">13 April 2015</div>
-								<h3 class="headline headline__front-page--small">Four decades of Hi-Fi: Part 1</h3>
+								<h3 class="headline headline__front-page--small">Four decades of Hi-Fi: Part 1 (techie)</h3>
 							</div>
-							<div class="front-page__more-link--small text-uppercase pink more-link"><span>More</span></div>
+							<div class="lounge__more-link--small text-uppercase pink more-link"><span>More</span></div>
 						</div>	
 					</div>
-					<div class="front__article article--small col-xs-12 col-sm-4">
-						<div class="background-fff clearfix baseline-align">
+					<div class="lounge__article article--small col-xs-12 col-sm-4 vertical-align vertical-align--top">
+						<div class="hide" lounge-filter="closer"></div>
+						<div class="background-fff clearfix">
+							<img src="/source/img/examples/3.jpg" alt="" class="responsive-image">
+							<div class="article__text">
+								<div class="date">13 April 2015</div>
+								<h3 class="headline headline__front-page--small">Record Store Day: Release Guide (closer)</h3>
+							</div>
+							<div class="lounge__more-link--small text-uppercase pink more-link"><span>More</span></div>
+						</div>
+					</div>
+					<div class="lounge__article article--small col-xs-12 col-sm-4 vertical-align vertical-align--top">
+						<div class="hide" lounge-filter="closer"></div>
+						<div class="background-fff clearfix">
+							<img src="/source/img/examples/4.jpg" alt="" class="responsive-image">
+							<div class="article__text">
+								<div class="date">04 April 2015</div>
+								<h3 class="headline headline__front-page--small">Artist Interview: George Exra (closer)</h3>
+							</div>
+							<div class="lounge__more-link--small text-uppercase pink more-link"><span>More</span></div>
+						</div>
+					</div>
+					<div class="lounge__article article--small col-xs-12 col-sm-4 vertical-align vertical-align--top">
+						<div class="hide" lounge-filter="techie"></div>
+						<div class="background-fff clearfix">
+							<img src="/source/img/examples/2.jpg" alt="" class="responsive-image">
+							<div class="article__text">
+								<div class="date">13 April 2015</div>
+								<h3 class="headline headline__front-page--small">Four decades of Hi-Fi: Part 1 (techie)</h3>
+							</div>
+							<div class="lounge__more-link--small text-uppercase pink more-link"><span>More</span></div>
+						</div>	
+					</div>
+					<div class="lounge__article article--small col-xs-12 col-sm-4 vertical-align vertical-align--top">
+						<div class="hide" lounge-filter="stuff"></div>
+						<div class="background-fff clearfix">
+							<img src="/source/img/examples/3.jpg" alt="" class="responsive-image">
+							<div class="article__text">
+								<div class="date">13 April 2015</div>
+								<h3 class="headline headline__front-page--small">Record Store Day: Release Guide (stuff)</h3>
+							</div>
+							<div class="lounge__more-link--small text-uppercase pink more-link"><span>More</span></div>
+						</div>
+					</div>
+					<div class="lounge__article article--small col-xs-12 col-sm-4 vertical-align vertical-align--top">
+						<div class="hide" lounge-filter="stuff"></div>
+						<div class="background-fff clearfix">
+							<img src="/source/img/examples/4.jpg" alt="" class="responsive-image">
+							<div class="article__text">
+								<div class="date">04 April 2015</div>
+								<h3 class="headline headline__front-page--small">Artist Interview: George Exra (stuff)</h3>
+							</div>
+							<div class="lounge__more-link--small text-uppercase pink more-link"><span>More</span></div>
+						</div>
+					</div>
+					<div class="lounge__article article--small col-xs-12 col-sm-4 vertical-align vertical-align--top">
+						<div class="hide" lounge-filter="techie"></div>
+						<div class="background-fff clearfix">
+							<img src="/source/img/examples/2.jpg" alt="" class="responsive-image">
+							<div class="article__text">
+								<div class="date">13 April 2015</div>
+								<h3 class="headline headline__front-page--small">Four decades of Hi-Fi: Part 1 (techie)</h3>
+							</div>
+							<div class="lounge__more-link--small text-uppercase pink more-link"><span>More</span></div>
+						</div>	
+					</div>
+					<div class="lounge__article article--small col-xs-12 col-sm-4 vertical-align vertical-align--top">
+						<div class="background-fff clearfix">
 							<img src="/source/img/examples/3.jpg" alt="" class="responsive-image">
 							<div class="article__text">
 								<div class="date">13 April 2015</div>
 								<h3 class="headline headline__front-page--small">Record Store Day: Release Guide</h3>
 							</div>
-							<div class="front-page__more-link--small text-uppercase pink more-link"><span>More</span></div>
+							<div class="lounge__more-link--small text-uppercase pink more-link"><span>More</span></div>
 						</div>
 					</div>
-					<div class="front__article article--small col-xs-12 col-sm-4">
-						<div class="background-fff clearfix baseline-align">
+					<div class="lounge__article article--small col-xs-12 col-sm-4 vertical-align vertical-align--top">
+						<div class="background-fff clearfix">
 							<img src="/source/img/examples/4.jpg" alt="" class="responsive-image">
 							<div class="article__text">
 								<div class="date">04 April 2015</div>
 								<h3 class="headline headline__front-page--small">Artist Interview: George Exra</h3>
 							</div>
-							<div class="front-page__more-link--small text-uppercase pink more-link"><span>More</span></div>
+							<div class="lounge__more-link--small text-uppercase pink more-link"><span>More</span></div>
 						</div>
 					</div>
 				</div>
@@ -328,7 +405,6 @@
 					<div class="col-xs-12 features__more-articles front-page__more-features-link">
 						<div class="text-uppercase pink"><span>More Features</span></div>
 					</div>
-
 				</div>
 			</div>
 		</div>

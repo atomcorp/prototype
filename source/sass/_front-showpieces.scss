@@ -68,17 +68,13 @@
 }
 
 
-// Articles
-
-.article--small {
-    padding-bottom: 20px;
-}
 
 @media (min-width: 768px) {
 
 	.front__showpiece__cutoff {
 		display: flex;
 		align-items: stretch;
+		border-top: 1px solid #3D4550;
 	}
 
 	.front__showpiece__50-50__wrapper {

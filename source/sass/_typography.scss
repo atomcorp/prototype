@@ -21,7 +21,6 @@ $tisa-pro-light: 'tisa-pro-light', 'comic sans';
 
 body {
 	color: #3d4550;
-	font-size: 16px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,7 +46,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .heading {
 	font-family: $tisa-pro-light;
+}
 
+.heading--large {
+	font-kerning: normal;
 }
 
 .headline {
@@ -61,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sub-heading {
 	font-family: $brown-regular;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .sub-heading--yellow {
@@ -74,7 +76,7 @@ p {
 
 .date {
 	font-family: $brown-regular;
-	font-size: 14px;
+	font-size: 12px;
 	text-transform: uppercase;
 	color: $pink;
 }
@@ -92,7 +94,7 @@ p {
 
 // Main navigation
 .navigation {
-	font-size: 16px;
+	font-size: 14px;
 	font-family: $brown-regular;
 }
 
@@ -102,7 +104,7 @@ p {
 }
 
 .navigation__product-categories {
-	font-size: 14px;
+	font-size: 12px;
 	font-family: $brown-regular;
 	text-transform: uppercase;
 	li {
@@ -132,11 +134,11 @@ p {
 }
 
 .more-links {
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .more-link {
-	font-size: 14px;
+	font-size: 12px;
 	font-family: $brown-regular;
 	text-transform: uppercase;
 	padding-left: 10px;
@@ -146,12 +148,12 @@ p {
 
 .playlist-title {
 	font-family: $brown-regular;
-	font-size: 14px;
+	font-size: 12px;
 	text-transform: uppercase;
 }
 
 .footer__links {
-	font-size: 14px;
+	font-size: 12px;
 	font-family: $brown-regular;
 	text-transform: uppercase;
 }
@@ -174,7 +176,7 @@ p {
 
 .features__more-articles {
 	font-family: $brown-regular;
-	font-size: 14px;
+	font-size: 12px;
 	text-transform: uppercase;
 	color: $pink;
 	// todo: remove, prototype only
@@ -197,7 +199,7 @@ p {
 	}
 	
 	.navigation {
-		font-size: 14px;
+		font-size: 12px;
 	}
 }
 

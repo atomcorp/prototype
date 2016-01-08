@@ -268,63 +268,6 @@ function checkHeight(windowWidth) { // this should be Width not height :/
 	});
 })();
 
-
-// Do More Links bit
-// todo: this looks needlessly complex
-/*(function moreLinks() {
-	var $buttons = $('li.icon-link');
-	var $dropdownList = $('.more-links__dropdowns');
-	var $dropdownItems = $('.more-links__dropdown');
-	var $menu = $('.more-links');
-	var existingTarget = '';
-	$buttons.on('click', function(event) {
-		event.preventDefault();
-		var $this = $(this);
-		var target = $this.attr("button"); // get attribute
-		var dropdown = $dropdownList.find($('[dropdown="' + target + '"]')); // get right dropdown item
-		var dropdownHeight = '';
-		var menuHeight = '';
-		var windowWidth = window.innerWidth;
-		// add show onto target
-		// remove show from every target
-		// except if target already has show, in which case remove
-		
-		if (!dropdown.hasClass('show')) {
-			$dropdownItems.removeClass('show');
-			dropdown.addClass('show');
-			if (checkHeight(windowWidth)) { // if large screen, animate
-				// get height of dropdown
-				dropdownHeight = dropdown.outerHeight();
-				// get height of menu
-				menuHeight = $menu.height();
-				// subtract height of dropdown from dropdown 'top'
-				$dropdownList.css('top', "-"+dropdownHeight+"px");
-				// add height of dropdown as padding-bottom to container
-				$menu.css('padding-bottom', dropdownHeight);
-				// animate: add height of dropdown AND height of menu to dropdown
-				$dropdownList.animate({
-					top: menuHeight
-				}, 400, 'easeOutSine');
-			}
-		} else {
-			if (checkHeight(windowWidth)) { // if large screen
-				// get height of dropdown
-				dropdownHeight = dropdown.height();
-				// get height of menu
-				menuHeight = $menu.height();
-				var remove = (menuHeight - dropdownHeight);
-				$dropdownList.animate({
-					top: remove
-				}, 400, 'easeOutSine', function() {
-					dropdown.removeClass('show');
-				});
-			} else {
-				dropdown.removeClass('show');
-			}
-		}
-	});
-})();*/
-
 // Parallax
 
 (function parallaxFunction () {

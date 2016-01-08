@@ -87,24 +87,33 @@
 .hero-text {
 	position: absolute;
 	bottom: 0;
-}
-
-.hero-text:after {
-    content: ' ';
-    background-image: url('/../source/img/cutoff-blue.svg');
-    height: 100px;
-    bottom: 100%;
-    width: 100%;
-    position: absolute;
-    background-size: 100% 70%;
-    display: block;
-    background-repeat: no-repeat;
-    background-position: 0 100%;
+	z-index: 1;
+	&:after {
+	    content: ' ';
+	    background-image: url('/../source/img/cutoff-blue.svg');
+	    height: 100px;
+	    left: 0;
+	    bottom: 100%;
+	    width: 100%;
+	    position: absolute;
+	    background-size: 100% 70%;
+	    display: block;
+	    background-repeat: no-repeat;
+	    background-position: 0 100%;
+	}
 }
 
 .hero__lower-text {
 	padding-bottom: 20px;
 	padding-right: 15px;
+}
+
+.hero-text__additional-image {
+	position: absolute;
+	bottom: 100%;
+	margin-left: -15px;
+	z-index: 1;
+	padding: 0 30px;
 }
 
 // Blurred - tiny pre-load image
@@ -122,6 +131,13 @@
 
 .vertical-cutoff {
 
+}
+
+
+.hero__background-wrapper {
+	z-index: 1;
+	padding: 0;
+	position: relative;
 }
 
 @media (max-width: 767px) {
@@ -160,9 +176,14 @@
 			background-image: url('/../source/img/vertical-cut-blue.svg');
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
-			opacity: 0.5;
 		}
 
+	}
+
+	.hero__background-container--red-cut {
+		&:before {
+			background-image: url('/../source/img/vertical-cut-red.svg');
+		}
 	}
 
 	.horizontal__cutoff {
@@ -188,11 +209,6 @@
 		z-index: 1;
 	}
 
-	.hero__background-wrapper {
-		z-index: 1;
-		padding: 0;
-		position: relative;
-	}
 	
 	.hero-text {
 		margin-bottom: 0;
@@ -200,6 +216,10 @@
 		&:after {
 	    	display: none;
 		}
+	}
+
+	.hero-text__additional-image {
+		padding: 0;
 	}
 
 	.hero__lower-text {

@@ -19,9 +19,15 @@ $pink: #ec7595;
 .white {
 	color: $white;
 }
+
+.fff {
+	color: #fff;
+}
+
 .yellow {
 	color: $yellow;
 }
+
 .grey {
 	color: $grey;
 }
@@ -32,6 +38,10 @@ $pink: #ec7595;
 
 .background-colour-grey {
 	background-color: $grey;
+}
+
+.background-fff {
+	background-color: #fff;
 }
 
 // Images 
@@ -153,6 +163,17 @@ a, a:hover {
 
 .high-z-index {
 	z-index: 70;
+}
+
+.hide-overflow {
+	overflow: hidden;
+}
+
+// used with a container set to overflow hidden
+// https://css-tricks.com/fluid-width-equal-height-columns/ - One True Layout Method
+.baseline-align {
+	padding-bottom: 99px;
+	margin-bottom: -99px;
 }
 
 

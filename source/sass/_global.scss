@@ -108,7 +108,7 @@ body {
 	top: 0;
 	height: 100%;
 	width: 100%;
-	padding: 0; // facilitates background color on hero text
+	padding: 0 15px; // facilitates background color on hero text
 }
 
 .appear {
@@ -177,6 +177,15 @@ a, a:hover {
 	border-color: $pink;
 	color: $pink;
 	background-color: #fff;
+	&:hover,
+	&:focus {
+		background-color: $pink;
+		color: #fff;
+	}
+}
+
+.border-bottom {
+	border-bottom: 1px solid #3D4550;
 }
 
 // used with a container set to overflow hidden

@@ -1,0 +1,56 @@
+.friends__container {
+	padding: 50px 0;
+}
+
+.friends__profile__container {
+	padding: 7.5px;
+}
+
+.friends__profile {
+	padding: 7.5px;
+	position: relative;
+	cursor: pointer;
+	&:hover {
+		.friends__profile__name {
+			display: block;
+		}
+		.friends__profile__image:after {
+			display: block;
+		}
+	}
+}
+
+.friends__profile__name {
+	position: absolute;
+	width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    text-align: center;
+    padding: 0 7.5px;
+    z-index: 2;
+    display: none;
+}
+
+.friends__profile__image:after {
+    width: 100%;
+    height: 100%;
+    background-color: $yellow;
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.friends__profile__plus-icon {
+	width: 25%;
+}
+
+.friends__close {
+	padding: 25px 0;
+}
+
+.friends__feature {
+	display: none;
+}

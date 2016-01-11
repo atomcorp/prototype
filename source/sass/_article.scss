@@ -3,15 +3,11 @@
 }
 
 .article {
-	background-color: #eee;
-}
 
-.article-quote {
-	padding-top: 50px;
 }
 
 .article-text {
-	padding: 30px 0;
+	padding: 25px 0;
 }
 
 .article-image {
@@ -97,8 +93,28 @@
 	}
 
 	.article-text {
-		padding: 50px 8.333%;
-		z-index: 1; 
+		padding: 25px 8.333%;
+		z-index: 2; 
+	}
+
+	.carousel {
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+
+	.article-quote {
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+
+	.article-image {
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+
+	.article-soundcloud {
+		padding-top: 25px;
+		padding-bottom: 25px;
 	}
 
 

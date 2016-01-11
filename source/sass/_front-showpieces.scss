@@ -74,7 +74,6 @@
 	.front__showpiece__cutoff {
 		display: flex;
 		align-items: stretch;
-		border-top: 1px solid #3D4550;
 	}
 
 	.front__showpiece__50-50__wrapper {
@@ -85,8 +84,7 @@
 	}
 
 	.front__showpiece__50-50__border {
-		border-right: 1px solid;
-		padding: 40px 0;
+		padding: 40px 40px 40px 15px;
 	}
 
 	.front__showpiece__cutoff__image {

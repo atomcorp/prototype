@@ -76,6 +76,7 @@
 .text-wrap {
 	position: absolute;
 	height: 100%;
+	padding: 0;
 }
 
 .brit-logo {
@@ -181,7 +182,7 @@
 			top: 0;
 			left: 65%;
 			display: block;
-			z-index: 1;
+			z-index: 2;
 			background-image: url('/../source/img/vertical-cut-blue.svg');
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
@@ -201,6 +202,16 @@
 		}
 	}
 
+	.hero__background-container--flip {
+		&:before {
+			left: 0;
+			background-image: url('/../source/img/vertical-cut-left-blue-gradient.svg');
+			background-size: 100%;
+			z-index: 1;
+		}
+	}
+ 
+
 	.horizontal__cutoff {
 		&:after {
 			content: ' ';
@@ -213,6 +224,9 @@
 			background-image: url('/../source/img/cutoff-blue-small.svg');
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
+		}
+		&.horizontal__cutoff--fff:after {
+			background-image: url("/../source/img/cutoff-fff.svg");
 		}
 	}
 
@@ -233,6 +247,10 @@
 		}
 	}
 
+	.hero-text--relative {
+		position: relative;
+	}
+
 	.hero-text__additional-image {
 		padding: 0;
 	}
@@ -243,6 +261,10 @@
 
 	.letter-grid {
 		padding-top: 130px;
+	}
+
+	.letter-grid--relative {
+		position: relative;
 	}
 
 	.letter-grid__letter {

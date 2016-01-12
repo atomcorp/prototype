@@ -455,6 +455,14 @@ if ($('.front__carousel').length > 0) {
 
 }
 
+if ($('.instagram__carousel').length > 0) {
+	$('.instagram__carousel').slick({
+		slidesToShow: 5,
+		prevArrow:'<div class="previous-slide slide-arrow"><div class="icon-container"><div class="icon"><img src="/source/img/arrow.svg" class="responsive-image"></div></div></div>',
+		nextArrow:'<div class="slide-arrow next-slide"><div class="icon-container"><div class="icon"><img src="/source/img/arrow.svg" class="responsive-image flip"></div></div></div>'
+	});
+}
+
 (function showHideCategory() {
 	var $products = $('.category__group__content');
 	var $buttons = $('.category__show-products');
@@ -576,28 +584,6 @@ if ($('.front__carousel').length > 0) {
 		event.preventDefault();
 		$('.friends__feature').slideUp(800);
 	});
-})();
-
-(function() {
-	// var $links = $('a');
-	// var $imgs = $('img');
-	// var domain = '/prototype';
-	// $.each($links, function(index, val) {
-	// 	var $this = $(this);
-	// 	if ($this.attr('href').charAt(0) === '/') {
-	// 		var string = $this.attr('href').substring(1);
-	// 		$this.attr('href', string);
-	// 	}
-	// });
-	// $.each($imgs, function(index, val) {
-	// 	var $this = $(this);
-	// 	c($this.attr('src'));
-	// 	if ($this.attr('src').charAt(0) === '/') {
-	// 		var string = $this.attr('src').substring(1);
-	// 		$this.attr('src', string);
-	// 	}
-	// });
-
 })();
 
 // console.timeEnd('label');

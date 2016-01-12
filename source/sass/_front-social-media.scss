@@ -37,18 +37,8 @@
 }
 
 .instagram-image {
-	width: 20%;
-	padding-right: 7.5px;
-	margin-left: -5px;
 	cursor: pointer; // todo: remove, post-prototype
-
-	&:nth-of-type(5n+1) {
-		padding-left: 0;
-		margin-left: 0;
-	}
-	&:last-child {
-		padding-left: 0;
-	}
+	padding: 0 5px;
 }
 
 @media (min-width: 768px) {

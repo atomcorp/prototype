@@ -112,6 +112,27 @@
 	}
 }
 
+.instagram__carousel {
+	.slick-arrow {
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		img {
+			width: 100%;
+		}
+		&.previous-slide {
+			right: 100%;
+			margin: 0;
+			width: 2%;
+		}
+		&.next-slide {
+			left: 100%;
+			margin: 0;
+			width: 2%;
+		}
+	}
+}
+
 
 @media (max-width: 767px) {
 

@@ -13,8 +13,6 @@
 
 }
 
-
-
 .hero__cutoff.replaced-svg {
 	bottom: -1px; // fixes where slight gap appears
 }
@@ -89,19 +87,19 @@
 	position: absolute;
 	bottom: 0;
 	z-index: 1;
-	&:after {
-	    content: ' ';
-	    background-image: url('/../source/img/cutoff-blue.svg');
-	    height: 100px;
-	    left: 0;
-	    bottom: 100%;
-	    width: 100%;
-	    position: absolute;
-	    background-size: 100% 70%;
-	    display: block;
-	    background-repeat: no-repeat;
-	    background-position: 0 100%;
-	}
+	// &:after {
+	//     content: ' ';
+	//     background-image: url('/../source/img/cutoff-blue.svg');
+	//     height: 100px;
+	//     left: 0;
+	//     bottom: 100%;
+	//     width: 100%;
+	//     position: absolute;
+	//     background-size: 100% 70%;
+	//     display: block;
+	//     background-repeat: no-repeat;
+	//     background-position: 0 100%;
+	// }
 }
 
 .hero__lower-text {
@@ -150,85 +148,144 @@
 	}
 }
 
+.hero__background-container {
+	// this is the diagonal line
+	// &:before {
+	//     content: ' ';
+	//     height: 100%;
+	//     width: 1px;
+	//     background-color: #ffff00;;
+	//     position: absolute;
+	//     z-index: 0;
+	//     left: 88%;
+	//     top: 0;
+	//     transform: skew(-24deg);
+	//     z-index: 1;
+	// }
+	
+	// cutoff
+	// todo: check if this cutoff is necessary, maybe move to it's own class
+	&:before {
+		content: ' ';
+		width: 35%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 65%;
+		display: block;
+		z-index: 2;
+		background-image: url('/../source/img/vertical-cut-blue.svg');
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+
+	&.hide-cutoff:before {
+		display: none;
+	}
+
+}
+
+.hero__background-container--red-cut {
+	&:before {
+		background-image: url('/../source/img/vertical-cut-red.svg');
+
+	}
+}
+
+.hero__background-container--grey-cut {
+	&:before {
+		background-image: url('/../source/img/vertical-cut-grey.svg');
+
+	}
+}
+
+.hero__background-container--flip {
+	&:before {
+		left: 0;
+		background-image: url('/../source/img/vertical-cut-left-blue-gradient.svg');
+		background-size: 100%;
+		z-index: 1;
+	}
+}
+
+
+.horizontal__cutoff {
+	&:after {
+		content: ' ';
+		width: 100%;
+		height: 70%;
+		position: absolute;
+		bottom: 0;
+		display: block;
+		z-index: 1;
+		background-image: url('/../source/img/cutoff-blue-small.svg');
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+	&.horizontal__cutoff--fff:after {
+		background-image: url("/../source/img/cutoff-fff.svg");
+	}
+
+	&.horizontal__cutoff--white:after {
+		background-image: url("/../source/img/cutoff-light-white.svg");
+	}
+
+	&.horizontal__cutoff__above-content:after {
+		bottom: 100%;
+		left: 0;
+	}
+}
+
 @media (max-width: 767px) {
 	.hero-text {
-		background-color: #3D4550;
+		background-color: #303e47;
+	}
+	.hero__background-container {
+		&:before {
+			z-index: 0;
+		}
+	}
+
+	.hero__background-container--small-screen {
+		&:before {
+			content: ' ';
+			width: 157%;
+			left: 25%;
+			z-index: 0;
+		}
+	}
+	.hero__background-container--small-screen--large-cut {
+		&:before {
+			content: ' ';
+			width: 75%;
+			left: 25%;
+			z-index: 0;
+		}
+	}
+
+	.hero-text__complementary-img__background:before {
+	 	content: ' ';
+	 	position: absolute;
+	 	width: 100%;
+	 	height: 50%;
+	 	background-color: #303E47;
+	 	left: 0;
+	 	top: -50%;
+	}
+
+	.hero-text__complementary-img__background--white {
+		background-color: #dadee1;
+		&:before {
+			background-color: #dadee1;
+		}
+	}
+	
+	.hero-image--small {
+		margin-top: 70px; // pushes img below nav
 	}
 }
 
 @media (min-width: 768px) {
-
-	.hero__background-container {
-		// this is the diagonal line
-		// &:before {
-		//     content: ' ';
-		//     height: 100%;
-		//     width: 1px;
-		//     background-color: #ffff00;;
-		//     position: absolute;
-		//     z-index: 0;
-		//     left: 88%;
-		//     top: 0;
-		//     transform: skew(-24deg);
-		//     z-index: 1;
-		// }
-		
-		// cutoff
-		&:before {
-			content: ' ';
-			width: 35%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 65%;
-			display: block;
-			z-index: 2;
-			background-image: url('/../source/img/vertical-cut-blue.svg');
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
-		}
-
-	}
-
-	.hero__background-container--red-cut {
-		&:before {
-			background-image: url('/../source/img/vertical-cut-red.svg');
-		}
-	}
-
-	.hero__background-container--grey-cut {
-		&:before {
-			background-image: url('/../source/img/vertical-cut-grey.svg');
-		}
-	}
-
-	.hero__background-container--flip {
-		&:before {
-			left: 0;
-			background-image: url('/../source/img/vertical-cut-left-blue-gradient.svg');
-			background-size: 100%;
-			z-index: 1;
-		}
-	}
- 
-
-	.horizontal__cutoff {
-		&:after {
-			content: ' ';
-			width: 100%;
-			height: 70%;
-			position: absolute;
-			bottom: 0;
-			display: block;
-			z-index: 1;
-			background-image: url('/../source/img/cutoff-blue-small.svg');
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
-		}
-		&.horizontal__cutoff--fff:after {
-			background-image: url("/../source/img/cutoff-fff.svg");
-		}
-	}
 
 	.hero__cutoff {
 		height: 60%;
@@ -237,7 +294,6 @@
 		display: block;
 		z-index: 1;
 	}
-
 	
 	.hero-text {
 		margin-bottom: 0;

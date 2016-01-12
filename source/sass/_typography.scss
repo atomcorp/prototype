@@ -1,16 +1,16 @@
 @font-face {
 	font-family: 'brown-regular';
-	src: url("/../source/fonts/Brown-Regular.otf") format("opentype");
+	src: url("../source/fonts/Brown-Regular.otf") format("opentype");
 }
 
 @font-face {
 	font-family: 'brown-thin';
-	src: url("/../source/fonts/Brown-Thin.otf") format("opentype");
+	src: url("../source/fonts/Brown-Thin.otf") format("opentype");
 }
 
 @font-face {
 	font-family: 'tisa-pro-light';
-	src: url("/../source/fonts/TisaPro-Light.otf") format("opentype");
+	src: url("../source/fonts/TisaPro-Light.otf") format("opentype");
 }
 
 $brown-regular: 'brown-regular', 'comic sans';

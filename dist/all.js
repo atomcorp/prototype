@@ -408,7 +408,7 @@ if ($('.carousel').length > 0) {
 		nextArrow: '<div class="slide-arrow next-slide"><div class="icon-container"><div class="icon"><img src="/source/img/carousel-arrow.svg" class="responsive-image flip"></div></div></div>',
 		responsive: [
 			{	
-				breakpoint: 768,
+				breakpoint: 993,
 				settings: {
 					centerMode: false,
 					dots: true,
@@ -558,6 +558,8 @@ if ($('.front__carousel').length > 0) {
 
 })();
 
+// Most of this can be deleted except the .slick('reinit') function
+// which may or may no help 
 (function() {
 	$('.friends__feature').hide();
 	$('.friends__profile').on('click', function(event) {
@@ -574,6 +576,28 @@ if ($('.front__carousel').length > 0) {
 		event.preventDefault();
 		$('.friends__feature').slideUp(800);
 	});
+})();
+
+(function() {
+	// var $links = $('a');
+	// var $imgs = $('img');
+	// var domain = '/prototype';
+	// $.each($links, function(index, val) {
+	// 	var $this = $(this);
+	// 	if ($this.attr('href').charAt(0) === '/') {
+	// 		var string = $this.attr('href').substring(1);
+	// 		$this.attr('href', string);
+	// 	}
+	// });
+	// $.each($imgs, function(index, val) {
+	// 	var $this = $(this);
+	// 	c($this.attr('src'));
+	// 	if ($this.attr('src').charAt(0) === '/') {
+	// 		var string = $this.attr('src').substring(1);
+	// 		$this.attr('src', string);
+	// 	}
+	// });
+
 })();
 
 // console.timeEnd('label');

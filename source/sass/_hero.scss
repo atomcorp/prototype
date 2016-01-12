@@ -8,7 +8,7 @@
 // Background Image/Video
 .hero__background-container {
 	position: relative;
-	max-height: 960px;
+	// max-height: 960px;
 	overflow: hidden;
 
 }
@@ -103,7 +103,6 @@
 }
 
 .hero__lower-text {
-	padding-bottom: 30px;
 	padding-right: 15px;
 }
 
@@ -215,7 +214,7 @@
 		width: 100%;
 		height: 70%;
 		position: absolute;
-		bottom: 0;
+		bottom: -1px;
 		display: block;
 		z-index: 1;
 		background-image: url('/../source/img/cutoff-blue-small.svg');
@@ -270,7 +269,7 @@
 	 	height: 50%;
 	 	background-color: #303E47;
 	 	left: 0;
-	 	top: -50%;
+	 	top: -25%;
 	}
 
 	.hero-text__complementary-img__background--white {
@@ -313,18 +312,20 @@
 
 	.hero__lower-text {
 		padding-right: 0;
+		padding-bottom: 30px;
 	}
 
 	.letter-grid {
-		padding-top: 130px;
+		padding-top: 100px;
 	}
 
 	.letter-grid--relative {
+		padding-top: 130px;
 		position: relative;
 	}
 
 	.letter-grid__letter {
-		font-size: 48px;
+		font-size: 36px;
 	}
 
 	.letter-grid--lounge {
@@ -348,6 +349,9 @@
 }
 
 @media (min-width: 992px) {
+	.letter-grid {
+		padding-top: 130px;
+	}
 	.letter-grid__letter {
 		font-size: 54px;
 		padding-bottom: 10px;

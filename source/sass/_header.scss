@@ -138,7 +138,7 @@
 }
 
 .icon-link {
-	padding: 5px;
+	padding: 10px;
 	border: 1px solid;
 	width: 40px;
 	text-align: center;
@@ -172,6 +172,10 @@
 		&:last-child {
 			border-bottom: 0;
 		}
+		&:hover {
+		    background-color: $yellow;
+		    color: #4E5865;
+		}
 	}
 }
 
@@ -197,12 +201,17 @@
 .dealer__dropdown {
 	cursor: pointer;  // todo: remove
 	padding: 8px 0;
+	&:hover {
+	    background-color: $yellow;
+	    color: #4E5865;
+	}
 }
 
 .dealer__button{
 	img {
 		height: 14px;
 	}
+
 }
 
 
@@ -227,6 +236,10 @@
 			padding: 5px 15px;
 			width: 100%;
 		}
+	}
+
+	.navigation__item {
+		padding: 10px 15px;
 	}
 	
 	.navigation__product-categories {
@@ -262,7 +275,7 @@
 	}
 
 	.icon-links {
-		padding: 10px 15px;
+		padding: 20px 15px;
 	}
 
 	// when mobile view hide all submenus used in larger screen modes
@@ -418,7 +431,7 @@
 		text-align: right;
 		padding-right: 11px;
 		.list-inline {
-			margin-left: 0; // gets rid of some bootstrap thing
+			margin-left: -2px; // gets rid of some bootstrap thing
 		}
 		&:before {
 		    content: ' ';
@@ -435,14 +448,15 @@
 	.more-links__dropdown {
 		border: 1px solid #d3d3d3;
 		border-top: 0;
+		margin-right: 11px;
 		li {
-			padding-top: 4px;
-			padding-bottom: 4px;
+			padding-top: 8px;
+			padding-bottom: 8px;
 		}
 	}
 
 	.search__dropdown {
-		padding: 4px 4px 8px;
+		padding: 8px 8px 12px;
 		div {
 			padding-bottom: 4px;
 		}
@@ -450,7 +464,7 @@
 
 	.dealer__dropdown {
 		cursor: pointer;  // todo: remove
-		padding: 4px 0;
+		padding: 8px 0;
 	}
 
 	.header--front {
@@ -475,10 +489,11 @@
 
 	.icon-link {
 		width: 25%;
+		padding: 10px;
 		&.selected {
 			border-color: #D3D3D3;
 			background-color:  #4E5865;
-			border-bottom: 1px solid #d3d3d3;
+			border-bottom: 1px solid #4E5865;
 			color: #D3D3D3;
 		}
 	}	
@@ -486,8 +501,8 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 128px;
-		margin-right: 11px;
+		// width: 128px;
+		// margin-right: 11px;
 
 	}
 	.hamburger {
@@ -502,7 +517,7 @@
 @media (min-width: 992px) {
 
 	.icon-link {
-		width: 40px;
+		// width: 40px;
 		&.selected {
 			background-color: #4E5865;
 			border-bottom: 1px solid #4E5865;
@@ -511,6 +526,12 @@
 
 	.more-links {
 		top: -10px;
+		right: 0;
+		width: 20%;
+	}
+
+	.icon-link {
+		padding: 5px;
 	}
 
 	.header__mobile-collapse {
@@ -528,9 +549,20 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 158px;
+		li {
+			padding-top: 4px;
+			padding-bottom: 4px;
+		}
 	}
-
+	.search__dropdown {
+		padding: 4px 4px 8px;
+		div {
+			padding-bottom: 4px;
+		}
+	}
+	.dealer__dropdown {
+		padding: 4px 0;
+	}
 }
 
 @media (min-width: 1200px) {
@@ -540,10 +572,13 @@
 		li {
 		}
 	}
+	.more-lins {
+		width: 18%;
+	}
 	.more-links__dropdowns {
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 158px;
+		// width: 158px;
 	}
 }

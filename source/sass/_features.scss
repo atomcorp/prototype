@@ -87,7 +87,7 @@
 	}
 
 	.features {
-	    padding: 60px 0 0 0;
+	    padding: 20px 0 0 0;
 	}
 
 	.headline__front-page--large {
@@ -113,4 +113,12 @@
 		right: 0;
 		margin: 15px;
 	}
+}
+
+@media (min-width: 992px) {
+
+	.features {
+	    padding: 60px 0 0 0;
+	}
+
 }

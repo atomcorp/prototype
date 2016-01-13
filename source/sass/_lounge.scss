@@ -9,6 +9,11 @@
 	}
 	.form-control {
 		width: 100%;
+		&:focus {
+			border-color: $pink;
+			outline: 0;
+			box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(236, 117, 149); // $pink rgb
+		}
 	}
 	input {
 		width: 100%;

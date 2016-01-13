@@ -13,11 +13,11 @@
 }
 
 .nav-up {
-    top: -70px;
+    top: -75px;
 }
 
 .logo {
-	padding: 15px;
+	padding: 20px 15px 15px;
 	border-bottom: 1px solid $white;
 	background-color: $header-front-colour;
 }
@@ -391,7 +391,7 @@
 	.header__mobile-collapse {
 		margin-left: -5px;
 		display: inline-block;
-		padding: 0px 0 18px 0;
+		padding: 0px 0 13px 0;
 	}
 
 	.logo {
@@ -401,7 +401,7 @@
 	.navigation__item {
 		border-bottom: none;
 		cursor: pointer; // todo: remove
-		padding: 5px 7.5px 0;
+		padding: 5px 7.5px 5px;
 		&.selected {
 			background-color: transparent;
 			color: #faeb14;
@@ -514,7 +514,7 @@
 	}
 
 	.header__mobile-collapse {
-		padding: 0px 0 20px 0;
+		padding: 0px 0 13px 0;
 	}
 
 	.navigation__product-categories {

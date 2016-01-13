@@ -435,17 +435,19 @@ if ($('.carousel').length > 0) {
 
 // Front Page
 //
-if ($('.front__carousel').length > 0) {
-	$('.front__carousel').slick({
+if ($('.standard__carousel').length > 0) {
+	$('.standard__carousel').slick({
 		prevArrow: '',
 		nextArrow: '',
 		dots: true,
 		draggable: false,
 		responsive: [
 			{	
-				breakpoint: 768,
+				breakpoint: 993,
 				settings: {
-					draggable: true
+					draggable: true,
+					dots: true,
+					arrows: false
 				}
 			}
 		]

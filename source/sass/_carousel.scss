@@ -81,37 +81,6 @@
     color: black;
 }
 
-.front__carousel {
-	.slick-dots {
-		line-height: 0;
-		padding: 0;
-		display: block;
-		margin-top: -30px;
-		z-index: 1;
-		position: absolute;
-		width: 100%;
-		li {
-			width: 7%;
-			padding-right: 1%;
-		}
-		li button {
-			height: 5px;
-			padding: 0;
-			width: 100%;
-			background: #fff;
-			&:before {
-				content: ' ';
-				display: none;
-			}
-		}	
-		.slick-active {
-			button {
-				background: $yellow;
-			}
-		}
-	}
-}
-
 .instagram__carousel {
 	.slick-arrow {
 		display: inline-block;
@@ -124,11 +93,15 @@
 			right: 100%;
 			margin: 0;
 			width: 2%;
+			margin-right: -5px;
+			border-right: 5px solid #fff;
 		}
 		&.next-slide {
 			left: 100%;
 			margin: 0;
 			width: 2%;
+			margin-left: -5px;
+			border-left: 5px solid #fff;
 		}
 	}
 }
@@ -151,4 +124,56 @@
 		margin-left: 0;
 	}
 
+
+	.standard__carousel {
+		
+	}
+}
+
+@media (min-width: 992px) {
+
+	.standard__carousel {
+		.slick-dots {
+			line-height: 0;
+			padding: 0;
+			display: block;
+			margin-top: -50px;
+			z-index: 1;
+			position: absolute;
+			width: 100%;
+			li {
+				width: 125px;
+				padding-right: 10px;
+			}
+			li button {
+				height: 5px;
+				padding: 0;
+				width: 100%;
+				padding: 20px 0;
+				position: relative;
+				&:before {
+					content: ' ';
+					display: none;
+				}
+				&:after {
+				    content: ' ';
+				    position: absolute;
+				    width: 100%;
+				    height: 100%;
+				    background-color: #fff;
+				    top: 0;
+				    left: 0;
+				    height: 5px;
+				    top: 17.5px;
+				}
+			}	
+			.slick-active {
+				button {
+					&:after {
+						background-color: $yellow;	
+					}
+				}
+			}
+		}
+	}
 }

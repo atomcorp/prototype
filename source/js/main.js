@@ -1,3 +1,5 @@
+/* Main.js */
+
 jQuery(document).ready(function($) {
 
 // console.time('label');
@@ -9,6 +11,8 @@ function c(string) {
 	var x = console.log(string);
 	return x;
 }
+
+c('test');
 
 // Global check WIDTH !!!!!!!!!!!!!!!!!!!!!!!! Not Height
 function checkHeight(windowWidth) { // this should be Width not height :/

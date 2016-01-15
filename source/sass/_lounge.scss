@@ -1,22 +1,28 @@
 .newsletter-signup {
 	margin-top: 20px;
 	margin-bottom: 40px;
+	font-family: $brown-regular;
 	:placeholder-shown {
 	  color: $black;
+	  text-transform: uppercase;
+
 	}
 	.form-group {
 		width: 100%;
 	}
 	.form-control {
 		width: 100%;
+		border-radius: 0;
 		&:focus {
-			border-color: $pink;
+			border-color: #CCCCCC;
 			outline: 0;
-			box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(236, 117, 149); // $pink rgb
+			box-shadow: none;
 		}
 	}
 	input {
 		width: 100%;
+		border-radius: 0;
+		text-transform: uppercase;
 	}
 }
 

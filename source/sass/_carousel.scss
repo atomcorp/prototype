@@ -1,6 +1,6 @@
 .image-slide {
 	img {
-		padding: 0 10%;
+		padding: 0 5%;
 	}
 }
 
@@ -32,19 +32,19 @@
 }
 
 .previous-slide {
-	margin-left: 20%;
+	margin-left: 10%;
 
 }
 
 .next-slide {
-	margin-left: 70%;
+	margin-left: 80%;
 }
 
 .slick-dots {
 	text-align: center;
 	li {
 	    display: inline-block;
-	    padding-right: 5%;
+	    padding-right: 1%;
 	}
 }
 
@@ -53,21 +53,20 @@
     line-height: 0;
     display: block;
     width: 40px;
-    height: 60px;
-    padding: 5px;
+    height: 30px;
+    /* padding: 5px; */
     cursor: pointer;
     color: transparent;
     border: 0;
     outline: none;
     background: transparent;
     &:before {
-        font-family: slick;
-        font-size: 54px;
-        line-height: 60px;
+       font-family: slick;
+        font-size: 40px;
+        line-height: 30px;
         top: 0px;
         left: 0px;
-        width: 40px;
-        height: 60px;
+        height: 10px;
         content: "•";
         text-align: center;
         opacity: 0.25;
@@ -142,7 +141,7 @@
 			position: absolute;
 			width: 100%;
 			li {
-				width: 125px;
+				width: 80px;
 				padding-right: 10px;
 			}
 			li button {
@@ -163,7 +162,7 @@
 				    background-color: #fff;
 				    top: 0;
 				    left: 0;
-				    height: 5px;
+				    height: 3px;
 				    top: 17.5px;
 				}
 			}	

@@ -13,17 +13,17 @@
 	src: url("../source/fonts/TisaPro-Light.otf") format("opentype");
 }
 
-$brown-regular: 'brown-regular', 'comic sans';
+$brown-regular: 'brown-regular', 'Helvetica Neue', Helvetica, Arial;
 
-$brown-thin: 'brown-thin', 'comic sans';
+$brown-thin: 'brown-thin', 'Helvetica Neue', Helvetica, Arial;
 
-$tisa-pro-light: 'tisa-pro-light', 'comic sans';
+$tisa-pro-light: 'tisa-pro-light', georgia, serif;
 
 body {
 	color: #3d4550;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 { 
 	font-kerning: normal;
 	text-rendering: geometricPrecision;
 }
@@ -186,6 +186,10 @@ p {
 	.pink {
 		cursor: pointer;
 	}
+}
+
+.lounge__filter {
+	font-family: $brown-regular;
 }
 
 @media (min-width: 768px) {

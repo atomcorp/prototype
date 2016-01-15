@@ -143,7 +143,7 @@
 	padding: 10px 0; 
 	span {
 		border: 1px solid;
-		padding: 5px 15px;
+		padding: 5px 15px 6px;
 	}
 }
 
@@ -165,17 +165,17 @@
 	// cutoff
 	// todo: check if this cutoff is necessary, maybe move to it's own class
 	&:before {
-		content: ' ';
-		width: 35%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 65%;
-		display: block;
-		z-index: 2;
-		background-image: url('/../source/img/vertical-cut-blue.svg');
-		background-repeat: no-repeat;
-		background-size: 100% 100%;
+		// content: ' ';
+		// width: 35%;
+		// height: 100%;
+		// position: absolute;
+		// top: 0;
+		// left: 65%;
+		// display: block;
+		// z-index: 2;
+		// background-image: url('/../source/img/vertical-cut-blue.svg');
+		// background-repeat: no-repeat;
+		// background-size: 100% 100%;
 	}
 
 	&.hide-cutoff:before {
@@ -235,6 +235,34 @@
 	}
 }
 
+.blend-cutoff {
+	content: ' ';
+	width: 157%;
+	left: 25%;
+	z-index: 0;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	display: block;
+	// Background Colours
+	&.fill__cherry {
+		fill: rgba(250, 120, 126, 0.77);
+		mix-blend-mode: multiply;
+	}
+	&.fill__dark-grey {
+		fill: rgba(122, 130, 141, 0.77);
+		mix-blend-mode: multiply;
+	}
+	&.fill__light-grey {
+		fill: rgba(119, 134, 146, 0.24);
+		mix-blend-mode: multiply;
+	}
+	&.fill__white {
+		fill: rgba(209, 211, 211, 0.38);
+		mix-blend-mode: screen;
+	}
+}
+
 @media (max-width: 767px) {
 	.hero-text {
 		background-color: #303e47;
@@ -286,6 +314,12 @@
 }
 
 @media (min-width: 768px) {
+
+	.blend-cutoff {
+		width: 35%;
+		left: 65%;
+		z-index: 2;
+	}
 
 	.hero__cutoff {
 		height: 60%;

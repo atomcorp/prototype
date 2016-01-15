@@ -32,12 +32,14 @@
 
 .category__group__product__heading {
 	margin-bottom: 0;
+	padding-bottom: 8px;
 	border-bottom: 1px solid;
 }
 
 .strapline {
-	padding-top: 5px;
+	padding-top: 8px;
 	padding-bottom: 20px;
+	font-family: $brown-regular;
 }
 
 .product-group__more {
@@ -65,6 +67,12 @@
 	text-align: center;
 }
 
+.category__hide-products {
+	padding: 10px;
+	border: 1px solid;
+	text-align: center;
+}
+
 @media (min-width: 768px) {
 	
 	.hero-text--category {
@@ -79,6 +87,13 @@
 	.category__hero__cutoff {
 		path {
 			fill: #eee;
+		}
+	}
+
+	.category__group {
+		border-bottom: 1px solid;
+		&:last-child {
+			border-bottom: 0;
 		}
 	}
 

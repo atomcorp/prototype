@@ -12,8 +12,6 @@ function c(string) {
 	return x;
 }
 
-c('test');
-
 // Global check WIDTH !!!!!!!!!!!!!!!!!!!!!!!! Not Height
 function checkHeight(windowWidth) { // this should be Width not height :/
 	if (windowWidth >= bootstrapWidth) {
@@ -405,9 +403,10 @@ $('img.svg').each(function(){
 if ($('.carousel').length > 0) {
 	$('.carousel').slick({
 		centerMode: true,
-		centerPadding: '25%',
+		centerPadding: '15%',
 		slidesToShow: 1,
 		dots: false, 
+		// todo: easing
 		prevArrow: '<div class="previous-slide slide-arrow"><div class="icon-container"><div class="icon"><img src="/source/img/carousel-arrow.svg" class="responsive-image"></div></div></div>',
 		nextArrow: '<div class="slide-arrow next-slide"><div class="icon-container"><div class="icon"><img src="/source/img/carousel-arrow.svg" class="responsive-image flip"></div></div></div>',
 		responsive: [
@@ -471,12 +470,19 @@ if ($('.instagram__carousel').length > 0) {
 
 (function showHideCategory() {
 	var $products = $('.category__group__content');
-	var $buttons = $('.category__show-products');
+	var $showButtons = $('.category__show-products');
+	var $hideButtons = $('.category__hide-products');
 	$products.addClass('hidden-xs');
-	$buttons.on('click', function(event) {
+	$showButtons.on('click', function(event) {
 		event.preventDefault();
-		$(this).next().removeClass('hidden-xs');
-		$(this).remove();
+		$(this).next().removeClass('hidden-xs').next().removeClass('disappear');
+		$(this).addClass('disappear');
+	});
+
+	$hideButtons.on('click', function(event) {
+		event.preventDefault();
+		$(this).prev().addClass('hidden-xs').prev().removeClass('disappear');
+		$(this).addClass('disappear');
 	});
 
 })();

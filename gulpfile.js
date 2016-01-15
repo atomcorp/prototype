@@ -22,7 +22,7 @@ var paths = {
 };
 
 // Production style
-var inProduction = true;
+var inProduction = false;
 
 
 gulp.task('sass', function () {
@@ -51,17 +51,16 @@ gulp.task('sass', function () {
 
 gulp.task('js',function() {
     if (!inProduction) {
-        return gulp.src(paths.jsPlugins.concat(paths.jsSrc))
-            .pipe(jshint())
-            .pipe(jshint.reporter(stylish))
+        return gulp.src([paths.jsSrc, paths.jsPlugins])
+            // .pipe(jshint())
+            // .pipe(jshint.reporter(stylish))
             .pipe(sourcemaps.init())
                 .pipe(concat('all.js'))
             .pipe(sourcemaps.write())
             // .pipe(gzip())
             .pipe(gulp.dest(paths.dist));
     } else {
-        // Feel like this shouldn't work???
-        return gulp.src(paths.jsPlugins.concat(paths.jsSrc))
+        return gulp.src([paths.jsSrc, paths.jsPlugins])
             .pipe(concat('all.js'))
             .pipe(uglify())
             // .pipe(gzip())

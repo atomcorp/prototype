@@ -127,9 +127,13 @@
 
 @media (min-width: 992px) {
 	.front__showpiece__inline__text__wrap {
-		width: 60%;
+		width: 50%;
 		margin-left: 20%;
 		padding: 20px;
 	}
-
+	.front__showpiece__cutoff__text__wrap {
+		width: 50%;
+		margin-left: 20%;
+		padding: 20px;
+	}
 }

@@ -40,6 +40,15 @@ $pink: #ec7595;
 	color: $pink;
 }
 
+// SVG Fills
+
+.cherry-fill {
+	path,
+	clippath {
+		fill: rgba(250, 120, 126, 0.77);
+	}
+}
+
 .background-colour-grey {
 	background-color: $grey;
 }
